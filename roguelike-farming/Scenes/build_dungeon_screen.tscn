@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh7xfp5urcint"]
+
+[ext_resource type="PackedScene" uid="uid://bpu63gkkg4cjy" path="res://Scenes/mapTile.tscn" id="1_osag5"]
+[ext_resource type="Resource" uid="uid://r4bvmlw0cgtd" path="res://Resources/SouthNorthTile.tres" id="2_veoa3"]
+
+[node name="BuildDungeonScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="FrameTileSlot" parent="." instance=ExtResource("1_osag5")]
+position = Vector2(273, 273)
+tileData = ExtResource("2_veoa3")
+
+[node name="TileFrame2" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FrameTileSlot" parent="TileFrame2" instance=ExtResource("1_osag5")]
+position = Vector2(282, 108)
+mapSlot = true
+
+[node name="FrameTileSlot2" parent="TileFrame2" instance=ExtResource("1_osag5")]
+position = Vector2(314, 108)
+mapSlot = true
+
+[node name="FrameTileSlot3" parent="TileFrame2" instance=ExtResource("1_osag5")]
+position = Vector2(346, 108)
+mapSlot = true
+
+[node name="FrameTileSlot4" parent="TileFrame2" instance=ExtResource("1_osag5")]
+position = Vector2(282, 140)
+mapSlot = true
+
+[node name="FrameTileSlot5" parent="TileFrame2" instance=ExtResource("1_osag5")]
+position = Vector2(314, 140)
+mapSlot = true
+
+[node name="FrameTileSlot6" parent="TileFrame2" instance=ExtResource("1_osag5")]
+position = Vector2(346, 140)
+mapSlot = true
+
+[node name="FrameTileSlot7" parent="TileFrame2" instance=ExtResource("1_osag5")]
+position = Vector2(282, 172)
+mapSlot = true
+
+[node name="FrameTileSlot8" parent="TileFrame2" instance=ExtResource("1_osag5")]
+position = Vector2(314, 172)
+mapSlot = true
+
+[node name="FrameTileSlot9" parent="TileFrame2" instance=ExtResource("1_osag5")]
+position = Vector2(346, 172)
+mapSlot = true
