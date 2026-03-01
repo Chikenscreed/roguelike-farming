@@ -3,6 +3,8 @@ extends Resource
 
 ##represents a Tile. Is called "Tile_Data" because "TileData" is a class of Godot
 
+@export var name: String
+
 ##a boolean for each door/entrance
 @export_category("Entrances")
 @export var north : bool
