@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bh7xfp5urcint"]
 
-[ext_resource type="Script" uid="uid://c07xhhm6qn82g" path="res://Scenes/build_dungeon_screen.gd" id="1_lr1r3"]
+[ext_resource type="Script" uid="uid://c07xhhm6qn82g" path="res://Scripts/build_dungeon_screen.gd" id="1_lr1r3"]
 [ext_resource type="PackedScene" uid="uid://bpu63gkkg4cjy" path="res://Scenes/mapTile.tscn" id="1_osag5"]
-[ext_resource type="Resource" uid="uid://r4bvmlw0cgtd" path="res://Resources/SouthNorthTile.tres" id="2_veoa3"]
+[ext_resource type="Resource" uid="uid://cqvbonigw8ffq" path="res://Resources/westeast.tres" id="3_lr1r3"]
 
 [node name="BuildDungeonScreen" type="Control"]
 layout_mode = 3
@@ -16,8 +16,8 @@ script = ExtResource("1_lr1r3")
 
 [node name="FrameTileSlot" parent="." instance=ExtResource("1_osag5")]
 z_index = 1
-position = Vector2(273, 273)
-tileData = ExtResource("2_veoa3")
+position = Vector2(104, 304)
+tileData = ExtResource("3_lr1r3")
 
 [node name="TileFrame2" type="Control" parent="."]
 anchors_preset = 0

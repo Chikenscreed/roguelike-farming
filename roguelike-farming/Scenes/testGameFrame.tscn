@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn8rfn8t86hs8"]
+
+[ext_resource type="PackedScene" uid="uid://crt7mb42wrrrx" path="res://Scenes/dungeon_room.tscn" id="1_2m2mj"]
+[ext_resource type="PackedScene" uid="uid://i02wi8njxgrb" path="res://Scenes/test_player.tscn" id="2_ulha8"]
+
+[node name="GameFrame" type="Node2D"]
+
+[node name="DungeonRoom" parent="." instance=ExtResource("1_2m2mj")]
+
+[node name="TestPlayer" parent="." instance=ExtResource("2_ulha8")]
+position = Vector2(118, 93)

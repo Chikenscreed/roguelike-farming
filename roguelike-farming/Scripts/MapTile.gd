@@ -33,9 +33,6 @@ func _physics_process(delta: float) -> void:
 	pass
 		
 
-
-
-
 func _on_mouse_entered() -> void:
 	print("Mouse is on it")
 	if (!mapSlot):

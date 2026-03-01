@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpu63gkkg4cjy"]
 
-[ext_resource type="Script" uid="uid://beofjbbcrrf3f" path="res://Scenes/MapTile.gd" id="1_0e4tk"]
+[ext_resource type="Script" uid="uid://beofjbbcrrf3f" path="res://Scripts/MapTile.gd" id="1_0e4tk"]
 [ext_resource type="Texture2D" uid="uid://c4mux65qg06i2" path="res://Sprites/Tiles/TileSlot.png" id="1_am855"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iac7i"]
