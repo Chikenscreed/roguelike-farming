@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Tile_Data" load_steps=2 format=3 uid="uid://dfwvxiauhcg3a"]
+[gd_resource type="Resource" script_class="Tile_Data" load_steps=3 format=3 uid="uid://dfwvxiauhcg3a"]
 
 [ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/Tile.gd" id="1_8g8ny"]
+[ext_resource type="Texture2D" uid="uid://dx4l7ftqslknu" path="res://Sprites/Tiles/TilePreviews/Tile_nswe.png" id="2_uf374"]
 
 [resource]
 script = ExtResource("1_8g8ny")
@@ -8,4 +9,5 @@ north = true
 east = true
 south = true
 west = true
+sprite = ExtResource("2_uf374")
 metadata/_custom_type_script = "uid://fj0p44iwfaup"

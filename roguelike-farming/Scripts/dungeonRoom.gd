@@ -62,6 +62,7 @@ func setUp() -> void:
 
 func addEntrance(direction: Enums.DIRECTION) -> void: 
 	var entrance: Node2D = entranceScene.instantiate()
+	entrance.setDirection(direction)
 	entrances.add_child(entrance)
 	match direction:
 		Enums.DIRECTION.NORTH:
@@ -89,3 +90,12 @@ func disableEntrances() -> void:
 func enableEntrances() -> void:
 	for entrance in entrances.get_children():
 		entrance.monitoring = true
+
+
+func makePlayable() -> void:
+	enableEntrances()
+	self.visible = true
+
+func makeUnplayable() -> void:
+	disableEntrances()
+	self.visible = false

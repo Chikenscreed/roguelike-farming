@@ -11,5 +11,6 @@
 [node name="DungeonManagerNode" parent="." instance=ExtResource("2_wrm1d")]
 
 [node name="TestPlayer" parent="." instance=ExtResource("3_wrm1d")]
+visible = false
 
 [connection signal="exportAllRooms" from="BuildDungeonScreen" to="DungeonManagerNode" method="_on_build_dungeon_screen_export_all_rooms"]
