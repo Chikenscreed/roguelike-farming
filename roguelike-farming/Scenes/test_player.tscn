@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://i02wi8njxgrb"]
+[gd_scene load_steps=6 format=3 uid="uid://i02wi8njxgrb"]
 
 [ext_resource type="Script" uid="uid://clkie2iwhrego" path="res://test_player.gd" id="1_qkid2"]
 [ext_resource type="Texture2D" uid="uid://wf4hr2kf6khh" path="res://Sprites/player.png" id="2_4mu7t"]
+[ext_resource type="PackedScene" uid="uid://cuv25c8obkyjr" path="res://Scenes/components/hitbox.tscn" id="3_qv8u8"]
+[ext_resource type="PackedScene" uid="uid://dlx21517qvpay" path="res://Scenes/components/health.tscn" id="4_3a3hx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qv8u8"]
 radius = 15.0
@@ -14,3 +16,15 @@ texture = ExtResource("2_4mu7t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qv8u8")
+
+[node name="Hitbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_qv8u8")]
+health_component = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_qv8u8")
+
+[node name="Health" parent="." instance=ExtResource("4_3a3hx")]
+MAX_HEALTH = 12.0
+
+[connection signal="damage_taken" from="Health" to="." method="apply_knockback"]
+[connection signal="isDead" from="Health" to="." method="_is_dead"]
