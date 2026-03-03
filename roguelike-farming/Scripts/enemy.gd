@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void: # Nur als ersatz für einen Angriff
 	var attack = Attack.new()
 	attack.attack_damage = 3
-	health.damage(attack)
+	health.damage(attack, Vector2.ZERO)
 
 
 
