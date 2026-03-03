@@ -3,6 +3,8 @@ extends Control
 
 @onready var tile_frame_2: Control = $TileFrame2
 
+signal exportAllRooms(dict: Dictionary)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,11 +28,12 @@ func submitDungeon() -> void:
 	var y: int =0
 	for room in tile_frame_2.get_children():
 		room = room as MapTile
-		x = counter /3
+		x = counter / 3
 		y = counter % 3
 		allRooms.set(Vector2(x,y), room.tileData)
 		counter += 1
-	print("Transformed all")
+	exportAllRooms.emit(allRooms)
+	self.visible = false
 	pass
 
 
