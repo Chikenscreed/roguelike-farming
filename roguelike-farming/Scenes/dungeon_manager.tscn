@@ -4,3 +4,5 @@
 
 [node name="DungeonManager" type="Node2D"]
 script = ExtResource("1_o75fk")
+
+[node name="Dungeonrooms" type="Node2D" parent="."]

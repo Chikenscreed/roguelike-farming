@@ -22,15 +22,20 @@ const patternIndexWest: int = 3
 
 const tileSize = 16
 
+var tileData: Tile_Data = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	calcDoorCords()
+	#calcDoorCords()
 	setUp()
 	pass # Replace with function body.
 
+func setTileData(data) -> void:
+	tileData = data
 
-func calcDoorCords() -> void:
-	print(tile_map_layer.get_used_rect().size)
+#
+#func calcDoorCords() -> void:
+	#print(tile_map_layer.get_used_rect().size)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -52,8 +57,7 @@ func addDoors(n: bool, e: bool, s: bool, w:bool) -> void:
 		addEntrance(Enums.DIRECTION.WEST)
 
 func setUp() -> void:
-	var data = preload("res://Resources/allDirections.tres")
-	addDoors(data.north, data.east, data.south, data.west)
+	addDoors(tileData.north, tileData.east, tileData.south, tileData.west)
 
 func addEntrance(direction: Enums.DIRECTION) -> void: 
 	var entrance: Node2D = entranceScene.instantiate()
