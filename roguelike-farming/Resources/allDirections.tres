@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Tile_Data" load_steps=2 format=3 uid="uid://dfwvxiauhcg3a"]
+
+[ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/Tile.gd" id="1_8g8ny"]
+
+[resource]
+script = ExtResource("1_8g8ny")
+north = true
+east = true
+south = true
+west = true
+metadata/_custom_type_script = "uid://fj0p44iwfaup"
