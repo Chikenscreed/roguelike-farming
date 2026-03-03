@@ -60,3 +60,13 @@ mapSlot = true
 [node name="FrameTileSlot9" parent="TileFrame2" instance=ExtResource("1_osag5")]
 position = Vector2(346, 172)
 mapSlot = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 31.0
+offset_right = 630.0
+offset_bottom = 98.0
+text = "submit Dungeon"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
