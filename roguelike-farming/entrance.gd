@@ -2,12 +2,17 @@ class_name Entrance
 extends Area2D
 
 ##to be placed in dungeon to be able to switch to next room
+
+
+signal movePlayerToNextRoom(direction: Enums.DIRECTION)
+
 var direction: Enums.DIRECTION
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(collision_shape_2d.disabled)
+	GlobalEventBus.subscribe(self)
+#	self.area_entered(area: Area2D).connect(self._on_area_entered)
 	pass # Replace with function body.
 
 
@@ -25,4 +30,6 @@ func setDirection(dir: Enums.DIRECTION) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	print("I guess player Entered!")
+	print("Something got detected")
+	if (!area is Entrance and !area is MapTile):
+		movePlayerToNextRoom.emit(direction)

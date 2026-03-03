@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5l72"]
 
 [node name="Entrance" type="Area2D"]
+monitoring = false
 script = ExtResource("1_t5l72")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

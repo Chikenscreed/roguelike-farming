@@ -13,6 +13,7 @@ var entranceDimNorthSouth = Vector2(24,8)
 var entranceDimEastWest = Vector2(8,24)
 
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer2
+@onready var entrances: Node2D = $Entrances
 
 # doors are patterns in the tilemap. Currently it is not possible to name them, so we have to follow this schema
 const patternIndexNorth: int = 0
@@ -61,7 +62,7 @@ func setUp() -> void:
 
 func addEntrance(direction: Enums.DIRECTION) -> void: 
 	var entrance: Node2D = entranceScene.instantiate()
-	add_child(entrance)
+	entrances.add_child(entrance)
 	match direction:
 		Enums.DIRECTION.NORTH:
 			entrance.setDimensions(entranceDimNorthSouth)
@@ -80,3 +81,11 @@ func transformDoorCoordsToEntranceCords(coords: Vector2) -> Vector2:
 	var x = coords.x * tileSize
 	var y = coords.y * tileSize 
 	return Vector2(x,y)
+
+func disableEntrances() -> void:
+	for entrance in entrances.get_children():
+		entrance.monitoring = false
+
+func enableEntrances() -> void:
+	for entrance in entrances.get_children():
+		entrance.monitoring = true
