@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dernxttfh4ltj"]
+
+[ext_resource type="Texture2D" uid="uid://cljh4iyi4per8" path="res://icon.svg" id="1_fjl5i"]
+
+[node name="Test Item 1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+skew = -0.6719518
+texture = ExtResource("1_fjl5i")

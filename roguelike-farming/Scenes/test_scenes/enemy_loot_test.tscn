@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1dbou43ajimv"]
+
+[ext_resource type="PackedScene" uid="uid://s8jyc8t806gc" path="res://Scenes/enemy.tscn" id="1_fyyps"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Enemy" parent="." instance=ExtResource("1_fyyps")]
+position = Vector2(83, 78)
+
+[node name="Enemy2" parent="." instance=ExtResource("1_fyyps")]
+position = Vector2(258, 59)
+
+[node name="Enemy3" parent="." instance=ExtResource("1_fyyps")]
+position = Vector2(433, 44)
+
+[node name="Enemy4" parent="." instance=ExtResource("1_fyyps")]
+position = Vector2(581, 246)
+
+[node name="Enemy5" parent="." instance=ExtResource("1_fyyps")]
+position = Vector2(397, 260)
+
+[node name="Enemy6" parent="." instance=ExtResource("1_fyyps")]
+position = Vector2(223, 262)
+
+[node name="Enemy7" parent="." instance=ExtResource("1_fyyps")]
+position = Vector2(75, 268)
