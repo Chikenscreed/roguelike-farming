@@ -85,17 +85,19 @@ func transformDoorCoordsToEntranceCords(coords: Vector2) -> Vector2:
 
 func disableEntrances() -> void:
 	for entrance in entrances.get_children():
-		entrance.monitoring = false
+		entrance.set_deferred("monitoring", false)
 
 func enableEntrances() -> void:
 	for entrance in entrances.get_children():
-		entrance.monitoring = true
+		entrance.set_deferred("monitoring", true)
 
 
 func makePlayable() -> void:
 	enableEntrances()
+	tile_map_layer.enabled = true
 	self.visible = true
 
 func makeUnplayable() -> void:
 	disableEntrances()
+	tile_map_layer.enabled = false
 	self.visible = false
