@@ -1,3 +1,4 @@
+class_name Enemy
 extends Node2D
 
 @onready var loot_drop : LootDropComponent = $"Loot Drops"
@@ -23,3 +24,14 @@ func _on_button_pressed() -> void: # Nur als ersatz für einen Angriff
 func _on_health_is_dead() -> void:
 	loot_drop.drop_item()
 	queue_free()
+
+
+func disableAllAreas() -> void:
+	for child in get_children():
+		if child is Area2D:
+			child.monitoring = false
+
+func enableAllAreas() -> void: 
+	for child in get_children():
+		if child is Area2D:
+			child.monitoring = true

@@ -64,6 +64,8 @@ func addDoors(n: bool, e: bool, s: bool, w:bool) -> void:
 func setUp() -> void:
 	addDoors(tileData.north, tileData.east, tileData.south, tileData.west)
 	addExtras()
+	#just a precaution so no hitbox that should not be hit now is disabled
+	makeUnplayable()
 
 func addEntrance(direction: Enums.DIRECTION) -> void: 
 	var entrance: Node2D = entranceScene.instantiate()
@@ -99,15 +101,27 @@ func enableEntrances() -> void:
 
 func makePlayable() -> void:
 	enableEntrances()
+	enableAllAreas()
 	tile_map_layer.enabled = true
 	self.visible = true
 
 func makeUnplayable() -> void:
 	disableEntrances()
+	disableAllAreas()
 	tile_map_layer.enabled = false
 	self.visible = false
 	
+func disableAllAreas() -> void:
+	var allChildren = get_children(true)
+	for child in get_children(true):
+		if child is Enemy:
+			child.disableAllAreas()
 	
+func enableAllAreas() -> void:
+	for child in get_children(true):
+		if child is Enemy:
+			child.enableAllAreas()
+
 func addExtras() -> void:
 	for extra in tileData.extras:
 		var newPart = extra.scenetoBePlaced.instantiate()

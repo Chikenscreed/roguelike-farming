@@ -7,6 +7,7 @@
 size = Vector2(32, 32)
 
 [node name="Exit" type="Area2D"]
+monitoring = false
 script = ExtResource("1_2fdpf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -16,7 +16,7 @@ var templateRoom = preload("res://Scenes/dungeon_room.tscn")
 var allDungeonScenes: Dictionary = {}
 
 var posOfPlayer: Vector2 = Vector2(0,0)
-
+var playerTransformation: Transform2D
 
 const playerPosNorth: Vector2 = Vector2(144, 48)
 const playerPosSouth: Vector2 = Vector2(144, 240)
@@ -28,6 +28,8 @@ const playerPosEast: Vector2 = Vector2(240, 144)
 # so here would be generated a seperate dictionary with the vector2 and the instanciated Scene
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	playerTransformation = test_player.transform
+	playerTransformation.origin = Vector2(126,126)
 	GlobalEventBus.subscribe(self)
 	pass # Replace with function body.
 
@@ -87,7 +89,8 @@ func movePlayerToNextRoom(directio: Enums.DIRECTION) -> void:
 		else: 
 			blendOutInfo("there is a wall on the other side")
 		pass
-		
+	else:
+		fallIntoVoid()
 		
 	#new Room from dictionary
 	#disable old rooma
@@ -124,3 +127,18 @@ func blendOutInfo(message: String) -> void:
 func restoreInfo() -> void:
 	info.visible = false
 	info.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+
+func fallIntoVoid() -> void:
+	allDungeonScenes.get(posOfPlayer).makeUnplayable()
+	var rotatePlayerAndShrinkPlayer = create_tween()
+	rotatePlayerAndShrinkPlayer.tween_property(test_player, "transform", Transform2D(test_player.rotation + PI, Vector2(0.001,0.001),playerTransformation.get_skew(), playerTransformation.get_origin()), 0.3 )
+	rotatePlayerAndShrinkPlayer.tween_callback(finishedVoid)
+	pass
+
+
+func finishedVoid(): 
+	print("player fell into void")
+	test_player.transform = playerTransformation
+	blendOutInfo("you fell into the void")
+	allDungeonScenes.get(posOfPlayer).makePlayable()
