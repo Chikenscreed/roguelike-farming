@@ -9,6 +9,8 @@ extends Area2D
 var is_dragging : bool = false
 var isPressed: bool = false
 
+var snapBackPos: Vector2
+
 
 
 ##This boolean is needed to make MapSlotTiles not draggable. 
@@ -23,6 +25,8 @@ var isPressed: bool = false
 func _ready() -> void:
 	if tileData:
 		sprite.texture = tileData.sprite
+	if !mapSlot:
+		snapBackPos = position
 	pass # Replace with function body.
 
 
@@ -52,10 +56,16 @@ func _input(event):
 		else:
 			isPressed = false
 			print ("stopped pressing")
+			snapback()
 			#getSlot()
 			testWithIntersectPoint()
 	if event is InputEventMouseMotion and isPressed:
 		self.position = get_global_mouse_position()
+
+func snapback() -> void:
+	var glideTween = create_tween()
+	glideTween.tween_property(self, "position", snapBackPos, 0.1)
+	#position = snapBackPos
 
 func setTile(data: Tile_Data) -> void:
 	print(data.name)

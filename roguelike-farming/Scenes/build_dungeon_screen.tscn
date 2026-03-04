@@ -19,10 +19,12 @@ mouse_filter = 1
 script = ExtResource("1_lr1r3")
 
 [node name="north" parent="." instance=ExtResource("1_osag5")]
+z_index = 1
 position = Vector2(288, 306)
 tileData = ExtResource("3_fatel")
 
 [node name="AllDirections" parent="." instance=ExtResource("1_osag5")]
+z_index = 1
 position = Vector2(223, 306)
 tileData = ExtResource("3_xkebr")
 
