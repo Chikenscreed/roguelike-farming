@@ -1,8 +1,20 @@
 [gd_scene load_steps=2 format=3 uid="uid://cy6868cf62pkn"]
 
-[ext_resource type="Script" uid="uid://c1iq1xe3bisw" path="res://dungeon_manager.gd" id="1_o75fk"]
+[ext_resource type="Script" uid="uid://c1iq1xe3bisw" path="res://Scripts/dungeon_manager.gd" id="1_o75fk"]
 
 [node name="DungeonManager" type="Node2D"]
 script = ExtResource("1_o75fk")
 
 [node name="Dungeonrooms" type="Node2D" parent="."]
+
+[node name="Info" type="Panel" parent="."]
+visible = false
+offset_left = 176.0
+offset_top = 1.0
+offset_right = 438.0
+offset_bottom = 108.0
+
+[node name="Label" type="Label" parent="Info"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

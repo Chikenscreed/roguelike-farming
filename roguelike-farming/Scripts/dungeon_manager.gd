@@ -6,6 +6,10 @@ extends Node2D
 
 @onready var dungeonrooms: Node2D = $Dungeonrooms
 @onready var test_player: Player = $"../TestPlayer"
+#for prototype to show what happened: example tried walking through door with no corresponding entrance
+@onready var info: Panel = $Info
+@onready var label: Label = $Info/Label
+
 
 var templateRoom = preload("res://Scenes/dungeon_room.tscn")
 
@@ -57,27 +61,49 @@ func _on_build_dungeon_screen_export_all_rooms(dict: Dictionary) -> void:
 
 func movePlayerToNextRoom(directio: Enums.DIRECTION) -> void:
 	print("move player to ", directio)
-	allDungeonScenes.get(posOfPlayer).makeUnplayable()
 	var movement: Vector2
+	var playerPosInDungeon: Vector2
 	match directio:
 		Enums.DIRECTION.NORTH:
-			test_player.position = playerPosSouth
+			playerPosInDungeon = playerPosSouth
 			movement= Vector2(-1,-0)
 		Enums.DIRECTION.SOUTH:
-			test_player.position = playerPosNorth
+			playerPosInDungeon = playerPosNorth
 			movement = Vector2(1,0)
 		Enums.DIRECTION.WEST:
-			test_player.position = playerPosEast
+			playerPosInDungeon = playerPosEast
 			movement = Vector2(0, -1)
 		Enums.DIRECTION.EAST:
-			test_player.position = playerPosWest
+			playerPosInDungeon = playerPosWest
 			movement = Vector2(0,1)
-	posOfPlayer += movement
-	allDungeonScenes.get(posOfPlayer).makePlayable()
+	var futureRoom = posOfPlayer + movement
+	if (allDungeonScenes.get(futureRoom) != null):
+		var testing = testIfRoomsConnect(posOfPlayer, futureRoom)
+		if(testing):
+			allDungeonScenes.get(posOfPlayer).makeUnplayable()
+			test_player.position = playerPosInDungeon
+			posOfPlayer += movement
+			allDungeonScenes.get(posOfPlayer).makePlayable()
+		else: 
+			blendOutInfo("there is a wall on the other side")
+		pass
+		
+		
 	#new Room from dictionary
 	#disable old rooma
 	#move player into fitting position in new room
 	pass
+
+func testIfRoomsConnect(start: Vector2, dest: Vector2) -> bool:
+	var beginRoom: Tile_Data = allDungeonScenes.get(start).tileData
+	var destRoom: Tile_Data = allDungeonScenes.get(dest).tileData
+	if(beginRoom.north and destRoom.south
+		or beginRoom.east and destRoom.west
+		or beginRoom.south and destRoom.north
+		or beginRoom.west and destRoom.east
+	):
+		return true
+	return false
 
 
 func startInBeginningRoom() -> void:
@@ -85,3 +111,16 @@ func startInBeginningRoom() -> void:
 	room.makePlayable()
 	test_player.visible = true
 	test_player.position = playerPosNorth
+
+
+func blendOutInfo(message: String) -> void:
+	label.text = message
+	info.visible = true
+	var fadeOutTween = create_tween()
+	fadeOutTween.tween_property(info, "modulate", Color(0.0, 0.0, 0.0, 0.0), 1)
+	fadeOutTween.tween_callback(restoreInfo)
+
+
+func restoreInfo() -> void:
+	info.visible = false
+	info.modulate = Color(1.0, 1.0, 1.0, 1.0)
