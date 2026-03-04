@@ -49,18 +49,37 @@ func _on_mouse_exited() -> void:
 
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and is_dragging:
-		if event.pressed:
-			isPressed = true
-			print("something happened")
-		else:
-			isPressed = false
-			print ("stopped pressing")
-			snapback()
-			#getSlot()
-			testWithIntersectPoint()
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and is_dragging:
+			if event.pressed:
+				isPressed = true
+				print("something happened")
+			else:
+				isPressed = false
+				print ("stopped pressing")
+				snapback()
+				#getSlot()
+				testWithIntersectPoint()
+		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			removeTile()
 	if event is InputEventMouseMotion and isPressed:
 		self.position = get_global_mouse_position()
+	
+func removeTile() -> void: 
+	var mousePos = get_global_mouse_position()
+	var space = get_world_2d().direct_space_state
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = mousePos
+	query.collide_with_areas = true
+	var something = space.intersect_point(query)[0].get("collider") as MapTile
+	if(!something.pregeneratedTile):
+		something.resetTileData()
+
+	pass
+
+func resetTileData() -> void:
+	tileData = null
+	sprite.texture = preload("uid://c4mux65qg06i2")
 
 func snapback() -> void:
 	var glideTween = create_tween()
