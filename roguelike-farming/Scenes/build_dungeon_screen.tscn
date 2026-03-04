@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh7xfp5urcint"]
+[gd_scene load_steps=7 format=3 uid="uid://bh7xfp5urcint"]
 
 [ext_resource type="Script" uid="uid://c07xhhm6qn82g" path="res://Scripts/build_dungeon_screen.gd" id="1_lr1r3"]
 [ext_resource type="PackedScene" uid="uid://bpu63gkkg4cjy" path="res://Scenes/mapTile.tscn" id="1_osag5"]
 [ext_resource type="Resource" uid="uid://cqvbonigw8ffq" path="res://Resources/westeast.tres" id="3_lr1r3"]
 [ext_resource type="Resource" uid="uid://dfwvxiauhcg3a" path="res://Resources/allDirections.tres" id="3_xkebr"]
 [ext_resource type="Resource" uid="uid://r4bvmlw0cgtd" path="res://Resources/SouthNorthTile.tres" id="4_50upt"]
+[ext_resource type="Resource" uid="uid://b0877g8aleibs" path="res://Resources/testExit.tres" id="6_50upt"]
 
 [node name="BuildDungeonScreen" type="Control"]
 layout_mode = 3
@@ -17,8 +18,7 @@ mouse_filter = 1
 script = ExtResource("1_lr1r3")
 
 [node name="AllDirections" parent="." instance=ExtResource("1_osag5")]
-z_index = 1
-position = Vector2(373, 297)
+position = Vector2(324, 309)
 tileData = ExtResource("3_xkebr")
 
 [node name="SouthNorth" parent="." instance=ExtResource("1_osag5")]
@@ -48,6 +48,8 @@ mapSlot = true
 [node name="FrameTileSlot3" parent="TileFrame2" instance=ExtResource("1_osag5")]
 position = Vector2(346, 108)
 mapSlot = true
+pregeneratedTile = true
+tileData = ExtResource("6_50upt")
 
 [node name="FrameTileSlot4" parent="TileFrame2" instance=ExtResource("1_osag5")]
 position = Vector2(282, 140)

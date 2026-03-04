@@ -25,6 +25,8 @@ const tileSize = 16
 
 var tileData: Tile_Data = null
 
+const middleOfRoom: Vector2 = Vector2(126,126)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#calcDoorCords()
@@ -59,6 +61,7 @@ func addDoors(n: bool, e: bool, s: bool, w:bool) -> void:
 
 func setUp() -> void:
 	addDoors(tileData.north, tileData.east, tileData.south, tileData.west)
+	addExtras()
 
 func addEntrance(direction: Enums.DIRECTION) -> void: 
 	var entrance: Node2D = entranceScene.instantiate()
@@ -101,3 +104,10 @@ func makeUnplayable() -> void:
 	disableEntrances()
 	tile_map_layer.enabled = false
 	self.visible = false
+	
+	
+func addExtras() -> void:
+	for extra in tileData.extras:
+		var newPart = extra.scenetoBePlaced.instantiate()
+		newPart.position = middleOfRoom
+		add_child(newPart)

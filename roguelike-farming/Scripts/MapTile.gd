@@ -13,6 +13,7 @@ var isPressed: bool = false
 
 ##This boolean is needed to make MapSlotTiles not draggable. 
 @export var mapSlot: bool 
+@export var pregeneratedTile: bool
 
 ## if a tile gets dragged to the slot, the slot should show the current tile_data. Also later probably needed to connect the tiles together
 @export var tileData: Tile_Data
@@ -76,5 +77,5 @@ func testWithIntersectPoint() -> void:
 	query.collide_with_areas = true
 	for slot in space.intersect_point(query):
 		var s: MapTile = slot.collider as MapTile
-		if(s.mapSlot):
+		if(s.mapSlot and !s.pregeneratedTile):
 			s.setTile(self.tileData)

@@ -15,3 +15,6 @@ extends Resource
 ## Texture to show during the building screen
 @export_category("SpriteRep")
 @export var sprite : CompressedTexture2D
+
+##extraStuff like chest or exit
+@export var extras: Array[DungeonExtras]
