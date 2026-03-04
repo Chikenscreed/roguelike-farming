@@ -12,6 +12,8 @@ var entranceScene = preload("res://Scenes/components/mapComponents/entrance.tscn
 var entranceDimNorthSouth = Vector2(24,8)
 var entranceDimEastWest = Vector2(8,24)
 
+var enemy = preload("res://Scenes/enemy.tscn")
+
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer2
 @onready var entrances: Node2D = $Entrances
 
@@ -111,3 +113,7 @@ func addExtras() -> void:
 		var newPart = extra.scenetoBePlaced.instantiate()
 		newPart.position = middleOfRoom
 		add_child(newPart)
+	if tileData.extras == []:
+		var newEnemy = enemy.instantiate()
+		newEnemy.position = Vector2(randi_range(2,16)*16, randi_range(2,16)*16)
+		add_child(newEnemy)
