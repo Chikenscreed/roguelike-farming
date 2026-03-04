@@ -6,5 +6,6 @@
 [resource]
 resource_local_to_scene = true
 script = ExtResource("2_0csdk")
+name = "Chest"
 scenetoBePlaced = ExtResource("1_0csdk")
 metadata/_custom_type_script = "uid://mk71elkma5mt"

@@ -1,3 +1,4 @@
+class_name ExitObject
 extends Area2D
 
 

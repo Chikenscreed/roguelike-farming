@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://chyr3272vda7y" path="res://Sprites/randomStuff/chest_placeholder.png" id="1_f42m7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c2xg"]
-size = Vector2(32, 13)
+size = Vector2(32, 32)
 
 [node name="Chest" type="Area2D"]
+monitoring = false
 script = ExtResource("1_1c2xg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

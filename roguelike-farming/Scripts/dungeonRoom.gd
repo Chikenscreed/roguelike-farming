@@ -116,11 +116,17 @@ func disableAllAreas() -> void:
 	for child in get_children(true):
 		if child is Enemy:
 			child.disableAllAreas()
+		if child is Area2D:
+			child.monitoring = false
+			child.monitorable = false
 	
 func enableAllAreas() -> void:
 	for child in get_children(true):
 		if child is Enemy:
 			child.enableAllAreas()
+		if child is Area2D:
+			child.monitoring = true
+			child.monitorable = false
 
 func addExtras() -> void:
 	for extra in tileData.extras:

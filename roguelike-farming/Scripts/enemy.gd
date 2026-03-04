@@ -30,8 +30,10 @@ func disableAllAreas() -> void:
 	for child in get_children():
 		if child is Area2D:
 			child.monitoring = false
+			child.monitorable = false
 
 func enableAllAreas() -> void: 
 	for child in get_children():
 		if child is Area2D:
 			child.monitoring = true
+			child.monitorable = true
