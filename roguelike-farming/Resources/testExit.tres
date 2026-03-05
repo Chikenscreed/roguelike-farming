@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tile_Data" load_steps=4 format=3 uid="uid://b0877g8aleibs"]
+
+[ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/Tile.gd" id="1_pyhsc"]
+[ext_resource type="Resource" uid="uid://o3j6736lpo21" path="res://Resources/DungeonExtras/exit.tres" id="1_wnbvj"]
+[ext_resource type="Texture2D" uid="uid://bdkxby6c85vu2" path="res://Sprites/Tiles/TilePreviews/exitTilePlaceHolder.png" id="2_i541p"]
+
+[resource]
+script = ExtResource("1_pyhsc")
+name = "Exit"
+south = true
+sprite = ExtResource("2_i541p")
+extras = [ExtResource("1_wnbvj")]
+metadata/_custom_type_script = "uid://fj0p44iwfaup"

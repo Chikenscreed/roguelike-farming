@@ -1,0 +1,21 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dfck20u8sgy1d"]
+
+[ext_resource type="Texture2D" uid="uid://cutygwni5v0bw" path="res://Sprites/dungeonSprites/DungeonSpriteSheet16x16.png" id="1_af8jw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ed3m1"]
+texture = ExtResource("1_af8jw")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8, 8, -8)
+0:1/0 = 0
+1:0/size_in_atlas = Vector2i(3, 1)
+1:0/0 = 0
+1:1/size_in_atlas = Vector2i(3, 1)
+1:1/0 = 0
+2:2/size_in_atlas = Vector2i(1, 3)
+2:2/0 = 0
+3:2/size_in_atlas = Vector2i(1, 3)
+3:2/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ed3m1")

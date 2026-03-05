@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Exit" load_steps=3 format=3 uid="uid://o3j6736lpo21"]
+
+[ext_resource type="Script" uid="uid://b75o3pfow0s56" path="res://Scripts/DungeonExtras/exitResource.gd" id="1_jsufx"]
+[ext_resource type="PackedScene" uid="uid://dgkuh1xy1evma" path="res://Scenes/components/mapComponents/exit.tscn" id="1_t35vl"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_jsufx")
+name = "Exit"
+scenetoBePlaced = ExtResource("1_t35vl")
+metadata/_custom_type_script = "uid://b75o3pfow0s56"

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://etjai5vm2tnp"]
+
+[ext_resource type="PackedScene" uid="uid://bh7xfp5urcint" path="res://Scenes/build_dungeon_screen.tscn" id="1_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://cy6868cf62pkn" path="res://Scenes/dungeon_manager.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://i02wi8njxgrb" path="res://Scenes/test_player.tscn" id="3_wrm1d"]
+
+[node name="Game" type="Node"]
+
+[node name="BuildDungeonScreen" parent="." instance=ExtResource("1_qxrlw")]
+
+[node name="DungeonManagerNode" parent="." instance=ExtResource("2_wrm1d")]
+
+[node name="TestPlayer" parent="." instance=ExtResource("3_wrm1d")]
+visible = false
+
+[connection signal="exportAllRooms" from="BuildDungeonScreen" to="DungeonManagerNode" method="_on_build_dungeon_screen_export_all_rooms"]
