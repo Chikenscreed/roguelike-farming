@@ -8,7 +8,7 @@ var coordsSouthDoor: Vector2i = Vector2i(8, 17)
 var coordsWestDoor: Vector2i = Vector2i(0, 8)
 
 
-var entranceScene = preload("res://Scenes/components/mapComponents/entrance.tscn")
+var entranceScene = preload("res://Scenes/DungeonThings/mapComponents/entrance.tscn")
 var entranceDimNorthSouth = Vector2(24,8)
 var entranceDimEastWest = Vector2(8,24)
 

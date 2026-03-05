@@ -11,7 +11,7 @@ extends Node2D
 @onready var label: Label = $Info/Label
 
 
-var templateRoom = preload("res://Scenes/dungeon_room.tscn")
+var templateRoom = preload("res://Scenes/DungeonThings/dungeon_room.tscn")
 
 var allDungeonScenes: Dictionary = {}
 
