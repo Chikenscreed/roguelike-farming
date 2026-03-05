@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://fxs7rd0ibiyw"]
+[gd_scene load_steps=11 format=4 uid="uid://fxs7rd0ibiyw"]
 
 [ext_resource type="Texture2D" uid="uid://cc8xm8k16dam1" path="res://tileMap/gras.png" id="1_02man"]
 [ext_resource type="Script" uid="uid://r6m3dp53kiuj" path="res://Scripts/farming_base.gd" id="1_5f142"]
 [ext_resource type="PackedScene" uid="uid://bdrnscehyw88x" path="res://Scenes/crops/carrot.tscn" id="2_5f142"]
 [ext_resource type="Texture2D" uid="uid://cmlcmbcx6qqk8" path="res://tileMap/soil.png" id="2_ud1cg"]
 [ext_resource type="PackedScene" uid="uid://i02wi8njxgrb" path="res://Scenes/test_player.tscn" id="3_5f142"]
+[ext_resource type="PackedScene" uid="uid://etjai5vm2tnp" path="res://Scenes/game.tscn" id="3_qeqr8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qeqr8"]
 texture = ExtResource("1_02man")
@@ -172,6 +173,7 @@ sources/0 = SubResource("TileSetAtlasSource_1kfoo")
 [node name="Farming Base" type="Node2D"]
 script = ExtResource("1_5f142")
 carrot_scene = ExtResource("2_5f142")
+dungeon_scene = ExtResource("3_qeqr8")
 
 [node name="Layers" type="Node2D" parent="."]
 
@@ -197,5 +199,13 @@ shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "Grow Crops"
 
+[node name="Dungeon Button" type="Button" parent="."]
+offset_left = 445.0
+offset_top = 25.0
+offset_right = 599.0
+offset_bottom = 56.0
+text = "Enter the Dungeon"
+
 [connection signal="action" from="Objects/TestPlayer" to="." method="_on_player_action"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Dungeon Button" to="." method="_on_dungeon_button_pressed"]
