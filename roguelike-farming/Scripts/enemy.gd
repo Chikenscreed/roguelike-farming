@@ -29,11 +29,11 @@ func _on_health_is_dead() -> void:
 func disableAllAreas() -> void:
 	for child in get_children():
 		if child is Area2D:
-			child.monitoring = false
-			child.monitorable = false
+			child.set_deferred("monitoring", false)
+			child.set_deferred("monitorable", false)
 
 func enableAllAreas() -> void: 
 	for child in get_children():
 		if child is Area2D:
-			child.monitoring = true
-			child.monitorable = true
+			child.set_deferred("monitoring", true)
+			child.set_deferred("monitorable", true)

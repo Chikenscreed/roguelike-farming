@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc2gn7pekk30x"]
+
+[ext_resource type="Script" uid="uid://5lxpf585kmu2" path="res://Scripts/DungeonThings/entrance.gd" id="1_t5l72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5l72"]
+
+[node name="Entrance" type="Area2D"]
+monitoring = false
+script = ExtResource("1_t5l72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t5l72")
+debug_color = Color(0.6776304, 0.30247247, 1, 0.41960785)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
