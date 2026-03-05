@@ -2,6 +2,7 @@ extends Node2D
 
 @export var tile_size := 16
 @export var carrot_scene: PackedScene
+@export var dungeon_scene: PackedScene
 
 var planeted_crop_tiles : Array[Vector2i] = []
 
@@ -35,3 +36,7 @@ func _on_button_pressed() -> void:
 
 func is_crop(node: Node) -> bool:
 	return node.is_in_group("crops")
+
+
+func _on_dungeon_button_pressed() -> void:
+	get_tree().change_scene_to_packed(dungeon_scene)
