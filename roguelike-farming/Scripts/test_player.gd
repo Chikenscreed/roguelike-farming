@@ -7,6 +7,8 @@ const SPEED = 300.0
 var knockback = Vector2.ZERO
 var knockback_timer: float = 0.0
 
+signal action(position: Vector2)
+
 func _physics_process(delta: float) -> void:
 	if knockback_timer > 0.0:
 		velocity = knockback
@@ -17,12 +19,18 @@ func _physics_process(delta: float) -> void:
 		movement()
 
 	move_and_slide()
+	
+func _process(delta: float) -> void:
+	check_action_input()
 
 
 
 func _is_dead() -> void:
 	queue_free()
 
+func check_action_input():
+	if Input.is_action_just_pressed("action"):
+		action.emit(global_position)
 
 func apply_knockback(damage_position: Vector2) -> void:
 	var force = 150
