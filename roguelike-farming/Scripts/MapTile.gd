@@ -72,7 +72,7 @@ func removeTile() -> void:
 	query.position = mousePos
 	query.collide_with_areas = true
 	var something = space.intersect_point(query)[0].get("collider") as MapTile
-	if(!something.pregeneratedTile):
+	if(!something.pregeneratedTile and something.mapSlot):
 		something.resetTileData()
 
 	pass
