@@ -11,12 +11,12 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+# Called every frame. '_delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
 	pass
 
 
-func _on_frame_tile_slot_area_entered(area: Area2D) -> void:
+func _on_frame_tile_slot_area_entered(_area: Area2D) -> void:
 	print("something entered")
 	pass # Replace with function body.
 
@@ -25,7 +25,7 @@ func submitDungeon() -> void:
 	var counter = 0
 	var allRooms: Dictionary = {}
 	var x: int = 0
-	var y: int =0
+	var y: int = 0
 	for room in tile_frame_2.get_children():
 		room = room as MapTile
 		x = counter / 3

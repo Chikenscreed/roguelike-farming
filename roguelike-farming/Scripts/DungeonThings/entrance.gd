@@ -12,12 +12,12 @@ var direction: Enums.DIRECTION
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GlobalEventBus.subscribe(self)
-#	self.area_entered(area: Area2D).connect(self._on_area_entered)
+#	self.area_entered(_area: Area2D).connect(self._on_area_entered)
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+# Called every frame. '_delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
 	pass
 
 func setDimensions(dim: Vector2) -> void:
@@ -29,7 +29,7 @@ func setDirection(dir: Enums.DIRECTION) -> void:
 	
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	print("Something got detected")
-	if (!area is Entrance and !area is MapTile):
+	if (!_area is Entrance and !_area is MapTile):
 		movePlayerToNextRoom.emit(direction)

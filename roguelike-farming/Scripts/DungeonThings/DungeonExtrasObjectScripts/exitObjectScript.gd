@@ -7,14 +7,14 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+# Called every frame. '_delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
 	pass
 
 
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	print("Player wants to exit!!!!")
 	get_tree().change_scene_to_file("res://Scenes/farming_base.tscn")
 	pass # Replace with function body.
