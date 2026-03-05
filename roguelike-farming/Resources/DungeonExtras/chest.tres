@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Chest" load_steps=3 format=3 uid="uid://dyf6dxd2edc7t"]
 
-[ext_resource type="PackedScene" uid="uid://bdhei54eu7r73" path="res://Scenes/components/mapComponents/chest.tscn" id="1_0csdk"]
-[ext_resource type="Script" uid="uid://mk71elkma5mt" path="res://Scripts/DungeonExtras/chestResource.gd" id="2_0csdk"]
+[ext_resource type="PackedScene" uid="uid://bdhei54eu7r73" path="res://Scenes/DungeonThings/mapComponents/chest.tscn" id="1_0csdk"]
+[ext_resource type="Script" uid="uid://mk71elkma5mt" path="res://Scripts/DungeonThings/Resources/DungeonExtrasResourceScripts/chestResource.gd" id="2_0csdk"]
 
 [resource]
 resource_local_to_scene = true
