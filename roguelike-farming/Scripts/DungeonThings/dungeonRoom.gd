@@ -104,12 +104,14 @@ func makePlayable() -> void:
 	enableAllAreas()
 	tile_map_layer.enabled = true
 	self.visible = true
+	self.process_mode = Node.PROCESS_MODE_INHERIT
 
 func makeUnplayable() -> void:
 	disableEntrances()
 	disableAllAreas()
 	tile_map_layer.enabled = false
 	self.visible = false
+	self.process_mode = Node.PROCESS_MODE_DISABLED
 	
 func disableAllAreas() -> void:
 	var allChildren = get_children(true)

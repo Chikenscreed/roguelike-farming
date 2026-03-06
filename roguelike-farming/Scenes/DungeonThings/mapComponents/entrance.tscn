@@ -5,6 +5,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5l72"]
 
 [node name="Entrance" type="Area2D"]
+collision_layer = 64
+collision_mask = 9
 monitoring = false
 script = ExtResource("1_t5l72")
 

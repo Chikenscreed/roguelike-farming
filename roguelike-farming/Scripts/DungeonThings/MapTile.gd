@@ -71,9 +71,15 @@ func removeTile() -> void:
 	var query = PhysicsPointQueryParameters2D.new()
 	query.position = mousePos
 	query.collide_with_areas = true
-	var something = space.intersect_point(query)[0].get("collider") as MapTile
-	if(!something.pregeneratedTile and something.mapSlot):
-		something.resetTileData()
+	
+	var intersections = space.intersect_point(query)
+	
+	for hit in intersections:
+		var something = hit.collider as MapTile
+		if something != null:
+			if !something.pregeneratedTile and something.mapSlot:
+				something.resetTileData()
+				break 
 
 	pass
 
@@ -106,5 +112,6 @@ func testWithIntersectPoint() -> void:
 	query.collide_with_areas = true
 	for slot in space.intersect_point(query):
 		var s: MapTile = slot.collider as MapTile
-		if(s.mapSlot and !s.pregeneratedTile):
-			s.setTile(self.tileData)
+		if s != null:
+			if(s.mapSlot and !s.pregeneratedTile):
+				s.setTile(self.tileData)
