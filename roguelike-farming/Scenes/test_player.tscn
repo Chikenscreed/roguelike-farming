@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://i02wi8njxgrb"]
 
-[ext_resource type="Script" uid="uid://clkie2iwhrego" path="res://Scripts/test_player.gd" id="1_qkid2"]
+[ext_resource type="Script" uid="uid://clkie2iwhrego" path="res://Scripts/player.gd" id="1_qkid2"]
 [ext_resource type="Texture2D" uid="uid://cjj7f3kmlyoao" path="res://Sprites/character.png" id="2_qv8u8"]
 [ext_resource type="PackedScene" uid="uid://cuv25c8obkyjr" path="res://Scenes/components/hitbox.tscn" id="3_qv8u8"]
 [ext_resource type="PackedScene" uid="uid://dlx21517qvpay" path="res://Scenes/components/health.tscn" id="4_3a3hx"]
@@ -15,6 +15,8 @@ size = Vector2(14, 15.5)
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_qkid2")
+speed = 180.0
+dash_duration = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_qv8u8")
@@ -35,5 +37,13 @@ shape = SubResource("RectangleShape2D_2ko2x")
 [node name="Health" parent="." instance=ExtResource("4_3a3hx")]
 MAX_HEALTH = 12.0
 
+[node name="dash_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="dash_cooldown_timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="damage_taken" from="Health" to="." method="apply_knockback"]
 [connection signal="isDead" from="Health" to="." method="_is_dead"]
+[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="dash_cooldown_timer" to="." method="_on_dash_cooldown_timer_timeout"]
