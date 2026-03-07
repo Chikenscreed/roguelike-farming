@@ -100,12 +100,16 @@ func movePlayerToNextRoom(directio: Enums.DIRECTION) -> void:
 func testIfRoomsConnect(start: Vector2, dest: Vector2) -> bool:
 	var beginRoom: Tile_Data = allDungeonScenes.get(start).tileData
 	var destRoom: Tile_Data = allDungeonScenes.get(dest).tileData
-	if(beginRoom.north and destRoom.south
-		or beginRoom.east and destRoom.west
-		or beginRoom.south and destRoom.north
-		or beginRoom.west and destRoom.east
-	):
-		return true
+	var direction: Vector2 = start - dest
+	match direction:
+		Vector2(-1,0):
+			return beginRoom.isSouth() and destRoom.isNorth()
+		Vector2(1,0):
+			return beginRoom.isNorth() and destRoom.isSouth()
+		Vector2(0,-1):
+			return beginRoom.isEast() and destRoom.isWest()
+		Vector2(0,1):
+			return beginRoom.isWest() and destRoom.isEast()			
 	return false
 
 

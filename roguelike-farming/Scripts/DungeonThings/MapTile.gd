@@ -11,13 +11,10 @@ extends Area2D
 
 
 #bit masks for the entrances: 
-const NORTH = 0b0001
-const EAST = 0b0010
-const SOUTH = 0b0100
-const WEST = 0b1000
-
-
-
+#const NORTH = 0b0001
+#const EAST = 0b0010
+#const SOUTH = 0b0100
+#const WEST = 0b1000
 
 var is_dragging : bool = false
 var isPressed: bool = false
@@ -78,47 +75,6 @@ func _input(event):
 				testWithIntersectPoint()
 	if event is InputEventMouseMotion and isPressed:
 		self.position = get_global_mouse_position()
-	
-	
-#func rotateTile() -> void:
-	#var all = getTheTileFromScreen()
-	#for hit in all:
-		#var something = hit.collider as MapTile
-		#if something != null and rotateOnlyOnce:
-			#print("Current rep: ", something.tileData.currentEntrances, "NEW REP: ", something.tileData.currentEntrances >>1)
-			#something.tileData.currentEntrances = (something.tileData.currentEntrances << 1) | ((something.tileData.currentEntrances & WEST) >> 3)
-			#something.showEntrances(something.tileData.currentEntrances)
-			#
-#
-	#
-#
-#func getTheTileFromScreen() -> Array[Dictionary]: 
-	#var mousePos = get_global_mouse_position()
-	#var space = get_world_2d().direct_space_state
-	#var query = PhysicsPointQueryParameters2D.new()
-	#query.position = mousePos
-	#query.collide_with_areas = true
-	#
-	#var intersections = space.intersect_point(query)
-	#return intersections
-		#
-#
-#
-#
-#func removeTile() -> void: 
-	#for hit in getTheTileFromScreen():
-		#var something = hit.collider as MapTile
-		#if something != null:
-			#if !something.pregeneratedTile and something.mapSlot:
-				#something.resetTileData()
-				#break 
-
-	pass
-
-func resetTileData() -> void:
-	tileData = null
-	background.texture = preload("uid://c4mux65qg06i2")
-	removeAllEntrances()
 
 func removeAllEntrances() -> void: 
 	north.visible = false
@@ -133,7 +89,7 @@ func snapback() -> void:
 
 func setTile(data: Tile_Data) -> void:
 	print(data.name)
-	self.tileData = data
+	self.tileData = data.duplicate()
 	createVisualisation()
 
 func getSlot() -> void: 
@@ -156,20 +112,20 @@ func testWithIntersectPoint() -> void:
 				s.setTile(self.tileData)
 
 
-func showEntrances(bitRep: int) -> void: 
+func showEntrances() -> void: 
 	removeAllEntrances()
-	if (bitRep & NORTH):
+	if (tileData.isNorth()):
 		north.visible = true
-	if(bitRep & EAST):
+	if(tileData.isEast()):
 		east.visible = true
-	if(bitRep & SOUTH):
+	if(tileData.isSouth()):
 		south.visible = true
-	if(bitRep & WEST):
+	if(tileData.isWest()):
 		west.visible = true
 	pass
 
 
 func createVisualisation() -> void:
-	showEntrances(tileData.currentEntrances)
+	showEntrances()
 	background.texture = tileData.tileStyle.previewTileBackground
 	pass

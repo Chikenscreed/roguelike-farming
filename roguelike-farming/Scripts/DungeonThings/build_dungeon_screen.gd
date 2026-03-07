@@ -31,8 +31,8 @@ func rotateTile() -> void:
 		var something = hit.collider as MapTile
 		if something != null :
 			print("Current rep: ", something.tileData.currentEntrances, "NEW REP: ", something.tileData.currentEntrances >>1)
-			something.tileData.currentEntrances = (something.tileData.currentEntrances << 1) | ((something.tileData.currentEntrances & MapTile.WEST) >> 3)
-			something.showEntrances(something.tileData.currentEntrances)
+			something.tileData.currentEntrances = (something.tileData.currentEntrances << 1) | ((something.tileData.currentEntrances & Tile_Data.WEST) >> 3)
+			something.showEntrances()
 			
 
 	

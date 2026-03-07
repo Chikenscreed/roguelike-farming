@@ -47,22 +47,22 @@ func _process(_delta: float) -> void:
 	pass
 
 
-func addDoors(n: bool, e: bool, s: bool, w:bool) -> void:
-	if(n):
+func addDoors() -> void:
+	if(tileData.isNorth()):
 		tile_map_layer.set_pattern(coordsNorthDoor, tile_map_layer.tile_set.get_pattern(patternIndexNorth))
 		addEntrance(Enums.DIRECTION.NORTH)
-	if(e):
+	if(tileData.isEast()):
 		tile_map_layer.set_pattern(coordsEasttDoor, tile_map_layer.tile_set.get_pattern(patternIndexEast))
 		addEntrance(Enums.DIRECTION.EAST)
-	if(s):
+	if(tileData.isSouth()):
 		tile_map_layer.set_pattern(coordsSouthDoor, tile_map_layer.tile_set.get_pattern(patternIndexSouth))
 		addEntrance(Enums.DIRECTION.SOUTH)
-	if(w):
+	if(tileData.isWest()):
 		tile_map_layer.set_pattern(coordsWestDoor, tile_map_layer.tile_set.get_pattern(patternIndexWest))
 		addEntrance(Enums.DIRECTION.WEST)
 
 func setUp() -> void:
-	addDoors(tileData.north, tileData.east, tileData.south, tileData.west)
+	addDoors()
 	addExtras()
 	#just a precaution so no hitbox that should not be hit now is disabled
 	makeUnplayable()

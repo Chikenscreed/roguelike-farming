@@ -9,11 +9,11 @@ extends Resource
 @export var currentEntrances: int
 
 ##a boolean for each door/entrance
-#@export_category("Entrances")
-#@export var north : bool
-#@export var east : bool
-#@export var south : bool
-#@export var west : bool
+
+const NORTH = 0b0001
+const EAST = 0b0010
+const SOUTH = 0b0100
+const WEST = 0b1000
 
 ## Texture to show during the building screen
 #@export_category("SpriteRep")
@@ -34,3 +34,15 @@ enum ENTRANCE_COMPOSITIONS{
 	X = 15
 	
 }
+
+func isNorth() -> bool:
+	return currentEntrances & NORTH
+	
+func isEast() -> bool:
+	return currentEntrances & EAST
+
+func isSouth() -> bool:
+	return currentEntrances & SOUTH
+
+func isWest() -> bool:
+	return currentEntrances & WEST
