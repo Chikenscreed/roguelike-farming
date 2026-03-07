@@ -76,6 +76,11 @@ func _input(event):
 	if event is InputEventMouseMotion and isPressed:
 		self.position = get_global_mouse_position()
 
+func resetTileData() -> void:
+	tileData = null
+	background.texture = preload("uid://c4mux65qg06i2")
+	removeAllEntrances()
+
 func removeAllEntrances() -> void: 
 	north.visible = false
 	east.visible = false
