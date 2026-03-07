@@ -1,12 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh7xfp5urcint"]
+[gd_scene load_steps=9 format=3 uid="uid://bh7xfp5urcint"]
 
 [ext_resource type="Script" uid="uid://c07xhhm6qn82g" path="res://Scripts/DungeonThings/build_dungeon_screen.gd" id="1_lr1r3"]
 [ext_resource type="PackedScene" uid="uid://bpu63gkkg4cjy" path="res://Scenes/DungeonThings/mapTile.tscn" id="1_osag5"]
-[ext_resource type="Resource" uid="uid://dvf0pe2jpo6m7" path="res://Resources/north.tres" id="3_fatel"]
-[ext_resource type="Resource" uid="uid://cqvbonigw8ffq" path="res://Resources/westeast.tres" id="3_lr1r3"]
-[ext_resource type="Resource" uid="uid://dfwvxiauhcg3a" path="res://Resources/allDirections.tres" id="3_xkebr"]
-[ext_resource type="Resource" uid="uid://r4bvmlw0cgtd" path="res://Resources/SouthNorthTile.tres" id="4_50upt"]
-[ext_resource type="Resource" uid="uid://b0877g8aleibs" path="res://Resources/testExit.tres" id="6_50upt"]
+[ext_resource type="Script" uid="uid://cwqxp04862h6e" path="res://Scripts/DungeonThings/Resources/DungeonExtrasResourceScripts/DungeonExtras.gd" id="3_hhbgv"]
+[ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/DungeonThings/Resources/Tile.gd" id="5_56aqq"]
+[ext_resource type="Texture2D" uid="uid://d02bahh1vu8m4" path="res://Sprites/dungeonSprites/Tiles/TilePreviews/baseBackground.png" id="5_ge5sd"]
+[ext_resource type="Script" uid="uid://hbkxdkqw2m7c" path="res://Scripts/DungeonThings/Resources/TileStyle.gd" id="6_56aqq"]
+
+[sub_resource type="Resource" id="Resource_c3imi"]
+resource_local_to_scene = true
+script = ExtResource("6_56aqq")
+name = "baseStyle"
+previewTileBackground = ExtResource("5_ge5sd")
+metadata/_custom_type_script = "uid://hbkxdkqw2m7c"
+
+[sub_resource type="Resource" id="Resource_c1gf7"]
+resource_local_to_scene = true
+script = ExtResource("5_56aqq")
+name = "T"
+entranceComposition = 7
+tileStyle = SubResource("Resource_c3imi")
+metadata/_custom_type_script = "uid://fj0p44iwfaup"
 
 [node name="BuildDungeonScreen" type="Control"]
 layout_mode = 3
@@ -18,25 +32,10 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_lr1r3")
 
-[node name="north" parent="." instance=ExtResource("1_osag5")]
-z_index = 1
-position = Vector2(288, 306)
-tileData = ExtResource("3_fatel")
-
-[node name="AllDirections" parent="." instance=ExtResource("1_osag5")]
-z_index = 1
-position = Vector2(223, 306)
-tileData = ExtResource("3_xkebr")
-
-[node name="SouthNorth" parent="." instance=ExtResource("1_osag5")]
-z_index = 1
-position = Vector2(157, 305)
-tileData = ExtResource("4_50upt")
-
 [node name="WestEast" parent="." instance=ExtResource("1_osag5")]
 z_index = 1
 position = Vector2(94, 306)
-tileData = ExtResource("3_lr1r3")
+tileData = SubResource("Resource_c1gf7")
 
 [node name="TileFrame2" type="Control" parent="."]
 anchors_preset = 0
@@ -56,7 +55,6 @@ mapSlot = true
 position = Vector2(346, 108)
 mapSlot = true
 pregeneratedTile = true
-tileData = ExtResource("6_50upt")
 
 [node name="FrameTileSlot4" parent="TileFrame2" instance=ExtResource("1_osag5")]
 position = Vector2(282, 140)

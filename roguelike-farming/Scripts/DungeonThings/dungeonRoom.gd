@@ -92,14 +92,12 @@ func transformDoorCoordsToEntranceCords(coords: Vector2) -> Vector2:
 
 
 func makePlayable() -> void:
-
 	self.visible = true
 	
 	tile_map_layer.set_deferred("enabled", true)
 	self.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 
 func makeUnplayable() -> void:
-
 	self.visible = false
 	
 	tile_map_layer.set_deferred("enabled", false)
