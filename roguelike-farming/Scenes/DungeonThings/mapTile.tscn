@@ -41,5 +41,9 @@ rotation = 4.712389
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_p2f1m")
 
+[node name="extra" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.5, 0.5)
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

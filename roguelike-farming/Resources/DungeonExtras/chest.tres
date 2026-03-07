@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Chest" load_steps=3 format=3 uid="uid://dyf6dxd2edc7t"]
+[gd_resource type="Resource" script_class="Chest" load_steps=4 format=3 uid="uid://dyf6dxd2edc7t"]
 
 [ext_resource type="PackedScene" uid="uid://bdhei54eu7r73" path="res://Scenes/DungeonThings/mapComponents/chest.tscn" id="1_0csdk"]
+[ext_resource type="Texture2D" uid="uid://dshcbqefinmbs" path="res://Sprites/dungeonSprites/Tiles/TilePreviews/chestpreviewPlaceholder.png" id="1_ocyuq"]
 [ext_resource type="Script" uid="uid://mk71elkma5mt" path="res://Scripts/DungeonThings/Resources/DungeonExtrasResourceScripts/chestResource.gd" id="2_0csdk"]
 
 [resource]
@@ -8,4 +9,5 @@ resource_local_to_scene = true
 script = ExtResource("2_0csdk")
 name = "Chest"
 scenetoBePlaced = ExtResource("1_0csdk")
+previewSprite = ExtResource("1_ocyuq")
 metadata/_custom_type_script = "uid://mk71elkma5mt"

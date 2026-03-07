@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh7xfp5urcint"]
+[gd_scene load_steps=10 format=3 uid="uid://bh7xfp5urcint"]
 
 [ext_resource type="Script" uid="uid://c07xhhm6qn82g" path="res://Scripts/DungeonThings/build_dungeon_screen.gd" id="1_lr1r3"]
 [ext_resource type="PackedScene" uid="uid://bpu63gkkg4cjy" path="res://Scenes/DungeonThings/mapTile.tscn" id="1_osag5"]
@@ -6,20 +6,21 @@
 [ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/DungeonThings/Resources/Tile.gd" id="5_56aqq"]
 [ext_resource type="Texture2D" uid="uid://d02bahh1vu8m4" path="res://Sprites/dungeonSprites/Tiles/TilePreviews/baseBackground.png" id="5_ge5sd"]
 [ext_resource type="Script" uid="uid://hbkxdkqw2m7c" path="res://Scripts/DungeonThings/Resources/TileStyle.gd" id="6_56aqq"]
+[ext_resource type="Resource" uid="uid://dats1nuyd2ltt" path="res://Resources/exitTile.tres" id="7_56aqq"]
 
-[sub_resource type="Resource" id="Resource_c3imi"]
+[sub_resource type="Resource" id="Resource_56aqq"]
 resource_local_to_scene = true
 script = ExtResource("6_56aqq")
 name = "baseStyle"
 previewTileBackground = ExtResource("5_ge5sd")
 metadata/_custom_type_script = "uid://hbkxdkqw2m7c"
 
-[sub_resource type="Resource" id="Resource_c1gf7"]
+[sub_resource type="Resource" id="Resource_c3imi"]
 resource_local_to_scene = true
 script = ExtResource("5_56aqq")
 name = "T"
 entranceComposition = 7
-tileStyle = SubResource("Resource_c3imi")
+tileStyle = SubResource("Resource_56aqq")
 metadata/_custom_type_script = "uid://fj0p44iwfaup"
 
 [node name="BuildDungeonScreen" type="Control"]
@@ -35,7 +36,7 @@ script = ExtResource("1_lr1r3")
 [node name="WestEast" parent="." instance=ExtResource("1_osag5")]
 z_index = 1
 position = Vector2(94, 306)
-tileData = SubResource("Resource_c1gf7")
+tileData = SubResource("Resource_c3imi")
 
 [node name="TileFrame2" type="Control" parent="."]
 anchors_preset = 0
@@ -54,7 +55,6 @@ mapSlot = true
 [node name="FrameTileSlot3" parent="TileFrame2" instance=ExtResource("1_osag5")]
 position = Vector2(346, 108)
 mapSlot = true
-pregeneratedTile = true
 
 [node name="FrameTileSlot4" parent="TileFrame2" instance=ExtResource("1_osag5")]
 position = Vector2(282, 140)
@@ -79,6 +79,8 @@ mapSlot = true
 [node name="FrameTileSlot9" parent="TileFrame2" instance=ExtResource("1_osag5")]
 position = Vector2(346, 172)
 mapSlot = true
+pregeneratedTile = true
+tileData = ExtResource("7_56aqq")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0

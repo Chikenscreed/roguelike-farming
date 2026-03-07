@@ -8,6 +8,7 @@ extends Area2D
 @onready var east: Sprite2D = $east
 @onready var south: Sprite2D = $south
 @onready var west: Sprite2D = $west
+@onready var extra: Sprite2D = $extra
 
 
 #bit masks for the entrances: 
@@ -129,8 +130,13 @@ func showEntrances() -> void:
 		west.visible = true
 	pass
 
+func showExtras() -> void:
+	if tileData.extras != []: 
+		extra.texture = tileData.extras[0].previewSprite
+		extra.visible = true
 
 func createVisualisation() -> void:
 	showEntrances()
+	showExtras()
 	background.texture = tileData.tileStyle.previewTileBackground
 	pass
