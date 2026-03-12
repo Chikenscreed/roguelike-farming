@@ -1,9 +1,9 @@
 extends Control
 
 
-@onready var tile_frame_2: Control = $TileFrame2
 
 signal exportAllRooms(dict: Dictionary)
+@onready var dungeon_frame: DungeonFrame = $DungeonFrame
 
 
 # Called when the node enters the scene tree for the first time.
@@ -69,10 +69,10 @@ func submitDungeon() -> void:
 	var allRooms: Dictionary = {}
 	var x: int = 0
 	var y: int = 0
-	for room in tile_frame_2.get_children():
+	for room in dungeon_frame.get_children():
 		room = room as MapTile
-		x = counter / 3
-		y = counter % 3
+		x = counter / dungeon_frame.dimensions.x
+		y = counter % dungeon_frame.dimensions.y
 		allRooms.set(Vector2(x,y), room.tileData)
 		counter += 1
 	exportAllRooms.emit(allRooms)

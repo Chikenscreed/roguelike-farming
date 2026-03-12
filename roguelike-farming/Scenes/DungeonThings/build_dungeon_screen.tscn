@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/DungeonThings/Resources/Tile.gd" id="5_56aqq"]
 [ext_resource type="Texture2D" uid="uid://d02bahh1vu8m4" path="res://Sprites/dungeonSprites/Tiles/TilePreviews/baseBackground.png" id="5_ge5sd"]
 [ext_resource type="Script" uid="uid://hbkxdkqw2m7c" path="res://Scripts/DungeonThings/Resources/TileStyle.gd" id="6_56aqq"]
-[ext_resource type="Resource" uid="uid://dats1nuyd2ltt" path="res://Resources/exitTile.tres" id="7_56aqq"]
+[ext_resource type="PackedScene" uid="uid://bt5c4ofynwdn8" path="res://Scenes/DungeonThings/dungeon_frame.tscn" id="7_56aqq"]
 
 [sub_resource type="Resource" id="Resource_56aqq"]
 resource_local_to_scene = true
@@ -38,50 +38,6 @@ z_index = 1
 position = Vector2(94, 306)
 tileData = SubResource("Resource_c3imi")
 
-[node name="TileFrame2" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 1
-
-[node name="FrameTileSlot" parent="TileFrame2" instance=ExtResource("1_osag5")]
-position = Vector2(282, 108)
-mapSlot = true
-
-[node name="FrameTileSlot2" parent="TileFrame2" instance=ExtResource("1_osag5")]
-position = Vector2(314, 108)
-mapSlot = true
-
-[node name="FrameTileSlot3" parent="TileFrame2" instance=ExtResource("1_osag5")]
-position = Vector2(346, 108)
-mapSlot = true
-
-[node name="FrameTileSlot4" parent="TileFrame2" instance=ExtResource("1_osag5")]
-position = Vector2(282, 140)
-mapSlot = true
-
-[node name="FrameTileSlot5" parent="TileFrame2" instance=ExtResource("1_osag5")]
-position = Vector2(314, 140)
-mapSlot = true
-
-[node name="FrameTileSlot6" parent="TileFrame2" instance=ExtResource("1_osag5")]
-position = Vector2(346, 140)
-mapSlot = true
-
-[node name="FrameTileSlot7" parent="TileFrame2" instance=ExtResource("1_osag5")]
-position = Vector2(282, 172)
-mapSlot = true
-
-[node name="FrameTileSlot8" parent="TileFrame2" instance=ExtResource("1_osag5")]
-position = Vector2(314, 172)
-mapSlot = true
-
-[node name="FrameTileSlot9" parent="TileFrame2" instance=ExtResource("1_osag5")]
-position = Vector2(346, 172)
-mapSlot = true
-pregeneratedTile = true
-tileData = ExtResource("7_56aqq")
-
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 500.0
@@ -89,5 +45,9 @@ offset_top = 31.0
 offset_right = 630.0
 offset_bottom = 98.0
 text = "submit Dungeon"
+
+[node name="DungeonFrame" parent="." instance=ExtResource("7_56aqq")]
+position = Vector2(102, 36)
+dimensions = Vector2i(5, 3)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
