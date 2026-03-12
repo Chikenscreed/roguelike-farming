@@ -6,12 +6,20 @@ extends Node2D
 @export var mapTileSceen: PackedScene
 var sizeOfTile: int = 32
 @export var allRooms: Dictionary = {}
+var startRoom: Vector2i
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	placeHolderSlots()
-	placeExit()
+	var exitTile: Vector2i = placeExit()
+	var entranceTile: Vector2i = showDungeonEntrance()
+	while (entranceTile == exitTile):
+		entranceTile = showDungeonEntrance()
+	startRoom = entranceTile
+	allRooms.get(startRoom).setTile(preload("res://Resources/T_Example.tres"))
+	print(entranceTile)
+	
 
 func placeHolderSlots() -> void: 
 	var currentX: int = sizeOfTile/2
@@ -27,7 +35,7 @@ func placeHolderSlots() -> void:
 			currentX += sizeOfTile
 		currentY += sizeOfTile
 
-func placeExit() -> void: 
+func placeExit() ->Vector2i: 
 	var indicator = Vector2i(randi_range(0,dimensions.x-1), randi_range(0,dimensions.y-1))
 	var exitTileData = Tile_Data.new()
 	var exitextra = preload("res://Resources/DungeonExtras/exit.tres")
@@ -39,11 +47,14 @@ func placeExit() -> void:
 	while( !checkPlacement(indicator, exitTileData)):
 		exitTileData.currentEntrances = generateEntrances()
 	selectedTile.setTile(exitTileData)
+	selectedTile.pregeneratedTile = true
+	return indicator
+	
 	
 func generateEntrances() -> int:
 	return randi_range(1,15)
 
-
+# probably can reuse this to check if the placed Entrance works too
 func checkPlacement(pos: Vector2i, currEntrances: Tile_Data) -> bool:
 	var indexY = dimensions.y-1
 	var indexX = dimensions.x -1
@@ -72,3 +83,15 @@ func checkPlacement(pos: Vector2i, currEntrances: Tile_Data) -> bool:
 			else: 
 				return true
 	return false
+
+func showDungeonEntrance() -> Vector2i:
+	var numY = randi_range(0,dimensions.y-1)
+	var numX: int
+	if(numY == 0 || numY == dimensions.y-1):
+		numX = randi_range(0,dimensions.x-1)
+	else:
+		if randi_range(0,1) == 0:
+			numX = 0
+		else:
+			numX = dimensions.x-1
+	return Vector2i(numX, numY)

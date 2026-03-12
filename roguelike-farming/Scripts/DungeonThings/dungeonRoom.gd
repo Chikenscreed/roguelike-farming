@@ -35,7 +35,7 @@ func _ready() -> void:
 	setUp()
 	pass # Replace with function body.
 
-func setTileData(data) -> void:
+func setTileData(data: Tile_Data) -> void:
 	tileData = data
 
 #

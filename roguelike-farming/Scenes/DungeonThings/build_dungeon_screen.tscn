@@ -48,6 +48,6 @@ text = "submit Dungeon"
 
 [node name="DungeonFrame" parent="." instance=ExtResource("7_56aqq")]
 position = Vector2(102, 36)
-dimensions = Vector2i(5, 3)
+dimensions = Vector2i(5, 5)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

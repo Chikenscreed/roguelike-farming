@@ -13,9 +13,9 @@ extends Node2D
 
 var templateRoom = preload("res://Scenes/DungeonThings/dungeon_room.tscn")
 
-var allDungeonScenes: Dictionary = {}
+var allDungeonScenes: Dictionary[Vector2i, Node] = {}
 
-var posOfPlayer: Vector2 = Vector2(0,0)
+var posOfPlayer: Vector2i
 var playerTransformation: Transform2D
 
 const playerPosNorth: Vector2 = Vector2(144, 48)
@@ -44,11 +44,12 @@ func _process(_delta: float) -> void:
 	#pass
 
 
-func _on_build_dungeon_screen_export_all_rooms(dict: Dictionary) -> void:
+func _on_build_dungeon_screen_export_all_rooms(dict: Dictionary, startRoom: Vector2i) -> void:
 	print("got the signal")
+	posOfPlayer = startRoom
 	#here i would have to loop through the key value pairs and generate the scenes
 	for key in dict.keys():
-		var tileData = dict.get(key)
+		var tileData = dict.get(key).tileData
 		if (tileData != null):
 			var newRoom = templateRoom.instantiate()
 			newRoom.setTileData(tileData)
@@ -57,28 +58,29 @@ func _on_build_dungeon_screen_export_all_rooms(dict: Dictionary) -> void:
 		else:
 			allDungeonScenes.set(key, null)
 	print("got them all I guess")
-	startInBeginningRoom()
+	startInBeginningRoom(startRoom)
 	pass # Replace with function body.
 
 
 func movePlayerToNextRoom(directio: Enums.DIRECTION) -> void:
 	print("move player to ", directio)
-	var movement: Vector2
-	var playerPosInDungeon: Vector2
+	var movement: Vector2i
+	var playerPosInDungeon: Vector2i
 	match directio:
 		Enums.DIRECTION.NORTH:
 			playerPosInDungeon = playerPosSouth
-			movement= Vector2(-1,-0)
+			movement= Vector2i(0,-1)
 		Enums.DIRECTION.SOUTH:
 			playerPosInDungeon = playerPosNorth
-			movement = Vector2(1,0)
+			movement = Vector2i(0,1)
 		Enums.DIRECTION.WEST:
 			playerPosInDungeon = playerPosEast
-			movement = Vector2(0, -1)
+			movement = Vector2i(-1, 0)
 		Enums.DIRECTION.EAST:
 			playerPosInDungeon = playerPosWest
-			movement = Vector2(0,1)
+			movement = Vector2i(1,0)
 	var futureRoom = posOfPlayer + movement
+	var room = allDungeonScenes.get(futureRoom)
 	if (allDungeonScenes.get(futureRoom) != null):
 		var testing = testIfRoomsConnect(posOfPlayer, futureRoom)
 		if(testing):
@@ -97,24 +99,24 @@ func movePlayerToNextRoom(directio: Enums.DIRECTION) -> void:
 	#move player into fitting position in new room
 	pass
 
-func testIfRoomsConnect(start: Vector2, dest: Vector2) -> bool:
+func testIfRoomsConnect(start: Vector2i, dest: Vector2i) -> bool:
 	var beginRoom: Tile_Data = allDungeonScenes.get(start).tileData
 	var destRoom: Tile_Data = allDungeonScenes.get(dest).tileData
-	var direction: Vector2 = start - dest
+	var direction: Vector2i = start - dest
 	match direction:
-		Vector2(-1,0):
+		Vector2i(0,-1):
 			return beginRoom.isSouth() and destRoom.isNorth()
-		Vector2(1,0):
+		Vector2i(0,1):
 			return beginRoom.isNorth() and destRoom.isSouth()
-		Vector2(0,-1):
+		Vector2i(-1,0):
 			return beginRoom.isEast() and destRoom.isWest()
-		Vector2(0,1):
+		Vector2i(1,0):
 			return beginRoom.isWest() and destRoom.isEast()			
 	return false
 
 
-func startInBeginningRoom() -> void:
-	var room = allDungeonScenes.get(Vector2(0,0))
+func startInBeginningRoom(startRoom: Vector2i) -> void:
+	var room = allDungeonScenes.get(startRoom)
 	room.makePlayable()
 	test_player.visible = true
 	test_player.position = playerPosNorth

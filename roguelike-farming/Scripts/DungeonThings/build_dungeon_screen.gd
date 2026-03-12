@@ -2,7 +2,7 @@ extends Control
 
 
 
-signal exportAllRooms(dict: Dictionary)
+signal exportAllRooms(dict: Dictionary, startRoom: Vector2i)
 @onready var dungeon_frame: DungeonFrame = $DungeonFrame
 
 
@@ -29,7 +29,7 @@ func rotateTile() -> void:
 	var all = getTheTileFromScreen()
 	for hit in all:
 		var something = hit.collider as MapTile
-		if something != null :
+		if something != null && !something.pregeneratedTile:
 			print("Current rep: ", something.tileData.currentEntrances, "NEW REP: ", something.tileData.currentEntrances >>1)
 			something.tileData.currentEntrances = (something.tileData.currentEntrances << 1) | ((something.tileData.currentEntrances & Tile_Data.WEST) >> 3)
 			something.showEntrances()
@@ -63,22 +63,9 @@ func _on_frame_tile_slot_area_entered(_area: Area2D) -> void:
 	print("something entered")
 	pass # Replace with function body.
 
-#this dunction wopuld have to transform the slots into a dictionary with Vector2 as keys?
-func submitDungeon() -> void: 
-	var counter = 0
-	var allRooms: Dictionary = {}
-	var x: int = 0
-	var y: int = 0
-	for room in dungeon_frame.get_children():
-		room = room as MapTile
-		x = counter / dungeon_frame.dimensions.x
-		y = counter % dungeon_frame.dimensions.y
-		allRooms.set(Vector2(x,y), room.tileData)
-		counter += 1
-	exportAllRooms.emit(allRooms)
-	self.visible = false
-	pass
 
 
 func _on_button_pressed() -> void:
-	submitDungeon()
+	exportAllRooms.emit(dungeon_frame.allRooms, dungeon_frame.startRoom)
+	self.set_deferred("visible", false)
+	print("pressed the button")
