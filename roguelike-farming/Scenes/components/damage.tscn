@@ -1,8 +1,18 @@
 [gd_scene load_steps=2 format=3 uid="uid://kiqbj53npsmo"]
 
-[ext_resource type="Script" uid="uid://j1mxfi070yns" path="res://Scripts/components/damage.gd" id="1_pig1n"]
+[sub_resource type="GDScript" id="GDScript_frk82"]
+script/source = "extends Area2D
+
+@export var attack_damage := 2
+
+func _on_hitbox_area_entered(_area: Area2D) -> void:
+	if _area is HitboxComponent:
+		var attack = Attack.new()
+		attack.attack_damage = attack_damage
+		_area.damage(attack, global_position)
+"
 
 [node name="Damage Hitbox" type="Area2D"]
-script = ExtResource("1_pig1n")
+script = SubResource("GDScript_frk82")
 
 [connection signal="area_entered" from="." to="." method="_on_hitbox_area_entered"]

@@ -1,0 +1,17 @@
+extends Area2D
+
+@export var attack_damage: float
+@export var critical := false
+@export var knockback_power:= 1.0
+
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is HitboxComponent:
+		print("Attacked: " + str(area.get_parent()))
+		var attack = Attack.new()
+		attack.attack_damage = attack_damage
+		attack.critical = critical
+		attack.knockback_power = knockback_power
+		attack.damage_position = global_position
+		area.damage(attack)
