@@ -9,7 +9,6 @@ size = Vector2(32, 32)
 [node name="Exit" type="Area2D"]
 collision_layer = 64
 collision_mask = 9
-monitoring = false
 script = ExtResource("1_2fdpf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

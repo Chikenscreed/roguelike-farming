@@ -90,47 +90,21 @@ func transformDoorCoordsToEntranceCords(coords: Vector2) -> Vector2:
 	var y = coords.y * tileSize 
 	return Vector2(x,y)
 
-func disableEntrances() -> void:
-	for entrance in entrances.get_children():
-		entrance.set_deferred("monitoring", false)
-
-func enableEntrances() -> void:
-	for entrance in entrances.get_children():
-		entrance.set_deferred("monitoring", true)
-
 
 func makePlayable() -> void:
-	enableEntrances()
-	enableAllAreas()
+
 	self.visible = true
 	
 	tile_map_layer.set_deferred("enabled", true)
 	self.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 
 func makeUnplayable() -> void:
-	disableEntrances()
-	disableAllAreas()
+
 	self.visible = false
 	
 	tile_map_layer.set_deferred("enabled", false)
 	self.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	
-func disableAllAreas() -> void:
-	var allChildren = get_children(true)
-	for child in get_children(true):
-		if child is Enemy:
-			child.disableAllAreas()
-		if child is Area2D:
-			child.set_deferred("monitoring", false)
-			child.set_deferred("monitorable", false)
-	
-func enableAllAreas() -> void:
-	for child in get_children(true):
-		if child is Enemy:
-			child.enableAllAreas()
-		if child is Area2D:
-			child.set_deferred("monitoring", true)
-			child.set_deferred("monitorable", true)
 
 func addExtras() -> void:
 	for extra in tileData.extras:
