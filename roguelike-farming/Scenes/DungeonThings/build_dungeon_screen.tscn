@@ -1,27 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh7xfp5urcint"]
+[gd_scene load_steps=3 format=3 uid="uid://bh7xfp5urcint"]
 
 [ext_resource type="Script" uid="uid://c07xhhm6qn82g" path="res://Scripts/DungeonThings/build_dungeon_screen.gd" id="1_lr1r3"]
-[ext_resource type="PackedScene" uid="uid://bpu63gkkg4cjy" path="res://Scenes/DungeonThings/mapTile.tscn" id="1_osag5"]
-[ext_resource type="Script" uid="uid://cwqxp04862h6e" path="res://Scripts/DungeonThings/Resources/DungeonExtrasResourceScripts/DungeonExtras.gd" id="3_hhbgv"]
-[ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/DungeonThings/Resources/Tile.gd" id="5_56aqq"]
-[ext_resource type="Texture2D" uid="uid://d02bahh1vu8m4" path="res://Sprites/dungeonSprites/Tiles/TilePreviews/baseBackground.png" id="5_ge5sd"]
-[ext_resource type="Script" uid="uid://hbkxdkqw2m7c" path="res://Scripts/DungeonThings/Resources/TileStyle.gd" id="6_56aqq"]
 [ext_resource type="PackedScene" uid="uid://bt5c4ofynwdn8" path="res://Scenes/DungeonThings/dungeon_frame.tscn" id="7_56aqq"]
-
-[sub_resource type="Resource" id="Resource_56aqq"]
-resource_local_to_scene = true
-script = ExtResource("6_56aqq")
-name = "baseStyle"
-previewTileBackground = ExtResource("5_ge5sd")
-metadata/_custom_type_script = "uid://hbkxdkqw2m7c"
-
-[sub_resource type="Resource" id="Resource_c3imi"]
-resource_local_to_scene = true
-script = ExtResource("5_56aqq")
-name = "T"
-entranceComposition = 7
-tileStyle = SubResource("Resource_56aqq")
-metadata/_custom_type_script = "uid://fj0p44iwfaup"
 
 [node name="BuildDungeonScreen" type="Control"]
 layout_mode = 3
@@ -32,11 +12,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_lr1r3")
-
-[node name="WestEast" parent="." instance=ExtResource("1_osag5")]
-z_index = 1
-position = Vector2(94, 306)
-tileData = SubResource("Resource_c3imi")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -49,5 +24,8 @@ text = "submit Dungeon"
 [node name="DungeonFrame" parent="." instance=ExtResource("7_56aqq")]
 position = Vector2(102, 36)
 dimensions = Vector2i(5, 5)
+
+[node name="Panel" type="Node2D" parent="."]
+position = Vector2(1, 306)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

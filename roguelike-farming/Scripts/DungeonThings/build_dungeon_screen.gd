@@ -4,10 +4,12 @@ extends Control
 
 signal exportAllRooms(dict: Dictionary, startRoom: Vector2i)
 @onready var dungeon_frame: DungeonFrame = $DungeonFrame
+@onready var panel: Node2D = $Panel
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	placeTileSelection()
 	pass # Replace with function body.
 
 
@@ -69,3 +71,17 @@ func _on_button_pressed() -> void:
 	exportAllRooms.emit(dungeon_frame.allRooms, dungeon_frame.startRoom)
 	self.set_deferred("visible", false)
 	print("pressed the button")
+
+
+func placeTileSelection() -> void:
+	var nextPos : Vector2 = Vector2(32,0)
+	var offset: Vector2 = Vector2(35,0)
+	var tile = preload("res://Scenes/DungeonThings/mapTile.tscn")
+	for holder in GlobalPlayerInventory.tileInventory.keys():
+		var newTile = tile.instantiate()
+		panel.add_child(newTile)
+		newTile.setTile(holder, false)
+		newTile.position = nextPos
+		newTile.snapBackPos = newTile.position
+		nextPos += offset
+		pass

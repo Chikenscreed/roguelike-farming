@@ -17,7 +17,7 @@ func _ready() -> void:
 	while (entranceTile == exitTile):
 		entranceTile = showDungeonEntrance()
 	startRoom = entranceTile
-	allRooms.get(startRoom).setTile(preload("res://Resources/T_Example.tres"))
+	allRooms.get(startRoom).setTile(preload("res://Resources/T_Example.tres"), false)
 	print(entranceTile)
 	
 
@@ -46,7 +46,7 @@ func placeExit() ->Vector2i:
 	exitTileData.currentEntrances =  generateEntrances()
 	while( !checkPlacement(indicator, exitTileData)):
 		exitTileData.currentEntrances = generateEntrances()
-	selectedTile.setTile(exitTileData)
+	selectedTile.setTile(exitTileData, true)
 	selectedTile.pregeneratedTile = true
 	return indicator
 	

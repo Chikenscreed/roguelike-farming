@@ -75,7 +75,7 @@ func _input(event):
 				#getSlot()
 				testWithIntersectPoint()
 	if event is InputEventMouseMotion and isPressed:
-		self.position = get_global_mouse_position()
+		self.global_position = get_global_mouse_position()
 
 func resetTileData() -> void:
 	tileData = null
@@ -93,15 +93,17 @@ func snapback() -> void:
 	glideTween.tween_property(self, "position", snapBackPos, 0.1)
 	#position = snapBackPos
 
-func setTile(data: Tile_Data) -> void:
+func setTile(data: Tile_Data, isExitTile: bool) -> void:
 	print(data.name)
 	self.tileData = data.duplicate()
+	if(!isExitTile):
+		tileData.currentEntrances = tileData.entranceComposition
 	createVisualisation()
 
 func getSlot() -> void: 
 	if(get_overlapping_areas().size() >0):
 		var chosenSlot: MapTile = get_overlapping_areas()[0] as MapTile
-		chosenSlot.setTile(self.tileData)
+		chosenSlot.setTile(self.tileData, false)
 	pass 
 
 
@@ -115,7 +117,7 @@ func testWithIntersectPoint() -> void:
 		var s: MapTile = slot.collider as MapTile
 		if s != null:
 			if(s.mapSlot and !s.pregeneratedTile):
-				s.setTile(self.tileData)
+				s.setTile(self.tileData, false)
 
 
 func showEntrances() -> void: 

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalEventBus="*res://Scripts/eventBus.gd"
 Global="*res://autoloads/global.gd"
+GlobalPlayerInventory="*res://Scripts/playerInventory.gd"
 
 [display]
 
