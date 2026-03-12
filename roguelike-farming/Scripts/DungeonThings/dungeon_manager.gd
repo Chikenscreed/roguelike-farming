@@ -80,7 +80,6 @@ func movePlayerToNextRoom(directio: Enums.DIRECTION) -> void:
 			playerPosInDungeon = playerPosWest
 			movement = Vector2i(1,0)
 	var futureRoom = posOfPlayer + movement
-	var room = allDungeonScenes.get(futureRoom)
 	if (allDungeonScenes.get(futureRoom) != null):
 		var testing = testIfRoomsConnect(posOfPlayer, futureRoom)
 		if(testing):

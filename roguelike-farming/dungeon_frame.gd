@@ -54,35 +54,22 @@ func placeExit() ->Vector2i:
 func generateEntrances() -> int:
 	return randi_range(1,15)
 
-# probably can reuse this to check if the placed Entrance works too
+# checks if there is one "valid" exit. Works on bitmasks 
 func checkPlacement(pos: Vector2i, currEntrances: Tile_Data) -> bool:
 	var indexY = dimensions.y-1
-	var indexX = dimensions.x -1
-	match pos.y:
-		0:
-			if(pos.x != 0 && pos.x != indexX):
-				return currEntrances.isSouth() || currEntrances.isEast() || currEntrances.isWest()
-			else:
-				if(pos.x == 0):
-					return currEntrances.isEast() || currEntrances.isSouth()
-				elif(pos.x == indexX):
-					return currEntrances.isSouth() || currEntrances.isWest()
-		indexY:
-			if(pos.x != 0 && pos.x != indexX):
-				return currEntrances.isNorth() || currEntrances.isWest() || currEntrances.isEast()
-			else:
-				if(pos.x == 0):
-					return currEntrances.isNorth() || currEntrances.isEast()
-				if(pos.x == indexX):
-					return currEntrances.isWest() || currEntrances.isNorth()
-		_:
-			if (pos.x == 0):
-				return currEntrances.isEast() || currEntrances.isSouth() || currEntrances.isNorth()
-			elif (pos.x == indexX):
-				return currEntrances.isWest() || currEntrances.isSouth() || currEntrances.isNorth()
-			else: 
-				return true
-	return false
+	var indexX = dimensions.x-1
+	var forbiddenEntrances = 0b0000
+	if pos.y == 0:
+		forbiddenEntrances |= Tile_Data.NORTH
+	if pos.y == indexY:
+		forbiddenEntrances |= Tile_Data.SOUTH
+	if pos.x == 0:
+		forbiddenEntrances |= Tile_Data.WEST
+	if pos.x == indexX:
+		forbiddenEntrances |= Tile_Data.EAST
+	var valid = currEntrances.currentEntrances &~ forbiddenEntrances
+	return valid >0
+
 
 func showDungeonEntrance() -> Vector2i:
 	var numY = randi_range(0,dimensions.y-1)
