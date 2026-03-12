@@ -102,14 +102,18 @@ func enableEntrances() -> void:
 func makePlayable() -> void:
 	enableEntrances()
 	enableAllAreas()
-	tile_map_layer.enabled = true
 	self.visible = true
+	
+	tile_map_layer.set_deferred("enabled", true)
+	self.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 
 func makeUnplayable() -> void:
 	disableEntrances()
 	disableAllAreas()
-	tile_map_layer.enabled = false
 	self.visible = false
+	
+	tile_map_layer.set_deferred("enabled", false)
+	self.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 	
 func disableAllAreas() -> void:
 	var allChildren = get_children(true)

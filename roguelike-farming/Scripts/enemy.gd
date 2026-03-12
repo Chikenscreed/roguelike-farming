@@ -1,29 +1,14 @@
 class_name Enemy
 extends Node2D
 
+@export var health = 10
+
 @onready var loot_drop : LootDropComponent = $"Loot Drops"
-@onready var health : HealthComponent = $Health
+@onready var health_component : HealthComponent = $HealthComponent
+@onready var sprite: Sprite2D = $Sprite2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. '_delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
-func _on_button_pressed() -> void: # Nur als ersatz für einen Angriff
-	var attack = Attack.new()
-	attack.attack_damage = 3
-	health.damage(attack, Vector2.ZERO)
-
-
-
-func _on_health_is_dead() -> void:
-	loot_drop.drop_item()
-	queue_free()
+	health_component.setup(health, sprite)
 
 
 func disableAllAreas() -> void:
@@ -37,3 +22,9 @@ func enableAllAreas() -> void:
 		if child is Area2D:
 			child.set_deferred("monitoring", true)
 			child.set_deferred("monitorable", true)
+
+
+func _on_hurtbox_on_damaged(hitbox: HitboxComponent) -> void:
+	if health_component.current_health <= 0:
+		return
+	health_component.take_damage(hitbox.damage)

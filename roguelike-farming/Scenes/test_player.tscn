@@ -1,41 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://i02wi8njxgrb"]
+[gd_scene load_steps=9 format=3 uid="uid://i02wi8njxgrb"]
 
 [ext_resource type="Script" uid="uid://clkie2iwhrego" path="res://Scripts/player.gd" id="1_qkid2"]
 [ext_resource type="Texture2D" uid="uid://cjj7f3kmlyoao" path="res://Sprites/character.png" id="2_qv8u8"]
-[ext_resource type="PackedScene" uid="uid://cuv25c8obkyjr" path="res://Scenes/components/hitbox.tscn" id="3_qv8u8"]
-[ext_resource type="PackedScene" uid="uid://dlx21517qvpay" path="res://Scenes/components/health.tscn" id="4_3a3hx"]
+[ext_resource type="PackedScene" uid="uid://c8kr15caehnb2" path="res://Scenes/components/health.tscn" id="4_3a3hx"]
+[ext_resource type="Script" uid="uid://cm7t6cqk0rdav" path="res://Scripts/components/hurtbox.gd" id="5_2ko2x"]
+[ext_resource type="PackedScene" uid="uid://cbqsayir5ml0t" path="res://Scenes/components/health_bar.tscn" id="5_3a3hx"]
+[ext_resource type="PackedScene" uid="uid://jufirx7javif" path="res://Scenes/attacks/basic_attack.tscn" id="6_2ko2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3a3hx"]
-size = Vector2(14, 15.5)
+size = Vector2(10, 13)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ko2x"]
-size = Vector2(14, 15.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct3of"]
+size = Vector2(12, 15)
 
 [node name="TestPlayer" type="CharacterBody2D"]
-collision_layer = 8
-collision_mask = 9
+collision_mask = 66
 script = ExtResource("1_qkid2")
 speed = 180.0
+health = 10.0
 dash_duration = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("2_qv8u8")
 hframes = 3
 vframes = 4
 
 [node name="AreaCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.25)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_3a3hx")
-
-[node name="Hitbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_qv8u8")]
-health_component = NodePath("../Health")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 0.25)
-shape = SubResource("RectangleShape2D_2ko2x")
-
-[node name="Health" parent="." instance=ExtResource("4_3a3hx")]
-MAX_HEALTH = 12.0
 
 [node name="dash_timer" type="Timer" parent="."]
 one_shot = true
@@ -43,7 +36,30 @@ one_shot = true
 [node name="dash_cooldown_timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="damage_taken" from="Health" to="." method="apply_knockback"]
-[connection signal="isDead" from="Health" to="." method="_is_dead"]
+[node name="HealthBar" parent="." instance=ExtResource("5_3a3hx")]
+offset_left = -2.0
+offset_top = -24.0
+offset_right = -2.0
+offset_bottom = -24.0
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16
+script = ExtResource("5_2ko2x")
+metadata/_custom_type_script = "uid://cm7t6cqk0rdav"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ct3of")
+debug_color = Color(0.8800434, 0.2781528, 0.5030166, 0.41960785)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_3a3hx")]
+
+[node name="Basic_attack" parent="." instance=ExtResource("6_2ko2x")]
+position = Vector2(-27, 4.7683716e-07)
+
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown_timer" to="." method="_on_dash_cooldown_timer_timeout"]
+[connection signal="area_entered" from="HurtboxComponent" to="HurtboxComponent" method="_on_area_entered"]
+[connection signal="on_damaged" from="HurtboxComponent" to="." method="_on_hurtbox_component_on_damaged"]
+[connection signal="on_health_changed" from="HealthComponent" to="HealthBar" method="_on_health_component_on_health_changed"]

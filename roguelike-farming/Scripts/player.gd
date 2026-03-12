@@ -8,10 +8,13 @@ extends CharacterBody2D
 @export var dash_speed_multi := 2.5
 @export var dash_cooldown := 0.5
 
+@onready var health_component: HealthComponent = $HealthComponent
+@onready var basic_attack: BasicAttack = $Basic_attack
+
 @onready var dash_cooldown_timer: Timer = $dash_cooldown_timer
 @onready var dash_timer: Timer = $dash_timer
 @onready var visuals: Sprite2D = $Sprite2D
-@onready var collision: CollisionShape2D = $Hitbox/CollisionShape2D
+@onready var collision: CollisionShape2D = $AreaCollision
 
 var move_dir: Vector2
 var is_dashing := false
@@ -38,11 +41,17 @@ func _physics_process(_delta: float) -> void:
 			velocity = move_dir * speed
 	update_rotation()
 	move_and_slide()
+	basic_attack.global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("dash") and can_dash():
 		dash()
 	
 func _process(_delta: float) -> void:
 	check_action_input()
+	
+func _input(event):
+	if event.is_action_pressed("attack"):
+		basic_attack.attack()
+		
 
 func _is_dead() -> void:
 	queue_free()
@@ -54,6 +63,7 @@ func can_dash() -> bool:
 func _ready() -> void:
 	dash_timer.wait_time = dash_duration
 	dash_cooldown_timer.wait_time = dash_cooldown
+	health_component.setup(health, visuals)
 
 func check_action_input():
 	if Input.is_action_just_pressed("action"):
@@ -108,3 +118,11 @@ func _on_dash_timer_timeout() -> void:
 
 func _on_dash_cooldown_timer_timeout() -> void:
 	pass # Replace with function body.
+
+
+func _on_hurtbox_component_on_damaged(hitbox: HitboxComponent) -> void:
+	print("Enemy Hurtbox collided with", hitbox.name)
+	apply_knockback(hitbox.global_position)
+	if health_component.current_health <= 0:
+		return
+	health_component.take_damage(hitbox.damage)

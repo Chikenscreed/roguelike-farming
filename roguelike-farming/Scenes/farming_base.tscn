@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://fxs7rd0ibiyw"]
+[gd_scene load_steps=12 format=4 uid="uid://fxs7rd0ibiyw"]
 
 [ext_resource type="Texture2D" uid="uid://cc8xm8k16dam1" path="res://tileMap/gras.png" id="1_02man"]
 [ext_resource type="Script" uid="uid://r6m3dp53kiuj" path="res://Scripts/farming_base.gd" id="1_5f142"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cmlcmbcx6qqk8" path="res://tileMap/soil.png" id="2_ud1cg"]
 [ext_resource type="PackedScene" uid="uid://i02wi8njxgrb" path="res://Scenes/test_player.tscn" id="3_5f142"]
 [ext_resource type="PackedScene" uid="uid://etjai5vm2tnp" path="res://Scenes/game.tscn" id="3_qeqr8"]
+[ext_resource type="PackedScene" uid="uid://s8jyc8t806gc" path="res://Scenes/enemy.tscn" id="7_dwpgp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qeqr8"]
 texture = ExtResource("1_02man")
@@ -205,6 +206,9 @@ offset_top = 25.0
 offset_right = 599.0
 offset_bottom = 56.0
 text = "Enter the Dungeon"
+
+[node name="Enemy" parent="." instance=ExtResource("7_dwpgp")]
+position = Vector2(323, 153)
 
 [connection signal="action" from="Objects/TestPlayer" to="." method="_on_player_action"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
