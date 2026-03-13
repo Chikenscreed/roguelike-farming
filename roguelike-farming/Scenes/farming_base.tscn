@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://r6m3dp53kiuj" path="res://Scripts/farming_base.gd" id="1_5f142"]
 [ext_resource type="PackedScene" uid="uid://bdrnscehyw88x" path="res://Scenes/crops/carrot.tscn" id="2_5f142"]
 [ext_resource type="Texture2D" uid="uid://cmlcmbcx6qqk8" path="res://tileMap/soil.png" id="2_ud1cg"]
-[ext_resource type="PackedScene" uid="uid://i02wi8njxgrb" path="res://Scenes/test_player.tscn" id="3_5f142"]
+[ext_resource type="PackedScene" uid="uid://i02wi8njxgrb" path="res://Scenes/player.tscn" id="3_5f142"]
 [ext_resource type="PackedScene" uid="uid://etjai5vm2tnp" path="res://Scenes/game.tscn" id="3_qeqr8"]
 [ext_resource type="PackedScene" uid="uid://s8jyc8t806gc" path="res://Scenes/enemy.tscn" id="7_dwpgp"]
 

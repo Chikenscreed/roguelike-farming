@@ -17,6 +17,7 @@ func _ready() -> void:
 	while (entranceTile == exitTile):
 		entranceTile = showDungeonEntrance()
 	startRoom = entranceTile
+	#this is only for now to show the start entrance
 	allRooms.get(startRoom).setTile(preload("res://Resources/T_Example.tres"), false)
 	print(entranceTile)
 	
