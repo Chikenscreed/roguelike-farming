@@ -1,0 +1,55 @@
+[gd_scene load_steps=12 format=3 uid="uid://s8jyc8t806gc"]
+
+[ext_resource type="Script" uid="uid://d2m2v46s1u3a3" path="res://Scripts/enemy.gd" id="1_0830c"]
+[ext_resource type="Texture2D" uid="uid://c1qqi6g6kfdu" path="res://Sprites/enemy.png" id="2_8uf12"]
+[ext_resource type="PackedScene" uid="uid://cuv25c8obkyjr" path="res://Scenes/components/hitbox.tscn" id="2_287tu"]
+[ext_resource type="PackedScene" uid="uid://c8kr15caehnb2" path="res://Scenes/components/health.tscn" id="3_0830c"]
+[ext_resource type="PackedScene" uid="uid://digghbs860g2w" path="res://Scenes/components/loot_drops.tscn" id="4_287tu"]
+[ext_resource type="PackedScene" uid="uid://d0mgbk486wkp" path="res://Scenes/item_drop/test_item_1.tscn" id="6_auwsv"]
+[ext_resource type="PackedScene" uid="uid://bmcv6hf434wxy" path="res://Scenes/item_drop/test_item_2.tscn" id="7_8uf12"]
+[ext_resource type="PackedScene" uid="uid://cbqsayir5ml0t" path="res://Scenes/components/health_bar.tscn" id="8_8uf12"]
+[ext_resource type="PackedScene" uid="uid://dernxttfh4ltj" path="res://Scenes/item_drop/test_item_3.tscn" id="8_po0sg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po0sg"]
+size = Vector2(30, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghaa6"]
+size = Vector2(36, 45)
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_0830c")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 24.0
+action_mode = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_po0sg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8uf12")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_287tu")]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_ghaa6")
+
+[node name="Loot Drops" parent="." instance=ExtResource("4_287tu")]
+item_drop = Array[PackedScene]([ExtResource("6_auwsv"), ExtResource("7_8uf12"), ExtResource("8_po0sg")])
+item_drop_chances = Array[float]([8.0, 4.0, 1.0])
+
+[node name="HealthBar" parent="." instance=ExtResource("8_8uf12")]
+offset_top = -34.0
+offset_bottom = -34.0
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_0830c")]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -16,6 +16,9 @@ extends CharacterBody2D
 @onready var visuals: Sprite2D = $Sprite2D
 @onready var collision: CollisionShape2D = $AreaCollision
 
+@onready var health_bar: HealthBar = $HealthBar
+@onready var hit_flash_player: AnimationPlayer = $Sprite2D/HitFlashPlayer
+
 var move_dir: Vector2
 var is_dashing := false
 var is_attacking := false
@@ -45,13 +48,11 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("dash") and can_dash():
 		dash()
 	
-func _process(_delta: float) -> void:
-	check_action_input()
-	
 func _input(event):
 	if event.is_action_pressed("attack"):
 		basic_attack.attack()
-		
+	if Input.is_action_just_pressed("action"):
+		action.emit(global_position)
 
 func _is_dead() -> void:
 	queue_free()
@@ -63,11 +64,7 @@ func can_dash() -> bool:
 func _ready() -> void:
 	dash_timer.wait_time = dash_duration
 	dash_cooldown_timer.wait_time = dash_cooldown
-	health_component.setup(health, visuals)
-
-func check_action_input():
-	if Input.is_action_just_pressed("action"):
-		action.emit(global_position)
+	health_component.max_health = health
 
 func apply_knockback(damage_position: Vector2) -> void:
 	var force = 150
@@ -120,9 +117,11 @@ func _on_dash_cooldown_timer_timeout() -> void:
 	pass # Replace with function body.
 
 
-func _on_hurtbox_component_on_damaged(hitbox: HitboxComponent) -> void:
-	print("Enemy Hurtbox collided with", hitbox.name)
-	apply_knockback(hitbox.global_position)
-	if health_component.current_health <= 0:
-		return
-	health_component.take_damage(hitbox.damage)
+func _on_health_component_damage_taken(damage_position: Vector2) -> void:
+	apply_knockback(damage_position)
+	hit_flash_player.play("hit_flash")
+	
+
+func _on_health_component_health_changed(current: float, max: float) -> void:
+	if health_bar:
+		health_bar.update_health_bar(current, max)
