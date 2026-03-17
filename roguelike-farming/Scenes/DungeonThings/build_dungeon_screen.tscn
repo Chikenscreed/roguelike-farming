@@ -23,7 +23,7 @@ text = "submit Dungeon"
 
 [node name="DungeonFrame" parent="." instance=ExtResource("7_56aqq")]
 position = Vector2(102, 36)
-dimensions = Vector2i(5, 5)
+dimensions = Vector2i(10, 10)
 
 [node name="Panel" type="Node2D" parent="."]
 position = Vector2(1, 306)
