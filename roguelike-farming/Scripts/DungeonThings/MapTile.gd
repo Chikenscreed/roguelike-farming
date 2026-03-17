@@ -96,7 +96,7 @@ func snapback() -> void:
 func setTile(data: Tile_Data, isExitTile: bool) -> void:
 	print(data.name)
 	self.tileData = data.duplicate()
-	if(!isExitTile):
+	if(tileData.currentEntrances == 0):
 		tileData.currentEntrances = tileData.entranceComposition
 	createVisualisation()
 

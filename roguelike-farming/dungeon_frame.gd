@@ -98,7 +98,6 @@ func calcNumOfPOITiles() -> int:
 
 #placing POI Tiles to encourage Player to keep exploring
 func placePOITiles(takenPos: Array[Vector2i]) -> void: 
-	
 	for num in calcNumOfPOITiles():
 		#maybe later we will have a selection, for now we only have chests
 		var poiTile: Tile_Data = Tile_Data.new()
