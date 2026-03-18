@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcfx4ao14l4cs"]
+
+[ext_resource type="Script" uid="uid://b6gh4e1gam46l" path="res://skillTree.gd" id="1_xv55j"]
+[ext_resource type="Script" uid="uid://dqynbhk8xr3aa" path="res://SkillPointButton.gd" id="2_lsc8l"]
+[ext_resource type="Texture2D" uid="uid://divljun6q4u1r" path="res://Sprites/DungeonFrameSkillPoint.png" id="2_r8g70"]
+[ext_resource type="Resource" uid="uid://e3ee7kwwvg1c" path="res://Resources/skilltreeResources/SkillResourcesResources/DungeonFrameExpansionX1.tres" id="3_lsc8l"]
+
+[node name="SkillTree Test" type="Node2D"]
+script = ExtResource("1_xv55j")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 69.0
+offset_top = 63.0
+offset_right = 101.0
+offset_bottom = 95.0
+texture_normal = ExtResource("2_r8g70")
+script = ExtResource("2_lsc8l")
+skill = ExtResource("3_lsc8l")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

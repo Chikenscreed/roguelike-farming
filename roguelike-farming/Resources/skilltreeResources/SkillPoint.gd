@@ -1,0 +1,6 @@
+class_name SkillPoint
+extends Resource
+
+@export var skillBase: SkillBase
+
+@export var price: int 
