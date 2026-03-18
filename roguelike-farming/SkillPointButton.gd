@@ -33,13 +33,20 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	skill.skillBase.functionality.execute()
-	activated = true
-	paintLines()
-	
+	if onePreviousSkillUnlocked():
+		skill.skillBase.functionality.execute()
+		activated = true
+		self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+		paintLines()
+
 func paintLines() -> void:
+	for child in get_parent().get_children():
+		if child.is_in_group(self.name):
+			child.queue_free()
+	
 	for skill in followingSkills:
 		var line: Line2D = Line2D.new()
+		line.add_to_group(self.name)
 		line.z_index = -1
 		line.width = 5
 		if(activated):
@@ -50,3 +57,12 @@ func paintLines() -> void:
 		line.add_point(Vector2(skill.position+skill.size/2))
 		get_parent().add_child(line)
 		pass
+
+func onePreviousSkillUnlocked() -> bool:
+	if previousSkills.is_empty():
+		return true
+	else:
+		for skill in previousSkills:
+			if skill.activated:
+				return true
+		return false

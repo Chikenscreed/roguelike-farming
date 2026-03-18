@@ -18,3 +18,5 @@ func drawLines() -> void:
 		if(child is SkillTreePointButton):
 			if(!child.followingSkills.is_empty()):
 				child.paintLines()
+		if(child is Line2D):
+			child.queue_free()

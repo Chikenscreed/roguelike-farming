@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://e3ee7kwwvg1c" path="res://Resources/skilltreeResources/SkillResourcesResources/DungeonFrameExpansionX1.tres" id="3_3fh8k"]
 
 [node name="SkillTreeButton" type="TextureButton"]
+self_modulate = Color(0.49354547, 0.49354553, 0.49354535, 1)
 offset_left = 69.0
 offset_top = 63.0
 offset_right = 101.0
