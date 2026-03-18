@@ -6,4 +6,6 @@ extends Resource
 
 @export var sprite: CompressedTexture2D
 
+@export var description: String
+
 @export var functionality: SkillFunctionality

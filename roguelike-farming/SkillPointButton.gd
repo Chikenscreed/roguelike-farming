@@ -24,6 +24,8 @@ const unlockedColorLine: Color = Color(0.0, 0.42, 0.843, 1.0)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.pressed.connect(_on_pressed)
+	self.mouse_entered.connect(showInfo)
+	self.mouse_exited.connect(removeInfo)
 	pass # Replace with function body.
 
 
@@ -66,3 +68,16 @@ func onePreviousSkillUnlocked() -> bool:
 			if skill.activated:
 				return true
 		return false
+
+
+func showInfo() -> void:
+	await get_tree().create_timer(0.2).timeout
+	if(is_hovered()):
+		var desc: SkillDescriptionpanel = preload("res://Scenes/SkillTreeStuff/skill_description.tscn").instantiate()
+		add_child(desc)
+		desc.showDesc(skill.skillBase.description, Vector2(size))
+	pass
+	
+func removeInfo() -> void:
+	if get_children().size() >0:
+		get_child(0).queue_free()

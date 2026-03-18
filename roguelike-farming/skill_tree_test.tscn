@@ -11,23 +11,26 @@ offset_left = 281.0
 offset_top = 215.0
 offset_right = 313.0
 offset_bottom = 247.0
-followingSkills = [NodePath("../2"), NodePath("../3"), NodePath("../4")]
+tooltip_text = "This Skill expands the dunegon frame by 1 in x direction"
+followingSkills = [NodePath("../2"), NodePath("../4")]
 
-[node name="2" parent="." instance=ExtResource("2_xv55j")]
+[node name="2" parent="." node_paths=PackedStringArray("followingSkills") instance=ExtResource("2_xv55j")]
 offset_left = 380.0
 offset_top = 154.0
 offset_right = 412.0
 offset_bottom = 186.0
+tooltip_text = "This Skill expands the dunegon frame by 1 in x direction"
+followingSkills = [NodePath("../3")]
 
-[node name="3" parent="." node_paths=PackedStringArray("followingSkills") instance=ExtResource("2_xv55j")]
-offset_left = 327.0
-offset_top = 70.0
-offset_right = 359.0
-offset_bottom = 102.0
-followingSkills = [NodePath("../4")]
-
-[node name="4" parent="." instance=ExtResource("2_xv55j")]
+[node name="4" parent="." node_paths=PackedStringArray("followingSkills") instance=ExtResource("2_xv55j")]
 offset_left = 211.0
 offset_top = 124.0
 offset_right = 243.0
 offset_bottom = 156.0
+tooltip_text = "This Skill expands the dunegon frame by 1 in x direction"
+followingSkills = [NodePath("../3")]
+
+[node name="3" parent="." node_paths=PackedStringArray("previousSkills") instance=ExtResource("2_xv55j")]
+offset_left = 309.0
+offset_right = 341.0
+previousSkills = [NodePath("../4"), NodePath("../2")]

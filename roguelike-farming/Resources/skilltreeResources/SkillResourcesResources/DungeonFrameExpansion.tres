@@ -7,5 +7,6 @@
 [resource]
 script = ExtResource("1_wra3i")
 sprite = ExtResource("3_tgky0")
+description = "This Skill expands the dunegon frame by 1 in x direction"
 functionality = ExtResource("1_od5et")
 metadata/_custom_type_script = "uid://c5qidpl7d2ipy"
