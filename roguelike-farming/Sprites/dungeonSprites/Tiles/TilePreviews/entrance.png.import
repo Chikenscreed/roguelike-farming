@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddjpr1dcoox5q"
-path="res://.godot/imported/Tile_w.png-f1ec27ef061a18acf55e0acc7824e2c7.ctex"
+uid="uid://die76cmcbia02"
+path="res://.godot/imported/entrance.png-98e68405b13e6f958d9453bdfe346710.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/dungeonSprites/Tiles/TilePreviews/Tile_w.png"
-dest_files=["res://.godot/imported/Tile_w.png-f1ec27ef061a18acf55e0acc7824e2c7.ctex"]
+source_file="res://Sprites/dungeonSprites/Tiles/TilePreviews/entrance.png"
+dest_files=["res://.godot/imported/entrance.png-98e68405b13e6f958d9453bdfe346710.ctex"]
 
 [params]
 

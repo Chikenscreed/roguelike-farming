@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Tile_Data" load_steps=4 format=3 uid="uid://cav6tlvtxgsnt"]
+
+[ext_resource type="Script" uid="uid://cwqxp04862h6e" path="res://Scripts/DungeonThings/Resources/DungeonExtrasResourceScripts/DungeonExtras.gd" id="1_a5ac0"]
+[ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/DungeonThings/Resources/Tile.gd" id="2_limqb"]
+[ext_resource type="Resource" uid="uid://c3qxx631eltg6" path="res://Resources/baseStyle.tres" id="3_limqb"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_limqb")
+name = "T"
+entranceComposition = 7
+tileStyle = ExtResource("3_limqb")
+metadata/_custom_type_script = "uid://fj0p44iwfaup"

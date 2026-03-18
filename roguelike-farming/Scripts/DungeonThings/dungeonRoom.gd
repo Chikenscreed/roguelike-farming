@@ -2,10 +2,10 @@ class_name DungeonRoom
 extends Node2D
 
 #cell coordinates for all the doors. In final version maybe calculated so it can adjust to dungeon size
-var coordsNorthDoor: Vector2i = Vector2i(8,0)
-var coordsEasttDoor: Vector2i = Vector2i(17, 8)
-var coordsSouthDoor: Vector2i = Vector2i(8, 17)
-var coordsWestDoor: Vector2i = Vector2i(0, 8)
+var coordsNorthDoor: Vector2i 
+var coordsEasttDoor: Vector2i
+var coordsSouthDoor: Vector2i 
+var coordsWestDoor: Vector2i
 
 
 var entranceScene = preload("res://Scenes/DungeonThings/mapComponents/entrance.tscn")
@@ -31,38 +31,48 @@ const middleOfRoom: Vector2 = Vector2(126,126)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#calcDoorCords()
+	calcDoorCords()
 	setUp()
 	pass # Replace with function body.
 
-func setTileData(data) -> void:
+func setTileData(data: Tile_Data) -> void:
 	tileData = data
 
 #
-#func calcDoorCords() -> void:
-	#print(tile_map_layer.get_used_rect().size)
+func calcDoorCords() -> void:
+	var size = tile_map_layer.get_used_rect().size
+	print(size)
+	var width = size.x
+	var height = size.y
+	var middleHeight = height/2-1
+	var middleWidth = width/2-1
+	coordsNorthDoor = Vector2(middleWidth, 0)
+	coordsSouthDoor = Vector2(middleWidth, height-1)
+	coordsEasttDoor = Vector2(width-1, middleHeight)
+	coordsWestDoor = Vector2(0, middleHeight)
+	
 
 # Called every frame. '_delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
 
-func addDoors(n: bool, e: bool, s: bool, w:bool) -> void:
-	if(n):
+func addDoors() -> void:
+	if(tileData.isNorth()):
 		tile_map_layer.set_pattern(coordsNorthDoor, tile_map_layer.tile_set.get_pattern(patternIndexNorth))
 		addEntrance(Enums.DIRECTION.NORTH)
-	if(e):
+	if(tileData.isEast()):
 		tile_map_layer.set_pattern(coordsEasttDoor, tile_map_layer.tile_set.get_pattern(patternIndexEast))
 		addEntrance(Enums.DIRECTION.EAST)
-	if(s):
+	if(tileData.isSouth()):
 		tile_map_layer.set_pattern(coordsSouthDoor, tile_map_layer.tile_set.get_pattern(patternIndexSouth))
 		addEntrance(Enums.DIRECTION.SOUTH)
-	if(w):
+	if(tileData.isWest()):
 		tile_map_layer.set_pattern(coordsWestDoor, tile_map_layer.tile_set.get_pattern(patternIndexWest))
 		addEntrance(Enums.DIRECTION.WEST)
 
 func setUp() -> void:
-	addDoors(tileData.north, tileData.east, tileData.south, tileData.west)
+	addDoors()
 	addExtras()
 	#just a precaution so no hitbox that should not be hit now is disabled
 	makeUnplayable()
@@ -92,14 +102,12 @@ func transformDoorCoordsToEntranceCords(coords: Vector2) -> Vector2:
 
 
 func makePlayable() -> void:
-
 	self.visible = true
 	
 	tile_map_layer.set_deferred("enabled", true)
 	self.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 
 func makeUnplayable() -> void:
-
 	self.visible = false
 	
 	tile_map_layer.set_deferred("enabled", false)

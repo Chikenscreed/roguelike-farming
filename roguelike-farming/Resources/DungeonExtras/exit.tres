@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Exit" load_steps=3 format=3 uid="uid://o3j6736lpo21"]
+[gd_resource type="Resource" script_class="Exit" load_steps=4 format=3 uid="uid://o3j6736lpo21"]
 
+[ext_resource type="Texture2D" uid="uid://fetwv1grx3ao" path="res://Sprites/dungeonSprites/Tiles/TilePreviews/exitPreviewPlaceholder.png" id="1_jiloo"]
 [ext_resource type="Script" uid="uid://b75o3pfow0s56" path="res://Scripts/DungeonThings/Resources/DungeonExtrasResourceScripts/exitResource.gd" id="1_jsufx"]
 [ext_resource type="PackedScene" uid="uid://dgkuh1xy1evma" path="res://Scenes/DungeonThings/mapComponents/exit.tscn" id="1_t35vl"]
 
@@ -8,4 +9,5 @@ resource_local_to_scene = true
 script = ExtResource("1_jsufx")
 name = "Exit"
 scenetoBePlaced = ExtResource("1_t35vl")
+previewSprite = ExtResource("1_jiloo")
 metadata/_custom_type_script = "uid://b75o3pfow0s56"
