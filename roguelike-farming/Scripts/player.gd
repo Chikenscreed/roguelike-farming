@@ -89,6 +89,7 @@ func dash() -> void:
 	visuals.modulate.a = 0.5
 	collision.set_deferred("disabled", true)
 
+
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * speed
