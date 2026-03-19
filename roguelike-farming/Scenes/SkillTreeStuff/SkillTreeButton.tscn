@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://lillh2jh2lkq"]
+[gd_scene load_steps=2 format=3 uid="uid://lillh2jh2lkq"]
 
-[ext_resource type="Texture2D" uid="uid://divljun6q4u1r" path="res://Sprites/DungeonFrameSkillPoint.png" id="1_g7sic"]
 [ext_resource type="Script" uid="uid://dqynbhk8xr3aa" path="res://SkillPointButton.gd" id="2_ke88e"]
-[ext_resource type="Resource" uid="uid://e3ee7kwwvg1c" path="res://Resources/skilltreeResources/SkillResourcesResources/DungeonFrameExpansionX1.tres" id="3_3fh8k"]
 
 [node name="SkillTreeButton" type="TextureButton"]
 self_modulate = Color(0.49354547, 0.49354553, 0.49354535, 1)
@@ -10,6 +8,5 @@ offset_left = 69.0
 offset_top = 63.0
 offset_right = 101.0
 offset_bottom = 95.0
-texture_normal = ExtResource("1_g7sic")
+tooltip_auto_translate_mode = 2
 script = ExtResource("2_ke88e")
-skill = ExtResource("3_3fh8k")

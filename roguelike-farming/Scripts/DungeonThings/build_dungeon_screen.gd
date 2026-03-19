@@ -85,3 +85,8 @@ func placeTileSelection() -> void:
 		newTile.snapBackPos = newTile.position
 		nextPos += offset
 		pass
+
+
+func _on_back_pressed() -> void:
+	#are the carrots and groths saved here? 
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/farming_base.tscn")

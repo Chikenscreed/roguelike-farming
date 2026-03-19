@@ -10,7 +10,11 @@ extends TextureButton
 			self.texture_normal = skill.skillBase.sprite
 			self.size = Vector2(skill.skillBase.sprite.get_size())
 			
-@export var activated: bool
+@export var activated: bool:
+	set(value):
+		activated = value
+		if activated:
+			applyActivatedVisual()
 
 @export var followingSkills: Array[SkillTreePointButton] = []:
 	set(value):
@@ -33,13 +37,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func applyActivatedVisual() -> void: 
+	self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+	paintLines()
 
 func _on_pressed() -> void:
-	if onePreviousSkillUnlocked():
+	if onePreviousSkillUnlocked() and !activated:
 		skill.skillBase.functionality.execute()
 		activated = true
-		self_modulate = Color(1.0, 1.0, 1.0, 1.0)
-		paintLines()
+		GlobalPlayerInventory.addSkill(skill.skill_id)
+		
 
 func paintLines() -> void:
 	for child in get_parent().get_children():

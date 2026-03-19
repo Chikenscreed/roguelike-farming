@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SkillPoint" load_steps=3 format=3 uid="uid://cen61yejh3vtw"]
+
+[ext_resource type="Script" uid="uid://cpq0pgay74y47" path="res://Resources/skilltreeResources/SkillPoint.gd" id="1_i4ojh"]
+[ext_resource type="Resource" uid="uid://ch1uebh0b1fan" path="res://Resources/skilltreeResources/SkillResourcesResources/DungeonFrameExpansionY.tres" id="2_fg7w6"]
+
+[resource]
+script = ExtResource("1_i4ojh")
+skill_id = 1
+skillBase = ExtResource("2_fg7w6")
+metadata/_custom_type_script = "uid://cpq0pgay74y47"
