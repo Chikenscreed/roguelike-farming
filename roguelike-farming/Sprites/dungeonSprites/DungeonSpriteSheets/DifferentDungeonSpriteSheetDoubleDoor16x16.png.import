@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbmof6h5i4bkt"
-path="res://.godot/imported/DungeonSpriteSheetDoubleDoor16x16.png-71ba73849a998555adb62e3665d8804d.ctex"
+uid="uid://c68rwe3bhuxwf"
+path="res://.godot/imported/DifferentDungeonSpriteSheetDoubleDoor16x16.png-083aebd3e4525823be02d470f361c233.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/dungeonSprites/DungeonSpriteSheetDoubleDoor16x16.png"
-dest_files=["res://.godot/imported/DungeonSpriteSheetDoubleDoor16x16.png-71ba73849a998555adb62e3665d8804d.ctex"]
+source_file="res://Sprites/dungeonSprites/DungeonSpriteSheets/DifferentDungeonSpriteSheetDoubleDoor16x16.png"
+dest_files=["res://.godot/imported/DifferentDungeonSpriteSheetDoubleDoor16x16.png-083aebd3e4525823be02d470f361c233.ctex"]
 
 [params]
 
