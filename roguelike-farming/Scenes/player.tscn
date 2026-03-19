@@ -1,61 +1,258 @@
-[gd_scene load_steps=14 format=3 uid="uid://i02wi8njxgrb"]
+[gd_scene load_steps=26 format=3 uid="uid://i02wi8njxgrb"]
 
 [ext_resource type="Script" uid="uid://clkie2iwhrego" path="res://Scripts/player.gd" id="1_x3wgy"]
-[ext_resource type="Texture2D" uid="uid://cjj7f3kmlyoao" path="res://Sprites/character.png" id="2_3smsa"]
-[ext_resource type="Shader" uid="uid://4ah6ijggwki3" path="res://Shader/hit_flash.tres" id="2_8erm5"]
+[ext_resource type="Texture2D" uid="uid://bd7ym4mn4kg2a" path="res://Sprites/Player/Player_Base/Player_Base_animations.png" id="2_gymyn"]
 [ext_resource type="PackedScene" uid="uid://cbqsayir5ml0t" path="res://Scenes/components/health_bar.tscn" id="3_8erm5"]
+[ext_resource type="Texture2D" uid="uid://2fgu03x26xue" path="res://Sprites/Player/Chest/Farmer_Shirt/Farmer_Shirt_1_Black.png" id="3_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://cfyauy527l5fn" path="res://Sprites/Player/Head/Hair_1/Hair_1_Black.png" id="4_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://mgk2ho2thslj" path="res://Sprites/Player/Legs/Farmer_Pants/Farmer_Pants_1_Black.png" id="5_7dp3o"]
 [ext_resource type="PackedScene" uid="uid://c8kr15caehnb2" path="res://Scenes/components/health.tscn" id="5_tx1dd"]
 [ext_resource type="PackedScene" uid="uid://cuv25c8obkyjr" path="res://Scenes/components/hitbox.tscn" id="5_x3wgy"]
 [ext_resource type="PackedScene" uid="uid://jufirx7javif" path="res://Scenes/attacks/basic_attack.tscn" id="6_gymyn"]
+[ext_resource type="Texture2D" uid="uid://b5irs3wpsri3n" path="res://Sprites/Player/Hands/Hands_1_Bare.png" id="6_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://cn14phaj2hr2y" path="res://Sprites/Player/Feet/Shoes_1_Brown.png" id="7_fd4e3"]
+[ext_resource type="Texture2D" uid="uid://c1o7dve40rlbw" path="res://Sprites/Player/Accessories/Farmer_Hat_1.png" id="8_pu2lt"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f1ek2"]
-resource_local_to_scene = true
-shader = ExtResource("2_8erm5")
-shader_parameter/BooleanParameter = false
-shader_parameter/flash_color = Color(1, 1, 1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("2_gymyn")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Animation" id="Animation_tx1dd"]
-resource_name = "hit_flash"
-length = 0.1
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("2_gymyn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
+atlas = ExtResource("2_gymyn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4iuc"]
+atlas = ExtResource("2_gymyn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
+atlas = ExtResource("2_gymyn")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
+atlas = ExtResource("2_gymyn")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_igrcy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukyrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dp3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4iuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd4e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqcod")
+}],
+"loop": true,
+"name": &"test",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3a3hx"]
+size = Vector2(13, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct3of"]
+size = Vector2(11, 16)
+
+[sub_resource type="Animation" id="Animation_gymyn"]
+resource_name = "idle_down"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/BooleanParameter")
+tracks/0/path = NodePath("../Skeleton/Body:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false]
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Skeleton/Chest:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Skeleton/Hair:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Skeleton/Legs:frame_coords")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.39999998, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Skeleton/Hands:frame_coords")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.39999998, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Skeleton/Feet:frame_coords")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.39999998, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Skeleton/Accessory:frame_coords")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.39999998, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_gymyn"]
+[sub_resource type="Animation" id="Animation_pu2lt"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/BooleanParameter")
+tracks/0/path = NodePath("../Skeleton/Body:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [Vector2i(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Skeleton/Chest:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Skeleton/Hair:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Skeleton/Legs:frame_coords")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Skeleton/Hands:frame_coords")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Skeleton/Feet:frame_coords")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Skeleton/Accessory:frame_coords")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fs7ks"]
+resource_name = "idle_right"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pu2lt"]
 _data = {
-&"RESET": SubResource("Animation_gymyn"),
-&"hit_flash": SubResource("Animation_tx1dd")
+&"RESET": SubResource("Animation_pu2lt"),
+&"idle_down": SubResource("Animation_gymyn"),
+&"idle_right": SubResource("Animation_fs7ks")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3a3hx"]
-size = Vector2(10, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct3of"]
-size = Vector2(12, 15)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 66
@@ -64,20 +261,45 @@ speed = 180.0
 health = 10.0
 dash_duration = 0.2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
-material = SubResource("ShaderMaterial_f1ek2")
-texture = ExtResource("2_3smsa")
-hframes = 3
-vframes = 4
+[node name="Skeleton" type="Node2D" parent="."]
 
-[node name="HitFlashPlayer" type="AnimationPlayer" parent="Sprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_pu2lt")
-}
+[node name="Body" type="AnimatedSprite2D" parent="Skeleton"]
+sprite_frames = SubResource("SpriteFrames_igrcy")
+animation = &"test"
+frame_progress = 0.543969
+
+[node name="Chest" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("3_pu2lt")
+hframes = 9
+vframes = 56
+
+[node name="Hair" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("4_ukyrk")
+hframes = 9
+vframes = 56
+
+[node name="Legs" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("5_7dp3o")
+hframes = 9
+vframes = 56
+
+[node name="Hands" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("6_h4iuc")
+hframes = 9
+vframes = 56
+
+[node name="Feet" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("7_fd4e3")
+hframes = 9
+vframes = 56
+
+[node name="Accessory" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("8_pu2lt")
+hframes = 9
+vframes = 56
 
 [node name="AreaCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_3a3hx")
 
 [node name="dash_timer" type="Timer" parent="."]
@@ -100,12 +322,20 @@ collision_mask = 16
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0, 0.5)
+visible = false
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_ct3of")
 debug_color = Color(0.8800434, 0.2781528, 0.5030166, 0.41960785)
 
 [node name="Basic_attack" parent="." instance=ExtResource("6_gymyn")]
 position = Vector2(-27, 4.7683716e-07)
+
+[node name="Animation" type="Node" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
+libraries = {
+&"": SubResource("AnimationLibrary_pu2lt")
+}
 
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown_timer" to="." method="_on_dash_cooldown_timer_timeout"]

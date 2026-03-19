@@ -13,7 +13,7 @@ extends CharacterBody2D
 
 @onready var dash_cooldown_timer: Timer = $dash_cooldown_timer
 @onready var dash_timer: Timer = $dash_timer
-@onready var visuals: Sprite2D = $Sprite2D
+@onready var visuals: Node2D = $Skeleton
 @onready var collision: CollisionShape2D = $AreaCollision
 
 @onready var health_bar: HealthBar = $HealthBar
@@ -42,7 +42,6 @@ func _physics_process(_delta: float) -> void:
 			velocity = move_dir * speed * dash_speed_multi
 		else:
 			velocity = move_dir * speed
-	update_rotation()
 	move_and_slide()
 	basic_attack.global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("dash") and can_dash():
@@ -94,15 +93,6 @@ func dash() -> void:
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-		
-func update_rotation() -> void:
-	if move_dir == Vector2.ZERO:
-		return
-	
-	if move_dir.x >= 0.1:
-		visuals.scale = Vector2(-1, 1)
-	else:
-		visuals.scale = Vector2(1, 1)
 
 
 func _on_dash_timer_timeout() -> void:
