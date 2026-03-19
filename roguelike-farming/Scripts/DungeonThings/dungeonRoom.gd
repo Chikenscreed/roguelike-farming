@@ -29,6 +29,9 @@ var tileData: Tile_Data = null
 
 const middleOfRoom: Vector2 = Vector2(126,126)
 
+## need to send it up to DungeonManager
+signal playerReachedExit()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	calcDoorCords()
@@ -117,9 +120,17 @@ func makeUnplayable() -> void:
 func addExtras() -> void:
 	for extra in tileData.extras:
 		var newPart = extra.scenetoBePlaced.instantiate()
+		if newPart is ExitObject:
+			newPart.area_entered.connect(callreachedExit)
 		newPart.position = middleOfRoom
 		add_child(newPart)
+		
 	if tileData.extras == []:
 		var newEnemy = enemy.instantiate()
 		newEnemy.position = Vector2(randi_range(2,16)*16, randi_range(2,16)*16)
 		add_child(newEnemy)
+
+
+func callreachedExit() -> void:
+	print("Transfering signal")
+	playerReachedExit.emit()
