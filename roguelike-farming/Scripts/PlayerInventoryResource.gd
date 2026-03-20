@@ -19,6 +19,7 @@ signal tileInventoryChanged()
 func removeTileFromInventory(tile: Tile_Data) -> void:
 	var matchedResult: Tile_Data =  getMatchingInvTile(tile)
 	if matchedResult!= null:
+		var res = tileInventory.get(matchedResult)-1
 		tileInventory.set(matchedResult,tileInventory.get(matchedResult)-1)
 		tileInventoryChanged.emit()
 

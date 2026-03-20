@@ -117,8 +117,11 @@ func testWithIntersectPoint() -> void:
 		var s: MapTile = slot.collider as MapTile
 		if s != null:
 			if(s.mapSlot and !s.pregeneratedTile):
+				if s.tileData != null:
+					GlobalPlayerInventory.playerData.addTileToInventory(s.tileData)
 				s.setTile(self.tileData, false)
-				GlobalPlayerInventory.playerData.removeTileFromInventory(tileData)
+				GlobalPlayerInventory.playerData.removeTileFromInventory(self.tileData)
+		
 
 
 func showEntrances() -> void: 
