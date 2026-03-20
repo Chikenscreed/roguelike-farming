@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var dash_cooldown := 0.5
 
 @onready var health_component: HealthComponent = $HealthComponent
-@onready var basic_attack: BasicAttack = $Basic_attack
+@onready var basic_attack: BasicAttack1 = $Basic_attack
 
 @onready var dash_cooldown_timer: Timer = $dash_cooldown_timer
 @onready var dash_timer: Timer = $dash_timer

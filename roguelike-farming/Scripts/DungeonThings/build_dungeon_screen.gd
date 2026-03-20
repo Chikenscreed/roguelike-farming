@@ -46,7 +46,6 @@ func getTheTileFromScreen() -> Array[Dictionary]:
 	var query = PhysicsPointQueryParameters2D.new()
 	query.position = mousePos
 	query.collide_with_areas = true
-	
 	var intersections = space.intersect_point(query)
 	return intersections
 		
@@ -61,7 +60,6 @@ func removeTile() -> void:
 				if(something.tileData != null):
 					GlobalPlayerInventory.playerData.addTileToInventory(something.tileData)
 				something.resetTileData()
-
 				break 
 
 
@@ -99,4 +97,9 @@ func _on_back_pressed() -> void:
 func updateCounts() -> void:
 	for tile in panel.get_children():
 		if tile is PlacableTile:
-			tile.count.text = str(GlobalPlayerInventory.playerData.tileInventory.get(GlobalPlayerInventory.playerData.getMatchingInvTile(tile.frame_tile_slot.tileData)))
+			var count = GlobalPlayerInventory.playerData.tileInventory.get(GlobalPlayerInventory.playerData.getMatchingInvTile(tile.frame_tile_slot.tileData))
+			if (count <= 0):
+				tile.grayOut()
+			else:
+				tile.reactivate()
+			tile.count.text = str(count)

@@ -1,5 +1,5 @@
 extends Node2D
-class_name BasicAttack
+class_name BasicAttack1
 
 @onready var hitbox: CollisionShape2D = $"Attack Component/CollisionShape2D"
 
