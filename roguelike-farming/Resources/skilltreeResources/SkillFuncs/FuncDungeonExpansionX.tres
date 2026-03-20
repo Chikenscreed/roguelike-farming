@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DungeonFrameExpansion" load_steps=2 format=3 uid="uid://bb4kmmhv3iqh4"]
+
+[ext_resource type="Script" uid="uid://dk0skxvwfak7h" path="res://Resources/skilltreeResources/SkillFuncs/DungeonFrameExpansion.gd" id="1_jl5gy"]
+
+[resource]
+script = ExtResource("1_jl5gy")
+metadata/_custom_type_script = "uid://dk0skxvwfak7h"

@@ -27,4 +27,13 @@ position = Vector2(102, 36)
 [node name="Panel" type="Node2D" parent="."]
 position = Vector2(1, 306)
 
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 141.0
+offset_right = 635.0
+offset_bottom = 191.0
+text = "back"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
