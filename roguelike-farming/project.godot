@@ -29,6 +29,10 @@ window/size/window_width_override=1480
 window/size/window_height_override=720
 window/stretch/scale=2.0
 
+[dotnet]
+
+project/assembly_name="roguelike farming"
+
 [input]
 
 up={

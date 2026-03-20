@@ -4,7 +4,7 @@ class_name HealthBar
 @export var back_color: Color
 @export var fill_color: Color
 
-@onready var progress_bar: ProgressBar = $ProgressBar
+@onready var progress_bar: TextureProgressBar = $ProgressBar
 
 
 # Applies the exported `back_color` and `fill_color` to this specific progress bar 
