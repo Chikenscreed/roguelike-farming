@@ -1,0 +1,402 @@
+[gd_scene load_steps=21 format=3 uid="uid://dbxtx1nq78qhu"]
+
+[ext_resource type="Texture2D" uid="uid://dg360ge0h2otb" path="res://Sprites/ui/Book_UI.png" id="1_borl1"]
+[ext_resource type="Script" uid="uid://djqx1jrsyx2wm" path="res://Scripts/character_creator.gd" id="1_cnjwq"]
+[ext_resource type="Texture2D" uid="uid://hgyjiyfq1mm7" path="res://Sprites/ui/UI_ALL.png" id="2_afg0v"]
+[ext_resource type="Texture2D" uid="uid://bd7ym4mn4kg2a" path="res://Sprites/Player/Player_Base/Player_Base_animations.png" id="2_cnjwq"]
+[ext_resource type="Texture2D" uid="uid://dw1dc5k7qusua" path="res://Sprites/ui/UI_Buttons.png" id="5_borl1"]
+[ext_resource type="Texture2D" uid="uid://b5irs3wpsri3n" path="res://Sprites/Player/Hands/Hands_1_Bare.png" id="6_7m4tv"]
+[ext_resource type="Texture2D" uid="uid://b56sp8asxsya4" path="res://Sprites/ui/UI_Icons.png" id="6_cnjwq"]
+[ext_resource type="FontFile" uid="uid://o46g02k5qeg8" path="res://Sprites/ui/font/CuteFantasy-5x9.ttf" id="7_borl1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw8xy"]
+atlas = ExtResource("1_borl1")
+region = Rect2(247.98412, 5.8567724, 224.13478, 133.14323)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4e76"]
+atlas = ExtResource("2_afg0v")
+region = Rect2(1256, 8, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ako4q"]
+resource_local_to_scene = true
+atlas = ExtResource("6_cnjwq")
+region = Rect2(115, 147, 10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afg0v"]
+atlas = ExtResource("6_cnjwq")
+region = Rect2(131, 148, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnjwq"]
+atlas = ExtResource("6_cnjwq")
+region = Rect2(99, 146, 10, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr05l"]
+atlas = ExtResource("5_borl1")
+region = Rect2(33, 66, 30, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_borl1"]
+atlas = ExtResource("6_cnjwq")
+region = Rect2(163, 147, 10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m4tv"]
+atlas = ExtResource("6_cnjwq")
+region = Rect2(179, 148, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edvgk"]
+atlas = ExtResource("6_cnjwq")
+region = Rect2(147, 146, 10, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sho47"]
+atlas = ExtResource("5_borl1")
+region = Rect2(1632, 129, 47, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtwg2"]
+atlas = ExtResource("5_borl1")
+region = Rect2(1728, 131, 47, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x7gf"]
+atlas = ExtResource("5_borl1")
+region = Rect2(1680, 130, 47, 13)
+
+[node name="Character Creator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cnjwq")
+farming_base_path = "uid://fxs7rd0ibiyw"
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 1
+offset_right = 640.0
+offset_bottom = 360.0
+texture = SubResource("AtlasTexture_uw8xy")
+metadata/_edit_lock_ = true
+
+[node name="CharacterBackground" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 109.25
+offset_top = -48.5
+offset_right = 206.75
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_k4e76")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Background"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Skeleton" type="Node2D" parent="."]
+position = Vector2(479, 184)
+scale = Vector2(3, 3)
+metadata/_edit_lock_ = true
+
+[node name="Body" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("2_cnjwq")
+hframes = 9
+vframes = 56
+metadata/_edit_lock_ = true
+
+[node name="Chest" type="Sprite2D" parent="Skeleton"]
+hframes = 9
+vframes = 56
+metadata/_edit_lock_ = true
+
+[node name="Hair" type="Sprite2D" parent="Skeleton"]
+hframes = 9
+vframes = 56
+metadata/_edit_lock_ = true
+
+[node name="Legs" type="Sprite2D" parent="Skeleton"]
+hframes = 9
+vframes = 56
+metadata/_edit_lock_ = true
+
+[node name="Hands" type="Sprite2D" parent="Skeleton"]
+texture = ExtResource("6_7m4tv")
+hframes = 9
+vframes = 56
+metadata/_edit_lock_ = true
+
+[node name="Feet" type="Sprite2D" parent="Skeleton"]
+hframes = 9
+vframes = 56
+metadata/_edit_lock_ = true
+
+[node name="Accessory" type="Sprite2D" parent="Skeleton"]
+hframes = 9
+vframes = 56
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -157.0
+offset_right = -31.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+metadata/_edit_lock_ = true
+
+[node name="AccessoryController" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PreviousAccessoryButton" type="TextureButton" parent="VBoxContainer/AccessoryController"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ako4q")
+texture_pressed = SubResource("AtlasTexture_afg0v")
+texture_hover = SubResource("AtlasTexture_cnjwq")
+stretch_mode = 0
+
+[node name="LabelBackground" type="TextureRect" parent="VBoxContainer/AccessoryController"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+texture = SubResource("AtlasTexture_nr05l")
+
+[node name="Label" type="Label" parent="VBoxContainer/AccessoryController/LabelBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -15.5
+offset_right = 31.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_borl1")
+theme_override_font_sizes/font_size = 30
+text = "Accessory"
+
+[node name="NextAccessoryButton" type="TextureButton" parent="VBoxContainer/AccessoryController"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_borl1")
+texture_pressed = SubResource("AtlasTexture_7m4tv")
+texture_hover = SubResource("AtlasTexture_edvgk")
+stretch_mode = 1
+
+[node name="HairController" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PreviousHairButton" type="TextureButton" parent="VBoxContainer/HairController"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ako4q")
+texture_pressed = SubResource("AtlasTexture_afg0v")
+texture_hover = SubResource("AtlasTexture_cnjwq")
+stretch_mode = 0
+
+[node name="LabelBackground" type="TextureRect" parent="VBoxContainer/HairController"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+texture = SubResource("AtlasTexture_nr05l")
+
+[node name="Label" type="Label" parent="VBoxContainer/HairController/LabelBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -15.5
+offset_right = 31.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_borl1")
+theme_override_font_sizes/font_size = 30
+text = "Hair"
+
+[node name="NextHairButton" type="TextureButton" parent="VBoxContainer/HairController"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_borl1")
+texture_pressed = SubResource("AtlasTexture_7m4tv")
+texture_hover = SubResource("AtlasTexture_edvgk")
+stretch_mode = 1
+
+[node name="ChestController" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PreviousChestButton" type="TextureButton" parent="VBoxContainer/ChestController"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ako4q")
+texture_pressed = SubResource("AtlasTexture_afg0v")
+texture_hover = SubResource("AtlasTexture_cnjwq")
+stretch_mode = 0
+
+[node name="LabelBackground" type="TextureRect" parent="VBoxContainer/ChestController"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+texture = SubResource("AtlasTexture_nr05l")
+
+[node name="Label" type="Label" parent="VBoxContainer/ChestController/LabelBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -15.5
+offset_right = 31.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_borl1")
+theme_override_font_sizes/font_size = 30
+text = "Chest"
+
+[node name="NextChestButton" type="TextureButton" parent="VBoxContainer/ChestController"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_borl1")
+texture_pressed = SubResource("AtlasTexture_7m4tv")
+texture_hover = SubResource("AtlasTexture_edvgk")
+stretch_mode = 1
+
+[node name="LegsController" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PreviousLegsButton" type="TextureButton" parent="VBoxContainer/LegsController"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ako4q")
+texture_pressed = SubResource("AtlasTexture_afg0v")
+texture_hover = SubResource("AtlasTexture_cnjwq")
+stretch_mode = 0
+
+[node name="LabelBackground" type="TextureRect" parent="VBoxContainer/LegsController"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+texture = SubResource("AtlasTexture_nr05l")
+
+[node name="Label" type="Label" parent="VBoxContainer/LegsController/LabelBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -15.5
+offset_right = 31.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_borl1")
+theme_override_font_sizes/font_size = 30
+text = "Legs"
+
+[node name="NextLegsButton" type="TextureButton" parent="VBoxContainer/LegsController"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_borl1")
+texture_pressed = SubResource("AtlasTexture_7m4tv")
+texture_hover = SubResource("AtlasTexture_edvgk")
+stretch_mode = 1
+
+[node name="FeetController" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PreviousFeetButton" type="TextureButton" parent="VBoxContainer/FeetController"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ako4q")
+texture_pressed = SubResource("AtlasTexture_afg0v")
+texture_hover = SubResource("AtlasTexture_cnjwq")
+stretch_mode = 0
+
+[node name="LabelBackground" type="TextureRect" parent="VBoxContainer/FeetController"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+texture = SubResource("AtlasTexture_nr05l")
+
+[node name="Label" type="Label" parent="VBoxContainer/FeetController/LabelBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -15.5
+offset_right = 31.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_borl1")
+theme_override_font_sizes/font_size = 30
+text = "Feet"
+
+[node name="NextFeetButton" type="TextureButton" parent="VBoxContainer/FeetController"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_borl1")
+texture_pressed = SubResource("AtlasTexture_7m4tv")
+texture_hover = SubResource("AtlasTexture_edvgk")
+stretch_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -234.0
+offset_top = -105.0
+offset_right = -83.0
+offset_bottom = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_sho47")
+texture_pressed = SubResource("AtlasTexture_qtwg2")
+texture_hover = SubResource("AtlasTexture_8x7gf")
+stretch_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/AccessoryController/PreviousAccessoryButton" to="." method="_on_previous_accessory_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/AccessoryController/NextAccessoryButton" to="." method="_on_next_accessory_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HairController/PreviousHairButton" to="." method="_on_previous_hair_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HairController/NextHairButton" to="." method="_on_next_hair_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ChestController/PreviousChestButton" to="." method="_on_previous_chest_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ChestController/NextChestButton" to="." method="_on_next_chest_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/LegsController/PreviousLegsButton" to="." method="_on_previous_legs_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/LegsController/NextLegsButton" to="." method="_on_next_legs_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/FeetController/PreviousFeetButton" to="." method="_on_previous_feet_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/FeetController/NextFeetButton" to="." method="_on_next_feet_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
