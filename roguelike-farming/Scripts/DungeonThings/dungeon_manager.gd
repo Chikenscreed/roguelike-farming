@@ -96,10 +96,6 @@ func movePlayerToNextRoom(directio: Enums.DIRECTION) -> void:
 		pass
 	else:
 		fallIntoVoid()
-		
-	#new Room from dictionary
-	#disable old rooma
-	#move player into fitting position in new room
 	pass
 
 func testIfRoomsConnect(start: Vector2i, dest: Vector2i) -> bool:

@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="TileStyle" load_steps=3 format=3 uid="uid://c3qxx631eltg6"]
+[gd_resource type="Resource" script_class="TileStyle" load_steps=4 format=3 uid="uid://c3qxx631eltg6"]
 
 [ext_resource type="Texture2D" uid="uid://d02bahh1vu8m4" path="res://Sprites/dungeonSprites/Tiles/TilePreviews/baseBackground.png" id="1_cxhso"]
 [ext_resource type="Script" uid="uid://hbkxdkqw2m7c" path="res://Scripts/DungeonThings/Resources/TileStyle.gd" id="1_i4bvr"]
+[ext_resource type="TileSet" uid="uid://dfck20u8sgy1d" path="res://tileMap/DungeonRoomTileMaps/testTileMap.tres" id="3_f5xqg"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_i4bvr")
 name = "baseStyle"
+tileSet = ExtResource("3_f5xqg")
 previewTileBackground = ExtResource("1_cxhso")
 metadata/_custom_type_script = "uid://hbkxdkqw2m7c"
