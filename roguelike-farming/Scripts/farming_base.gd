@@ -45,3 +45,7 @@ func _on_dungeon_button_pressed() -> void:
 
 func _on_skilltree_button_pressed() -> void:
 	get_tree().change_scene_to_packed(skilltree_scene)
+
+
+func _on_button_2_pressed() -> void:
+	GlobalPersesistance.saveGame()

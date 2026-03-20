@@ -219,7 +219,13 @@ offset_right = 205.0
 offset_bottom = 56.0
 text = "Show Skilltree"
 
+[node name="Button2" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "saveGame"
+
 [connection signal="action" from="Objects/TestPlayer" to="." method="_on_player_action"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Dungeon Button" to="." method="_on_dungeon_button_pressed"]
 [connection signal="pressed" from="Skilltree Button" to="." method="_on_skilltree_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

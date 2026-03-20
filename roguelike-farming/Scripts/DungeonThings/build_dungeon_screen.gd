@@ -77,7 +77,7 @@ func placeTileSelection() -> void:
 	var nextPos : Vector2 = Vector2(32,0)
 	var offset: Vector2 = Vector2(35,0)
 	var tile = preload("res://Scenes/DungeonThings/mapTile.tscn")
-	for holder in GlobalPlayerInventory.tileInventory.keys():
+	for holder in GlobalPlayerInventory.playerData.tileInventory.keys():
 		var newTile = tile.instantiate()
 		panel.add_child(newTile)
 		newTile.setTile(holder, false)
