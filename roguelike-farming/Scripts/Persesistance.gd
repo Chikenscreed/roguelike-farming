@@ -1,7 +1,6 @@
 class_name PersistenceNode
 extends Node
 
-
 @export var path: String = "res://SAVES/"
 
 @export var saveFileName = "saveFile"
@@ -12,6 +11,7 @@ func saveGame() -> void:
 	if(!DirAccess.dir_exists_absolute(path)):
 		DirAccess.make_dir_absolute(path)
 	print(ResourceSaver.save(GlobalPlayerInventory.playerData, path+saveFileName+str(DirAccess.open(path).get_files().size())+fileEnding))
+	#get_tree().free()
 
 
 func loadSaveFile() -> void:

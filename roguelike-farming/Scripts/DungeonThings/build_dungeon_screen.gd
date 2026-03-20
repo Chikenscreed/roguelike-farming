@@ -76,13 +76,13 @@ func _on_button_pressed() -> void:
 func placeTileSelection() -> void:
 	var nextPos : Vector2 = Vector2(32,0)
 	var offset: Vector2 = Vector2(35,0)
-	var tile = preload("res://Scenes/DungeonThings/mapTile.tscn")
+	var tile = preload("res://Scenes/DungeonThings/placeableTile.tscn") 
 	for holder in GlobalPlayerInventory.playerData.tileInventory.keys():
-		var newTile = tile.instantiate()
+		var newTile = tile.instantiate() as PlacableTile
 		panel.add_child(newTile)
-		newTile.setTile(holder, false)
+		newTile.setup(holder, GlobalPlayerInventory.playerData.tileInventory.get(holder))
 		newTile.position = nextPos
-		newTile.snapBackPos = newTile.position
+		newTile.frame_tile_slot.snapBackPos = newTile.frame_tile_slot.position
 		nextPos += offset
 		pass
 
