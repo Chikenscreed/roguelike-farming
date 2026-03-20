@@ -17,7 +17,8 @@ extends CharacterBody2D
 @onready var collision: CollisionShape2D = $AreaCollision
 
 @onready var health_bar: HealthBar = $HealthBar
-@onready var hit_flash_player: AnimationPlayer = $Sprite2D/HitFlashPlayer
+@onready var hit_flash_player: AnimationPlayer = $Skeleton/HitFlashPlayer
+@onready var animation_tree: AnimationTree = $Animation/AnimationTree
 
 var move_dir: Vector2
 var is_dashing := false
@@ -42,6 +43,7 @@ func _physics_process(_delta: float) -> void:
 			velocity = move_dir * speed * dash_speed_multi
 		else:
 			velocity = move_dir * speed
+	animate()
 	move_and_slide()
 	basic_attack.global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("dash") and can_dash():
@@ -64,6 +66,7 @@ func _ready() -> void:
 	dash_timer.wait_time = dash_duration
 	dash_cooldown_timer.wait_time = dash_cooldown
 	health_component.max_health = health
+	set_character_sprites()
 
 func apply_knockback(damage_position: Vector2) -> void:
 	var force = 150
@@ -79,10 +82,32 @@ func get_facing_direction() -> Vector2:
 		else:
 			return Vector2.LEFT
 
+func animate() -> void:
+	if move_dir:
+		print(round(move_dir.x))
+		print(round(move_dir.y))
+		var animation_direction = Vector2(round(move_dir.x),round(move_dir.y))
+		animation_tree.set("parameters/MoveStateMachine/walk/blend_position", animation_direction)
+		animation_tree.set("parameters/MoveStateMachine/dash/blend_position", animation_direction)
+		
+	else: 	
+		animation_tree.set("parameters/MoveStateMachine/walk/blend_position", Vector2.ZERO)
+	
+
+func set_character_sprites() -> void:
+	$Skeleton/Body.texture = CharacterAppearance.body_collection.get(CharacterAppearance.selected_body)
+	$Skeleton/Chest.texture = CharacterAppearance.chest_collection.get(CharacterAppearance.selected_chest)
+	$Skeleton/Hair.texture = CharacterAppearance.hair_collection.get(CharacterAppearance.selected_hair)
+	$Skeleton/Legs.texture = CharacterAppearance.legs_collection.get(CharacterAppearance.selected_legs)
+	$Skeleton/Hands.texture = CharacterAppearance.hands_collection.get(CharacterAppearance.selected_hands)
+	$Skeleton/Feet.texture = CharacterAppearance.feet_collection.get(CharacterAppearance.selected_feet)
+	$Skeleton/Accessory.texture = CharacterAppearance.accessory_collection.get(CharacterAppearance.selected_accessory)
+
 func dash() -> void:
 	if not dash_cooldown_timer.is_stopped():
 		return
 	is_dashing = true
+	animation_tree["parameters/MoveStateMachine/conditions/is_dashing"] = true
 
 	dash_timer.start()
 	visuals.modulate.a = 0.5
@@ -97,6 +122,8 @@ func dash() -> void:
 
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false
+	animation_tree["parameters/MoveStateMachine/conditions/is_dashing"] = false
+	
 	visuals.modulate.a = 1.0
 	move_dir = Vector2.ZERO
 	collision.set_deferred("disabled", false)
