@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://jufirx7javif"]
 
-[ext_resource type="Script" uid="uid://cqof8cqb0bfjs" path="res://basic_attack.gd" id="1_655ag"]
+[ext_resource type="Script" uid="uid://cqof8cqb0bfjs" path="res://Scripts/attacks/basic_attack.gd" id="1_655ag"]
 [ext_resource type="PackedScene" uid="uid://b7t2qwd28n4qa" path="res://Scenes/components/attack_component.tscn" id="2_655ag"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbsd4"]
