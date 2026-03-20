@@ -75,6 +75,8 @@ func addDoors() -> void:
 		addEntrance(Enums.DIRECTION.WEST)
 
 func setUp() -> void:
+	tile_map_layer.tile_set = tileData.tileStyle.tileSet
+	queue_redraw()
 	addDoors()
 	addExtras()
 	#just a precaution so no hitbox that should not be hit now is disabled
