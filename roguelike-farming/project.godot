@@ -18,16 +18,18 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalEventBus="*res://Scripts/eventBus.gd"
-Global="*res://autoloads/global.gd"
 GlobalPlayerInventory="*res://Scripts/playerInventory.gd"
+CharacterAppearance="*res://Scripts/character_appearance.gd"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=2
+window/size/resizable=false
 window/size/window_width_override=1480
 window/size/window_height_override=720
-window/stretch/scale=2.0
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
