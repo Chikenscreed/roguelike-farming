@@ -10,6 +10,7 @@ signal exportAllRooms(dict: Dictionary, startRoom: Vector2i)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	placeTileSelection()
+	GlobalPlayerInventory.playerData.tileInventoryChanged.connect(updateCounts)
 	pass # Replace with function body.
 
 
@@ -90,3 +91,9 @@ func placeTileSelection() -> void:
 func _on_back_pressed() -> void:
 	#are the carrots and groths saved here? 
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/farming_base.tscn")
+
+
+func updateCounts() -> void:
+	for tile in panel.get_children():
+		if tile is PlacableTile:
+			tile.count.text = str(GlobalPlayerInventory.playerData.tileInventory.get(GlobalPlayerInventory.playerData.getMatchingInvTile(tile.frame_tile_slot.tileData)))
