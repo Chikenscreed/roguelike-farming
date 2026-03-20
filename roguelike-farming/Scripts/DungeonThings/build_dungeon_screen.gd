@@ -58,7 +58,10 @@ func removeTile() -> void:
 		var something = hit.collider as MapTile
 		if something != null:
 			if !something.pregeneratedTile and something.mapSlot:
+				if(something.tileData != null):
+					GlobalPlayerInventory.playerData.addTileToInventory(something.tileData)
 				something.resetTileData()
+
 				break 
 
 

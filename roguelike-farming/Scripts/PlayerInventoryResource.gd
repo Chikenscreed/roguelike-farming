@@ -22,6 +22,18 @@ func removeTileFromInventory(tile: Tile_Data) -> void:
 		tileInventory.set(matchedResult,tileInventory.get(matchedResult)-1)
 		tileInventoryChanged.emit()
 
+func addTileToInventory(tile: Tile_Data) -> void:
+	var matchedKey: Tile_Data = getMatchingInvTile(tile)
+	if (matchedKey != null):
+		tileInventory.set(matchedKey, tileInventory.get(matchedKey)+1)
+	else:
+		var newKey = Tile_Data.new()
+		newKey.entranceComposition = tile.entranceComposition
+		newKey.extras = tile.extras
+		newKey.tileStyle = tile.tileStyle
+		tileInventory.set(newKey, 1)
+	tileInventoryChanged.emit()
+
 func getMatchingInvTile(tile:Tile_Data)-> Tile_Data:
 	for key in tileInventory.keys():
 		key = key as Tile_Data
