@@ -20,3 +20,6 @@ func removeTilefromIventory(tile: Tile_Data) -> void:
 
 func addItem(item: Item) -> void:
 	playerData.addItem(item)
+
+func removeBulkItems(dir: Dictionary[Item, int]) -> void:
+	playerData.bulkremoveItems(dir)

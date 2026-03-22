@@ -43,6 +43,7 @@ func applyActivatedVisual() -> void:
 
 func _on_pressed() -> void:
 	if onePreviousSkillUnlocked() and !activated and enoughItemsInInventory():
+		GlobalPlayerInventory.removeBulkItems(skill.price)
 		skill.skillBase.functionality.execute()
 		activated = true
 		GlobalPlayerInventory.addSkill(skill.skill_id)

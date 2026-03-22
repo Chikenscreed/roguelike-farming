@@ -51,3 +51,9 @@ func addItem(item: Item) -> void:
 		ItemInventory.set(item, ItemInventory.get(item)+1)
 	else:
 		ItemInventory.set(item, 1)
+
+
+func bulkremoveItems(dic: Dictionary[Item, int]) -> void:
+	for key in dic.keys():
+		ItemInventory.set(key, ItemInventory.get(key)-dic.get(key))
+	pass
