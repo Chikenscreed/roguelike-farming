@@ -4,9 +4,9 @@ extends Resource
 signal tileInventoryChanged()
 
 @export var tileInventory: Dictionary[Tile_Data, int] = {
-	preload("res://Resources/LineExample.tres") : 5,
-	preload("res://Resources/T_Example.tres") : 3,
-	preload("res://Resources/differentTile.tres"): 4
+	preload("res://Resources/DungeonThings/completeDungeonTiles/LineExample.tres") : 5,
+	preload("res://Resources/DungeonThings/completeDungeonTiles/T_Example.tres") : 3,
+	preload("res://Resources/DungeonThings/completeDungeonTiles/differentTile.tres"): 4
 }
 
 
@@ -14,6 +14,10 @@ signal tileInventoryChanged()
 @export var skillTreeSkills: Array[int] = []
 
 @export var dungeonDimension: Vector2i = Vector2i(3,3)
+
+@export var ItemInventory: Dictionary[Item, int] = {
+	preload("res://Resources/Items/Carrot.tres"): 5
+}
 
 
 func removeTileFromInventory(tile: Tile_Data) -> void:
@@ -41,3 +45,9 @@ func getMatchingInvTile(tile:Tile_Data)-> Tile_Data:
 		if key.is_equal(tile):
 			return key
 	return null
+
+func addItem(item: Item) -> void: 
+	if ItemInventory.has(item):
+		ItemInventory.set(item, ItemInventory.get(item)+1)
+	else:
+		ItemInventory.set(item, 1)

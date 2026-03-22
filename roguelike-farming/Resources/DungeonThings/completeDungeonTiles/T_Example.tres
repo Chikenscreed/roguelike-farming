@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwqxp04862h6e" path="res://Scripts/DungeonThings/Resources/DungeonExtrasResourceScripts/DungeonExtras.gd" id="1_a5ac0"]
 [ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/DungeonThings/Resources/Tile.gd" id="2_limqb"]
-[ext_resource type="Resource" uid="uid://c3qxx631eltg6" path="res://Resources/baseStyle.tres" id="3_limqb"]
+[ext_resource type="Resource" uid="uid://c3qxx631eltg6" path="res://Resources/DungeonThings/TileStyles/baseStyle.tres" id="3_limqb"]
 
 [resource]
 resource_local_to_scene = true

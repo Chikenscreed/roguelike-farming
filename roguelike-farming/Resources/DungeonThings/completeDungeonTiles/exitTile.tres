@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Tile_Data" load_steps=5 format=3 uid="uid://dats1nuyd2ltt"]
 
 [ext_resource type="Script" uid="uid://cwqxp04862h6e" path="res://Scripts/DungeonThings/Resources/DungeonExtrasResourceScripts/DungeonExtras.gd" id="1_v3r42"]
-[ext_resource type="Resource" uid="uid://o3j6736lpo21" path="res://Resources/DungeonExtras/exit.tres" id="2_0adj1"]
+[ext_resource type="Resource" uid="uid://o3j6736lpo21" path="res://Resources/DungeonThings/DungeonExtras/exit.tres" id="2_0adj1"]
 [ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/DungeonThings/Resources/Tile.gd" id="2_j1tbl"]
-[ext_resource type="Resource" uid="uid://c3qxx631eltg6" path="res://Resources/baseStyle.tres" id="4_pvgqy"]
+[ext_resource type="Resource" uid="uid://c3qxx631eltg6" path="res://Resources/DungeonThings/TileStyles/baseStyle.tres" id="4_pvgqy"]
 
 [resource]
 script = ExtResource("2_j1tbl")

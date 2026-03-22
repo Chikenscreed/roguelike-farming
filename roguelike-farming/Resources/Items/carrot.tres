@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cfpbandhtu5qn"]
+
+[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/ItemResource.gd" id="1_1qgx7"]
+[ext_resource type="Texture2D" uid="uid://76lm4fyaxr7l" path="res://Sprites/crops/carrot/carrot2.png" id="2_aeaeg"]
+
+[resource]
+script = ExtResource("1_1qgx7")
+name = "Carrot"
+sprite = ExtResource("2_aeaeg")
+metadata/_custom_type_script = "uid://duii50egtu4d1"

@@ -10,3 +10,13 @@ func addSkill(skillId: int) -> void:
 
 func expandDungeon(expansion: Vector2i) -> void:
 	playerData.dungeonDimension += expansion
+
+func addTileToInventory(tile: Tile_Data) -> void:
+	playerData.addTileToInventory(tile)
+
+func removeTilefromIventory(tile: Tile_Data) -> void:
+	playerData.removeTileFromInventory(tile)
+
+
+func addItem(item: Item) -> void:
+	playerData.addItem(item)

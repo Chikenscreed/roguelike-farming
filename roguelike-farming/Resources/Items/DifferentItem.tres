@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://wi60yb8hbq6n"]
+
+[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/ItemResource.gd" id="1_7duix"]
+[ext_resource type="Texture2D" uid="uid://divljun6q4u1r" path="res://Sprites/DungeonFrameSkillPoint.png" id="2_bp0bj"]
+
+[resource]
+script = ExtResource("1_7duix")
+name = "different"
+sprite = ExtResource("2_bp0bj")
+metadata/_custom_type_script = "uid://duii50egtu4d1"

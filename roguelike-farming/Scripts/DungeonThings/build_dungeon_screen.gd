@@ -58,7 +58,7 @@ func removeTile() -> void:
 		if something != null:
 			if !something.pregeneratedTile and something.mapSlot:
 				if(something.tileData != null):
-					GlobalPlayerInventory.playerData.addTileToInventory(something.tileData)
+					GlobalPlayerInventory.addTileToInventory(something.tileData)
 				something.resetTileData()
 				break 
 
