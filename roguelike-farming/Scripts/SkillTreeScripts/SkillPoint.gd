@@ -5,4 +5,4 @@ extends Resource
 
 @export var skillBase: SkillBase
 
-@export var price: int 
+@export var price: Dictionary[Item, int]

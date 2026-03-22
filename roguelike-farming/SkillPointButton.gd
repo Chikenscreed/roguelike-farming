@@ -42,7 +42,7 @@ func applyActivatedVisual() -> void:
 	paintLines()
 
 func _on_pressed() -> void:
-	if onePreviousSkillUnlocked() and !activated:
+	if onePreviousSkillUnlocked() and !activated and enoughItemsInInventory():
 		skill.skillBase.functionality.execute()
 		activated = true
 		GlobalPlayerInventory.addSkill(skill.skill_id)
@@ -88,3 +88,10 @@ func showInfo() -> void:
 func removeInfo() -> void:
 	if get_children().size() >0:
 		get_child(0).queue_free()
+
+func enoughItemsInInventory() -> bool:
+	var res = true
+	for item in skill.price.keys():
+		if (GlobalPlayerInventory.playerData.ItemInventory.has(item)):
+			res = res && (GlobalPlayerInventory.playerData.ItemInventory.get(item) >= skill.price.get(item))
+	return res
