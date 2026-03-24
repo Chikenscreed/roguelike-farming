@@ -1,0 +1,5 @@
+Id,Timestamp,Cathegory,Data
+0,2026-03-24T19:54:42,playerHit,Enemy: basicEnemy|damage: 2|healthBeforeHit: 10.0
+1,2026-03-24T19:54:43,playerHit,Enemy: basicEnemy|damage: 2|healthBeforeHit: 8.0
+2,2026-03-24T19:54:53,tilesPlaced,tilesByPlayer: 3|tilesInInventory: 10|allSlotsPossibleTiles: 6
+3,2026-03-24T19:54:59,roomsTraversed,traversedRooms: 5|alLRooms: 6

@@ -59,7 +59,7 @@ func saveData() -> void:
 	if(!DirAccess.dir_exists_absolute(path)):
 		DirAccess.make_dir_absolute(path)
 	var fileName : String = dataFileName + str(DirAccess.get_files_at(path).size())
-	var file = FileAccess.open(path+dataFileName+fileEnding, FileAccess.WRITE_READ)
+	var file = FileAccess.open(path+fileName+fileEnding, FileAccess.WRITE_READ)
 	file.store_csv_line(["Id", "Timestamp", "Cathegory", "Data"])
 	for point in allDataPoints:
 		file.store_csv_line([point.id, point.timestamp, point.enumString, point.dataString])
