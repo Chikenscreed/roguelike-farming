@@ -35,4 +35,13 @@ offset_right = 132.0
 offset_bottom = 54.66667
 text = "back"
 
+[node name="SkillTreeButton" parent="." node_paths=PackedStringArray("previousSkills") instance=ExtResource("2_vf415")]
+offset_left = 353.33334
+offset_top = 93.333336
+offset_right = 385.33334
+offset_bottom = 125.333336
+texture_normal = ExtResource("3_e7jyk")
+skill = ExtResource("5_06pa4")
+previousSkills = [NodePath("../SkillPoint0")]
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

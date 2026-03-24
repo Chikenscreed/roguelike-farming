@@ -45,14 +45,29 @@ func _process(_delta: float) -> void:
 	#print("got the signal")
 	#pass
 
+func gatherDataForAnalysis(placedTiles: int) -> void:
+	#copied it from the dungeonFrame class
+	var tilesPlacedByGame : int = max(1, floor(GlobalPlayerInventory.playerData.dungeonDimension.x * GlobalPlayerInventory.playerData.dungeonDimension.y) / 12)
+	#entranceAndExit are allways placed
+	tilesPlacedByGame += 2
+	var tilesPlacedByPlayer = placedTiles - tilesPlacedByGame
+	var tilesInPlayerInventory: int
+	for value in GlobalPlayerInventory.playerData.tileInventory.values():
+		tilesInPlayerInventory += value
+	tilesInPlayerInventory += tilesPlacedByPlayer
+	var freeTiles = GlobalPlayerInventory.playerData.dungeonDimension.x * GlobalPlayerInventory.playerData.dungeonDimension.y - tilesPlacedByGame
+	GlobalPlayerDataCollector.tilesPlacedVsPossibelTiles(tilesPlacedByPlayer, tilesInPlayerInventory, freeTiles)
+
 
 func _on_build_dungeon_screen_export_all_rooms(dict: Dictionary, startRoom: Vector2i) -> void:
 	print("got the signal")
 	posOfPlayer = startRoom
+	var placedTiles : int
 	#here i would have to loop through the key value pairs and generate the scenes
 	for key in dict.keys():
 		var tileData = dict.get(key).tileData
 		if (tileData != null):
+			placedTiles += 1
 			var newRoom = templateRoom.instantiate() as DungeonRoom
 			newRoom.setTileData(tileData)
 			newRoom.playerReachedExit.connect(playerReachedEnd)
@@ -61,6 +76,7 @@ func _on_build_dungeon_screen_export_all_rooms(dict: Dictionary, startRoom: Vect
 		else:
 			allDungeonScenes.set(key, null)
 	print("got them all I guess")
+	gatherDataForAnalysis(placedTiles)
 	startInBeginningRoom(startRoom)
 	pass # Replace with function body.
 
