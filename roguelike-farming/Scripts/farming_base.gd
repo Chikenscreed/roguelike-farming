@@ -48,4 +48,5 @@ func _on_skilltree_button_pressed() -> void:
 
 
 func _on_button_2_pressed() -> void:
+	GlobalPlayerDataCollector.saveData()
 	GlobalPersesistance.saveGame()
