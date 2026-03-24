@@ -25,10 +25,13 @@ func tilesPlacedVsPossibelTiles(tilesByPlayer: int, tileInventory: int, freeTile
 	#tiles player placed, free Tiles in Frame player could place tiles on, Num of Tiles in playerInventory
 	pass
 
-func traversedRooms() -> void:
+func traversedRooms(actuallyTraversed: int, allRooms: int) -> void:
 	#player actually walked through, tiles placed in Frame
 	#disclaimer: The player could have placed the tiles in a way he could not reach all tiles
 	#also doubles as player successfully finished a dungeon
+	var dataString = "traversedRooms: " + str(actuallyTraversed) + "|alLRooms: " +str(allRooms)
+	allDataPoints.append(DataPoint.new().createDataPoint(getTimestamp(), DataPoint.CATHEGORIES.ROOMS_TRAVERSED, dataString, counterForID))
+	increseId()
 	pass
 
 

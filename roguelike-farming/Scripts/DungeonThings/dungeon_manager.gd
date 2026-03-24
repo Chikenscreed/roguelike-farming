@@ -58,6 +58,10 @@ func gatherDataForAnalysis(placedTiles: int) -> void:
 	var freeTiles = GlobalPlayerInventory.playerData.dungeonDimension.x * GlobalPlayerInventory.playerData.dungeonDimension.y - tilesPlacedByGame
 	GlobalPlayerDataCollector.tilesPlacedVsPossibelTiles(tilesPlacedByPlayer, tilesInPlayerInventory, freeTiles)
 
+func gatherDataTraversedRooms() -> void: 
+	GlobalPlayerDataCollector.traversedRooms(traversedRooms.size(), allDungeonScenes.values().size() - allDungeonScenes.values().count(null))
+	pass
+
 
 func _on_build_dungeon_screen_export_all_rooms(dict: Dictionary, startRoom: Vector2i) -> void:
 	print("got the signal")
@@ -174,6 +178,7 @@ func addTraversedRoom(room: Vector2i) -> void:
 
 
 func playerReachedEnd() -> void:
+	gatherDataTraversedRooms()
 	print("Player reached the end. TRAVERSED: ", traversedRooms)
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/farming_base.tscn")
 	pass
