@@ -11,7 +11,7 @@ var startRoom: Vector2i
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	dimensions = GlobalPlayerInventory.dungeonDimension
+	dimensions = GlobalPlayerInventory.playerData.dungeonDimension
 	placeHolderSlots()
 	var exitTile: Vector2i = placeExit()
 	var entranceTile: Vector2i = showDungeonEntrance()
@@ -20,7 +20,7 @@ func _ready() -> void:
 	placePOITiles([exitTile, entranceTile])
 	startRoom = entranceTile
 	#this is only for now to show the start entrance
-	allRooms.get(startRoom).setTile(preload("res://Resources/T_Example.tres"), false)
+	allRooms.get(startRoom).setTile(preload("res://Resources/DungeonThings/completeDungeonTiles/T_Example.tres"), false)
 	print(entranceTile)
 	
 
@@ -41,8 +41,8 @@ func placeHolderSlots() -> void:
 func placeExit() ->Vector2i: 
 	var indicator = generatePOITilePlacement()
 	var exitTileData = Tile_Data.new()
-	var exitextra = preload("res://Resources/DungeonExtras/exit.tres")
-	var baseStyle = preload("res://Resources/baseStyle.tres")
+	var exitextra = preload("res://Resources/DungeonThings/DungeonExtras/exit.tres")
+	var baseStyle = preload("res://Resources/DungeonThings/TileStyles/baseStyle.tres")
 	exitTileData.extras.append(exitextra)
 	exitTileData.tileStyle = baseStyle
 	placePregeneratedTiles(exitTileData, indicator)
@@ -102,8 +102,8 @@ func placePOITiles(takenPos: Array[Vector2i]) -> void:
 	for num in calcNumOfPOITiles():
 		#maybe later we will have a selection, for now we only have chests
 		var poiTile: Tile_Data = Tile_Data.new()
-		var extra = preload("res://Resources/DungeonExtras/chest.tres")
-		var baseStyle = preload("res://Resources/baseStyle.tres")
+		var extra = preload("res://Resources/DungeonThings/DungeonExtras/chest.tres")
+		var baseStyle = preload("res://Resources/DungeonThings/TileStyles/baseStyle.tres")
 		poiTile.extras.append(extra)
 		poiTile.tileStyle = baseStyle
 		var pos: Vector2i = generatePOITilePlacement()

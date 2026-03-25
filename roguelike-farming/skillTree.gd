@@ -27,7 +27,7 @@ func drawLines() -> void:
 
 
 func activateActivatedSkills() -> void:
-	for skillId in GlobalPlayerInventory.skillTreeSkills:
+	for skillId in GlobalPlayerInventory.playerData.skillTreeSkills:
 		if skillDict.has(skillId):
 			skillDict.get(skillId).activated = true
 	pass

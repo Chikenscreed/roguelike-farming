@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvndeu417cvii"]
+
+[ext_resource type="PackedScene" uid="uid://bpu63gkkg4cjy" path="res://Scenes/DungeonThings/mapTile.tscn" id="1_gjp5b"]
+[ext_resource type="Script" uid="uid://vx2rkbotp6eb" path="res://Scenes/DungeonThings/placeableTile.gd" id="1_pw111"]
+
+[node name="PlaceableTile" type="Node2D"]
+script = ExtResource("1_pw111")
+
+[node name="FrameTileSlot" parent="." instance=ExtResource("1_gjp5b")]
+
+[node name="count" type="Label" parent="FrameTileSlot"]
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 39.0
+horizontal_alignment = 1

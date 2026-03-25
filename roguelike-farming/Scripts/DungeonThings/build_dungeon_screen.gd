@@ -10,6 +10,7 @@ signal exportAllRooms(dict: Dictionary, startRoom: Vector2i)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	placeTileSelection()
+	GlobalPlayerInventory.playerData.tileInventoryChanged.connect(updateCounts)
 	pass # Replace with function body.
 
 
@@ -45,7 +46,6 @@ func getTheTileFromScreen() -> Array[Dictionary]:
 	var query = PhysicsPointQueryParameters2D.new()
 	query.position = mousePos
 	query.collide_with_areas = true
-	
 	var intersections = space.intersect_point(query)
 	return intersections
 		
@@ -57,6 +57,8 @@ func removeTile() -> void:
 		var something = hit.collider as MapTile
 		if something != null:
 			if !something.pregeneratedTile and something.mapSlot:
+				if(something.tileData != null):
+					GlobalPlayerInventory.addTileToInventory(something.tileData)
 				something.resetTileData()
 				break 
 
@@ -76,13 +78,13 @@ func _on_button_pressed() -> void:
 func placeTileSelection() -> void:
 	var nextPos : Vector2 = Vector2(32,0)
 	var offset: Vector2 = Vector2(35,0)
-	var tile = preload("res://Scenes/DungeonThings/mapTile.tscn")
-	for holder in GlobalPlayerInventory.tileInventory.keys():
-		var newTile = tile.instantiate()
+	var tile = preload("res://Scenes/DungeonThings/placeableTile.tscn") 
+	for holder in GlobalPlayerInventory.playerData.tileInventory.keys():
+		var newTile = tile.instantiate() as PlacableTile
 		panel.add_child(newTile)
-		newTile.setTile(holder, false)
+		newTile.setup(holder, GlobalPlayerInventory.playerData.tileInventory.get(holder))
 		newTile.position = nextPos
-		newTile.snapBackPos = newTile.position
+		newTile.frame_tile_slot.snapBackPos = newTile.frame_tile_slot.position
 		nextPos += offset
 		pass
 
@@ -90,3 +92,14 @@ func placeTileSelection() -> void:
 func _on_back_pressed() -> void:
 	#are the carrots and groths saved here? 
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/farming_base.tscn")
+
+
+func updateCounts() -> void:
+	for tile in panel.get_children():
+		if tile is PlacableTile:
+			var count = GlobalPlayerInventory.playerData.tileInventory.get(GlobalPlayerInventory.playerData.getMatchingInvTile(tile.frame_tile_slot.tileData))
+			if (count <= 0):
+				tile.grayOut()
+			else:
+				tile.reactivate()
+			tile.count.text = str(count)

@@ -18,8 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalEventBus="*res://Scripts/eventBus.gd"
+GlobalPersesistance="*res://Scripts/Persesistance.gd"
 GlobalPlayerInventory="*res://Scripts/playerInventory.gd"
 CharacterAppearance="*res://Scripts/character_appearance.gd"
+GlobalPlayerDataCollector="*res://Scripts/playerDataCollectorScripts/PlayerDataCollector.gd"
 
 [display]
 

@@ -1,22 +1,25 @@
 class_name Playerinventory
 extends Node
 
-@export var tileInventory: Dictionary[Tile_Data, int] = {
-	preload("res://Resources/LineExample.tres") : 5,
-	preload("res://Resources/T_Example.tres") : 3,
-	preload("res://Resources/differentTile.tres"): 4
-}
+var playerData: PlayerInventoryData
 
-
-##all activated SkillIDs saved here
-@export var skillTreeSkills: Array[int] = []
-
-@export var dungeonDimension: Vector2i = Vector2i(3,3)
 
 func addSkill(skillId: int) -> void: 
-	if (!skillTreeSkills.has(skillId)):
-		skillTreeSkills.append(skillId)
-
+	if (!playerData.skillTreeSkills.has(skillId)):
+		playerData.skillTreeSkills.append(skillId)
 
 func expandDungeon(expansion: Vector2i) -> void:
-	dungeonDimension += expansion
+	playerData.dungeonDimension += expansion
+
+func addTileToInventory(tile: Tile_Data) -> void:
+	playerData.addTileToInventory(tile)
+
+func removeTilefromIventory(tile: Tile_Data) -> void:
+	playerData.removeTileFromInventory(tile)
+
+
+func addItem(item: Item) -> void:
+	playerData.addItem(item)
+
+func removeBulkItems(dir: Dictionary[Item, int]) -> void:
+	playerData.bulkremoveItems(dir)

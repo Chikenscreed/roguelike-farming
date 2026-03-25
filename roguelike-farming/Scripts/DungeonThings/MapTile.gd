@@ -72,7 +72,6 @@ func _input(event):
 				isPressed = false
 				print ("stopped pressing")
 				snapback()
-				#getSlot()
 				testWithIntersectPoint()
 	if event is InputEventMouseMotion and isPressed:
 		self.global_position = get_global_mouse_position()
@@ -104,6 +103,7 @@ func getSlot() -> void:
 	if(get_overlapping_areas().size() >0):
 		var chosenSlot: MapTile = get_overlapping_areas()[0] as MapTile
 		chosenSlot.setTile(self.tileData, false)
+		GlobalPlayerInventory.playerData.removeTileFromInventory(tileData)
 	pass 
 
 
@@ -117,7 +117,11 @@ func testWithIntersectPoint() -> void:
 		var s: MapTile = slot.collider as MapTile
 		if s != null:
 			if(s.mapSlot and !s.pregeneratedTile):
+				if s.tileData != null:
+					GlobalPlayerInventory.playerData.addTileToInventory(s.tileData)
 				s.setTile(self.tileData, false)
+				GlobalPlayerInventory.playerData.removeTileFromInventory(self.tileData)
+		
 
 
 func showEntrances() -> void: 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://fxs7rd0ibiyw"]
+[gd_scene load_steps=15 format=4 uid="uid://fxs7rd0ibiyw"]
 
 [ext_resource type="Texture2D" uid="uid://cc8xm8k16dam1" path="res://tileMap/gras.png" id="1_02man"]
 [ext_resource type="Script" uid="uid://r6m3dp53kiuj" path="res://Scripts/farming_base.gd" id="1_5f142"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://etjai5vm2tnp" path="res://Scenes/game.tscn" id="3_qeqr8"]
 [ext_resource type="PackedScene" uid="uid://bcfx4ao14l4cs" path="res://skillTree.tscn" id="4_1kfoo"]
 [ext_resource type="PackedScene" uid="uid://s8jyc8t806gc" path="res://Scenes/enemy.tscn" id="7_dwpgp"]
+[ext_resource type="PackedScene" uid="uid://dku1thhibkrvx" path="res://Scenes/pickableItem.tscn" id="9_rnyqk"]
+[ext_resource type="Resource" uid="uid://cfpbandhtu5qn" path="res://Resources/Items/carrot.tres" id="10_woop4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qeqr8"]
 texture = ExtResource("1_02man")
@@ -219,7 +221,17 @@ offset_right = 205.0
 offset_bottom = 56.0
 text = "Show Skilltree"
 
+[node name="Button2" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "saveGame"
+
+[node name="pickableItem" parent="." instance=ExtResource("9_rnyqk")]
+position = Vector2(277, 258)
+itemData = ExtResource("10_woop4")
+
 [connection signal="action" from="Objects/TestPlayer" to="." method="_on_player_action"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Dungeon Button" to="." method="_on_dungeon_button_pressed"]
 [connection signal="pressed" from="Skilltree Button" to="." method="_on_skilltree_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

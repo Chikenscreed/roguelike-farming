@@ -46,3 +46,10 @@ func isSouth() -> bool:
 
 func isWest() -> bool:
 	return currentEntrances & WEST
+	
+
+func is_equal(other: Tile_Data) -> bool:
+	if other == null:
+		return false
+	else:
+		return entranceComposition == other.entranceComposition and tileStyle == other.tileStyle and extras == other.extras

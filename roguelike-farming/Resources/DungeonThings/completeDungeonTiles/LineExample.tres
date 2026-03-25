@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwqxp04862h6e" path="res://Scripts/DungeonThings/Resources/DungeonExtrasResourceScripts/DungeonExtras.gd" id="1_f6reo"]
 [ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/DungeonThings/Resources/Tile.gd" id="2_er4yf"]
-[ext_resource type="Resource" uid="uid://c3qxx631eltg6" path="res://Resources/baseStyle.tres" id="3_er4yf"]
+[ext_resource type="Resource" uid="uid://c3qxx631eltg6" path="res://Resources/DungeonThings/TileStyles/baseStyle.tres" id="3_er4yf"]
 
 [resource]
 script = ExtResource("2_er4yf")
