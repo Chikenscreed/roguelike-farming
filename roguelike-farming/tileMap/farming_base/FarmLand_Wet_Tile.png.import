@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkbedowp8tr42"
-path="res://.godot/imported/soil_middle_right.png-cccfd21b95ca5de522f85760e246feae.ctex"
+uid="uid://tsyg5404cg1p"
+path="res://.godot/imported/FarmLand_Wet_Tile.png-abe2db877b5886b6eed603dfd701091d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/baseTiles/soil_middle_right.png"
-dest_files=["res://.godot/imported/soil_middle_right.png-cccfd21b95ca5de522f85760e246feae.ctex"]
+source_file="res://tileMap/farming_base/FarmLand_Wet_Tile.png"
+dest_files=["res://.godot/imported/FarmLand_Wet_Tile.png-abe2db877b5886b6eed603dfd701091d.ctex"]
 
 [params]
 

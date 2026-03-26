@@ -18,8 +18,8 @@ func _process(_delta: float) -> void:
 
 
 
-func _on_player_action(position: Vector2) -> void:
-	var grid_coord: Vector2i = Vector2i(int(position.x / tile_size), int(position.y / tile_size))
+func _on_player_action(pos: Vector2) -> void:
+	var grid_coord: Vector2i = Vector2i(int(pos.x / tile_size), int(pos.y / tile_size))
 	var cell = $Layers/SoilLayer.get_cell_tile_data(grid_coord) as TileData
 	if cell and cell.get_custom_data("farmable") and not grid_coord in planeted_crop_tiles:
 		var plant = carrot_scene.instantiate()
@@ -28,6 +28,11 @@ func _on_player_action(position: Vector2) -> void:
 		$Objects.add_child(plant)
 		planeted_crop_tiles.append(grid_coord)
 
+func _on_player_tool_used(tool: Enum.Tool, pos: Vector2) -> void:
+	var grid_coord: Vector2i = Vector2i(int(pos.x / tile_size), int(pos.y / tile_size))
+	match tool:
+		Enum.Tool.HOE:
+			$Layers/SoilLayer.set_cells_terrain_connect([grid_coord], 0, 0)
 
 
 func _on_button_pressed() -> void:

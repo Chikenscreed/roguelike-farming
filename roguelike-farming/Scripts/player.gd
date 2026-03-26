@@ -20,14 +20,18 @@ extends CharacterBody2D
 @onready var hit_flash_player: AnimationPlayer = $Skeleton/HitFlashPlayer
 @onready var animation_tree: AnimationTree = $Animation/AnimationTree
 
+var current_tool = Enum.Tool.HOE
+
 var move_dir: Vector2
+var can_move:= true
 var is_dashing := false
 var is_attacking := false
 
 var knockback = Vector2.ZERO
 var knockback_timer: float = 0.0
 
-signal action(position: Vector2)
+signal action(pos: Vector2)
+signal tool_used(tool: Enum.Tool, pos: Vector2)
 
 func _physics_process(_delta: float) -> void:
 	if knockback_timer > 0.0:
@@ -38,13 +42,13 @@ func _physics_process(_delta: float) -> void:
 	else:
 		if not is_dashing:
 			move_dir = Input.get_vector("left", "right", "up", "down")
-			
 		if is_dashing:
 			velocity = move_dir * speed * dash_speed_multi
 		else:
 			velocity = move_dir * speed
 	animate()
-	move_and_slide()
+	if can_move:
+		move_and_slide()
 	basic_attack.global_position = get_global_mouse_position()
 	if Input.is_action_just_pressed("dash") and can_dash():
 		dash()
@@ -54,6 +58,12 @@ func _input(event):
 		basic_attack.attack()
 	if Input.is_action_just_pressed("action"):
 		action.emit(global_position)
+	if Input.is_action_just_pressed("use_tool"):
+		$Animation/AnimationTree.set("parameters/ToolOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		tool_used_emit()
+
+func tool_used_emit() -> void:
+		tool_used.emit(current_tool, global_position)
 
 func _is_dead() -> void:
 	queue_free()
@@ -89,6 +99,8 @@ func animate() -> void:
 		var animation_direction = Vector2(round(move_dir.x),round(move_dir.y))
 		animation_tree.set("parameters/MoveStateMachine/walk/blend_position", animation_direction)
 		animation_tree.set("parameters/MoveStateMachine/dash/blend_position", animation_direction)
+		var animation_name: String = "parameters/ToolStateMachine/"+ "Hoe" +"/blend_position" # later it will be changed to a for loop over all animation names in tools with dictionary
+		$Animation/AnimationTree.set(animation_name, animation_direction)
 		
 	else: 	
 		animation_tree.set("parameters/MoveStateMachine/walk/blend_position", Vector2.ZERO)
@@ -143,3 +155,12 @@ func _on_health_component_damage_taken(damage_position: Vector2) -> void:
 func _on_health_component_health_changed(current: float, max: float) -> void:
 	if health_bar:
 		health_bar.update_health_bar(current, max)
+
+
+func _on_animation_tree_animation_started(anim_name: StringName) -> void:
+	if anim_name.begins_with("dash"):
+		return
+	can_move = false
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	can_move = true
