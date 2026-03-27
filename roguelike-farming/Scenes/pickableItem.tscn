@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dku1thhibkrvx"]
+[gd_scene format=3 uid="uid://dku1thhibkrvx"]
 
 [ext_resource type="Script" uid="uid://cxlaf33xfle0i" path="res://Scripts/pickableItem.gd" id="1_uctmj"]
 
