@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://s8jyc8t806gc"]
+[gd_scene load_steps=54 format=3 uid="uid://s8jyc8t806gc"]
 
 [ext_resource type="Script" uid="uid://d2m2v46s1u3a3" path="res://Scripts/enemy.gd" id="1_w234y"]
 [ext_resource type="Shader" uid="uid://4ah6ijggwki3" path="res://Shader/hit_flash.tres" id="2_romjf"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://digghbs860g2w" path="res://Scenes/components/loot_drops.tscn" id="5_1rxio"]
 [ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/ItemResource.gd" id="6_l8wq2"]
 [ext_resource type="Resource" uid="uid://cfpbandhtu5qn" path="res://Resources/Items/carrot.tres" id="7_iifun"]
-[ext_resource type="Resource" uid="uid://wi60yb8hbq6n" path="res://Resources/Items/DifferentItem.tres" id="8_bsqc3"]
 [ext_resource type="PackedScene" uid="uid://cbqsayir5ml0t" path="res://Scenes/components/health_bar.tscn" id="9_my67s"]
 [ext_resource type="PackedScene" uid="uid://c8kr15caehnb2" path="res://Scenes/components/health.tscn" id="10_v7kr5"]
 [ext_resource type="PackedScene" uid="uid://b7t2qwd28n4qa" path="res://Scenes/components/attack_component.tscn" id="11_xv0vl"]
@@ -584,8 +583,8 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_ghaa6")
 
 [node name="Loot Drops" parent="." instance=ExtResource("5_1rxio")]
-item_drop = Array[ExtResource("6_l8wq2")]([ExtResource("7_iifun"), ExtResource("8_bsqc3")])
-item_drop_chances = Array[float]([8.0, 4.0, 1.0])
+item_drop = Array[ExtResource("6_l8wq2")]([ExtResource("7_iifun")])
+item_drop_chances = Array[float]([8.0, 4.0])
 
 [node name="HealthBar" parent="." instance=ExtResource("9_my67s")]
 offset_top = -25.0

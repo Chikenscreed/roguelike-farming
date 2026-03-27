@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://fxs7rd0ibiyw"]
+[gd_scene load_steps=15 format=4 uid="uid://fxs7rd0ibiyw"]
 
 [ext_resource type="Script" uid="uid://r6m3dp53kiuj" path="res://Scripts/farming_base.gd" id="1_5f142"]
 [ext_resource type="PackedScene" uid="uid://bdrnscehyw88x" path="res://Scenes/crops/carrot.tscn" id="2_5f142"]
 [ext_resource type="PackedScene" uid="uid://i02wi8njxgrb" path="res://Scenes/player.tscn" id="3_5f142"]
-[ext_resource type="PackedScene" uid="uid://etjai5vm2tnp" path="res://Scenes/game.tscn" id="3_qeqr8"]
 [ext_resource type="PackedScene" uid="uid://bcfx4ao14l4cs" path="res://skillTree.tscn" id="4_1kfoo"]
 [ext_resource type="Texture2D" uid="uid://dej73c1orusej" path="res://tileMap/farming_base/HomeBaseTiles.png" id="5_rnyqk"]
 [ext_resource type="Texture2D" uid="uid://tsyg5404cg1p" path="res://tileMap/farming_base/FarmLand_Wet_Tile.png" id="6_rnyqk"]
@@ -506,7 +505,7 @@ sources/4 = SubResource("TileSetAtlasSource_rnyqk")
 [node name="Farming Base" type="Node2D"]
 script = ExtResource("1_5f142")
 carrot_scene = ExtResource("2_5f142")
-dungeon_scene = ExtResource("3_qeqr8")
+dungeon_scene_path = "uid://etjai5vm2tnp"
 skilltree_scene = ExtResource("4_1kfoo")
 
 [node name="Layers" type="Node2D" parent="."]
