@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dfck20u8sgy1d"]
+[gd_resource type="TileSet" format=3 uid="uid://dfck20u8sgy1d"]
 
 [ext_resource type="Texture2D" uid="uid://cbmof6h5i4bkt" path="res://Sprites/dungeonSprites/DungeonSpriteSheets/DungeonSpriteSheetDoubleDoor16x16.png" id="1_hthvc"]
 

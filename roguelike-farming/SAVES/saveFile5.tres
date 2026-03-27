@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="PlayerInventoryData" load_steps=8 format=3]
+[gd_resource type="Resource" script_class="PlayerInventoryData" format=3]
 
-[ext_resource type="Script" path="res://Scripts/ItemResource.gd" id="1_gltpl"]
-[ext_resource type="Resource" path="res://Resources/Items/carrot.tres" id="2_0so12"]
-[ext_resource type="Script" path="res://Scripts/PlayerInventoryResource.gd" id="3_8si22"]
-[ext_resource type="Script" path="res://Scripts/DungeonThings/Resources/Tile.gd" id="4_bdefw"]
-[ext_resource type="Resource" path="res://Resources/DungeonThings/completeDungeonTiles/LineExample.tres" id="5_mbarg"]
-[ext_resource type="Resource" path="res://Resources/DungeonThings/completeDungeonTiles/T_Example.tres" id="6_bwr5s"]
-[ext_resource type="Resource" path="res://Resources/DungeonThings/completeDungeonTiles/differentTile.tres" id="7_16abc"]
+[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/items/ItemResource.gd" id="1_gltpl"]
+[ext_resource type="Resource" uid="uid://cfpbandhtu5qn" path="res://Resources/Items/carrot.tres" id="2_0so12"]
+[ext_resource type="Script" uid="uid://h86ccct8e54k" path="res://Scripts/PlayerInventoryResource.gd" id="3_8si22"]
+[ext_resource type="Script" uid="uid://fj0p44iwfaup" path="res://Scripts/DungeonThings/Resources/Tile.gd" id="4_bdefw"]
+[ext_resource type="Resource" uid="uid://crfx3tve28asq" path="res://Resources/DungeonThings/completeDungeonTiles/LineExample.tres" id="5_mbarg"]
+[ext_resource type="Resource" uid="uid://cav6tlvtxgsnt" path="res://Resources/DungeonThings/completeDungeonTiles/T_Example.tres" id="6_bwr5s"]
+[ext_resource type="Resource" uid="uid://bjmrjrbcus3uv" path="res://Resources/DungeonThings/completeDungeonTiles/differentTile.tres" id="7_16abc"]
 
 [resource]
 script = ExtResource("3_8si22")

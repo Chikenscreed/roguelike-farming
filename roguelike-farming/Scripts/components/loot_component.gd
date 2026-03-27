@@ -30,6 +30,11 @@ func drop_item() -> void:
 			
 			get_parent().get_tree().current_scene.call_deferred("add_child", item)
 			break
+	var droppedTile = pickable_item_scene.instantiate()
+
+	droppedTile.global_position = global_position + Vector2(8,8)
+	get_parent().get_tree().current_scene.call_deferred("add_child", droppedTile)
+	droppedTile.itemData = preload("res://Resources/Items/TileDropped.tres")
 
 func fix_item_drop_arrays() -> void:
 	if item_drop_chances.size() < item_drop.size():

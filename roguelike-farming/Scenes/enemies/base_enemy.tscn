@@ -1,11 +1,11 @@
-[gd_scene load_steps=54 format=3 uid="uid://s8jyc8t806gc"]
+[gd_scene format=3 uid="uid://s8jyc8t806gc"]
 
 [ext_resource type="Script" uid="uid://d2m2v46s1u3a3" path="res://Scripts/enemy.gd" id="1_w234y"]
 [ext_resource type="Shader" uid="uid://4ah6ijggwki3" path="res://Shader/hit_flash.tres" id="2_romjf"]
 [ext_resource type="Texture2D" uid="uid://dm588qgmdgk3d" path="res://Sprites/Enemies/Fallen_Angel.png" id="3_wc24a"]
 [ext_resource type="PackedScene" uid="uid://cuv25c8obkyjr" path="res://Scenes/components/hitbox.tscn" id="4_7bhi1"]
 [ext_resource type="PackedScene" uid="uid://digghbs860g2w" path="res://Scenes/components/loot_drops.tscn" id="5_1rxio"]
-[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/ItemResource.gd" id="6_l8wq2"]
+[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/items/ItemResource.gd" id="6_l8wq2"]
 [ext_resource type="Resource" uid="uid://cfpbandhtu5qn" path="res://Resources/Items/carrot.tres" id="7_iifun"]
 [ext_resource type="PackedScene" uid="uid://cbqsayir5ml0t" path="res://Scenes/components/health_bar.tscn" id="9_my67s"]
 [ext_resource type="PackedScene" uid="uid://c8kr15caehnb2" path="res://Scenes/components/health.tscn" id="10_v7kr5"]

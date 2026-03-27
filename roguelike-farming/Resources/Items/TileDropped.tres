@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CollectableTile" format=3 uid="uid://bc2b6umeahkbi"]
+
+[ext_resource type="Script" uid="uid://6a2au1jpkdk" path="res://Scripts/items/collectableTile.gd" id="1_w1ob8"]
+[ext_resource type="Texture2D" uid="uid://c4mux65qg06i2" path="res://Sprites/dungeonSprites/Tiles/TileSlot.png" id="2_6e6da"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afcig"]
+atlas = ExtResource("2_6e6da")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_w1ob8")
+name = "Tile"
+sprite = SubResource("AtlasTexture_afcig")
+metadata/_custom_type_script = "uid://6a2au1jpkdk"
