@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ymb1o8w0it3a"
-path="res://.godot/imported/grass_deko.png-c7b3d6fcf674d973551c19722337af55.ctex"
+uid="uid://dej73c1orusej"
+path="res://.godot/imported/HomeBaseTiles.png-7d63c715be327b12bc6f3c8878368d80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/baseTiles/grass_deko.png"
-dest_files=["res://.godot/imported/grass_deko.png-c7b3d6fcf674d973551c19722337af55.ctex"]
+source_file="res://tileMap/farming_base/HomeBaseTiles.png"
+dest_files=["res://.godot/imported/HomeBaseTiles.png-7d63c715be327b12bc6f3c8878368d80.ctex"]
 
 [params]
 

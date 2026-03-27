@@ -1,8 +1,10 @@
 extends Node2D
 class_name LootDropComponent
 
-@export var item_drop: Array[PackedScene]
+@export var item_drop: Array[Item]
 @export var item_drop_chances: Array[float]
+
+var pickable_item_scene: PackedScene = preload("res://Scenes/pickableItem.tscn")
 
 func drop_item() -> void:
 	if item_drop.size() == 0:
@@ -22,8 +24,10 @@ func drop_item() -> void:
 			if item_drop[i] == null:
 				return
 			
-			var item: Node2D = item_drop[i].instantiate()
+			var item = pickable_item_scene.instantiate()
+			item.itemData = item_drop[i]
 			item.global_position = global_position
+			
 			get_parent().get_tree().current_scene.call_deferred("add_child", item)
 			break
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f3ol2u2cetp3"
-path="res://.godot/imported/soil_down_right.png-21c37337dbceb17919ebce3ed15816c8.ctex"
+uid="uid://d0xpgfv3waq4b"
+path="res://.godot/imported/Angel.png-cd17085c631d463538e624a1056f89f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/baseTiles/soil_down_right.png"
-dest_files=["res://.godot/imported/soil_down_right.png-21c37337dbceb17919ebce3ed15816c8.ctex"]
+source_file="res://Sprites/Enemies/Angel.png"
+dest_files=["res://.godot/imported/Angel.png-cd17085c631d463538e624a1056f89f7.ctex"]
 
 [params]
 
