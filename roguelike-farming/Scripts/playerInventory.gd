@@ -28,6 +28,9 @@ func addItem(item: Item) -> void:
 func removeBulkItems(dir: Dictionary[Item, int]) -> void:
 	playerData.bulkremoveItems(dir)
 
+func bulkRemoveTiles(tiles: Array[Tile_Data]) -> void:
+	for tile in tiles: 
+		removeTilefromIventory(tile)
 
 func generateRandomTile() -> Tile_Data:
 	var newTile: Tile_Data = Tile_Data.new()

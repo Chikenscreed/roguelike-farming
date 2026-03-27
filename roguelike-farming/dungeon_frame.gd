@@ -8,6 +8,8 @@ var sizeOfTile: int = 32
 @export var allRooms: Dictionary = {}
 var startRoom: Vector2i
 
+signal tilePutBack(tile: Tile_Data)
+signal tileAddToList(tile: Tile_Data)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,13 +32,22 @@ func placeHolderSlots() -> void:
 	for numY in dimensions.y:
 		currentX = sizeOfTile / 2
 		for numX in dimensions.x:
-			var tile = mapTileSceen.instantiate()
+			var tile: MapTile = mapTileSceen.instantiate()
 			allRooms.set(Vector2i(numX, numY), tile)
 			add_child(tile)
+			tile.SignaltileRemoved.connect(tileRemoved)
+			tile.SignaltileAdded.connect(tilePlaced)
 			tile.mapSlot = true
 			tile.position = Vector2i(currentX, currentY)
 			currentX += sizeOfTile
 		currentY += sizeOfTile
+
+func tileRemoved(tile: Tile_Data):
+	print("Actually one tile has to be put back into inventory")
+	tilePutBack.emit(tile)
+
+func tilePlaced(tile: Tile_Data):
+	tileAddToList.emit(tile)
 
 func placeExit() ->Vector2i: 
 	var indicator = generatePOITilePlacement()
