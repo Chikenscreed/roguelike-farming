@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cfpbandhtu5qn"]
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cfpbandhtu5qn"]
 
-[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/ItemResource.gd" id="1_1qgx7"]
+[ext_resource type="Script" path="res://Scripts/ItemResource.gd" id="1_1qgx7"]
 [ext_resource type="Texture2D" uid="uid://po0vtwy1ahim" path="res://Sprites/crops/Crops.png" id="2_aeaeg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_laudw"]

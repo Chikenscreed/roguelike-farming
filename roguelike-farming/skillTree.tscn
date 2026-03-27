@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcfx4ao14l4cs"]
+[gd_scene format=3 uid="uid://bcfx4ao14l4cs"]
 
 [ext_resource type="Script" uid="uid://b6gh4e1gam46l" path="res://skillTree.gd" id="1_iv0no"]
 [ext_resource type="PackedScene" uid="uid://lillh2jh2lkq" path="res://Scenes/SkillTreeStuff/SkillTreeButton.tscn" id="2_vf415"]

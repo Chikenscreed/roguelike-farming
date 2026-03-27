@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://i02wi8njxgrb"]
+[gd_scene format=3 uid="uid://i02wi8njxgrb"]
 
 [ext_resource type="Script" uid="uid://clkie2iwhrego" path="res://Scripts/player.gd" id="1_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://bd7ym4mn4kg2a" path="res://Sprites/Player/Player_Base/Player_Base_animations.png" id="2_gymyn"]
@@ -3283,103 +3283,99 @@ nodes/ToolOneShot/node = SubResource("AnimationNodeOneShot_ukyrk")
 nodes/ToolOneShot/position = Vector2(-260, 40)
 node_connections = [&"output", 0, &"ToolOneShot", &"ToolOneShot", 0, &"MoveStateMachine", &"ToolOneShot", 1, &"ToolStateMachine"]
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1900304584 groups=["Player"]]
 collision_mask = 64
 script = ExtResource("1_x3wgy")
 speed = 100.0
 health = 10.0
 dash_duration = 0.2
 
-[node name="Skeleton" type="Node2D" parent="."]
+[node name="Skeleton" type="Node2D" parent="." unique_id=122881678]
 material = SubResource("ShaderMaterial_ukyrk")
 
-[node name="Body" type="Sprite2D" parent="Skeleton"]
+[node name="Body" type="Sprite2D" parent="Skeleton" unique_id=1116381209]
 use_parent_material = true
 texture = ExtResource("2_gymyn")
 hframes = 9
 vframes = 56
 
-[node name="Chest" type="Sprite2D" parent="Skeleton"]
+[node name="Chest" type="Sprite2D" parent="Skeleton" unique_id=1979170705]
 use_parent_material = true
 texture = ExtResource("3_pu2lt")
 hframes = 9
 vframes = 56
 
-[node name="Hair" type="Sprite2D" parent="Skeleton"]
+[node name="Hair" type="Sprite2D" parent="Skeleton" unique_id=1164550193]
 use_parent_material = true
 texture = ExtResource("4_ukyrk")
 hframes = 9
 vframes = 56
 
-[node name="Legs" type="Sprite2D" parent="Skeleton"]
+[node name="Legs" type="Sprite2D" parent="Skeleton" unique_id=1412205209]
 use_parent_material = true
 texture = ExtResource("5_7dp3o")
 hframes = 9
 vframes = 56
 
-[node name="Hands" type="Sprite2D" parent="Skeleton"]
+[node name="Hands" type="Sprite2D" parent="Skeleton" unique_id=1748232275]
 use_parent_material = true
 texture = ExtResource("6_h4iuc")
 hframes = 9
 vframes = 56
 
-[node name="Feet" type="Sprite2D" parent="Skeleton"]
+[node name="Feet" type="Sprite2D" parent="Skeleton" unique_id=1619607906]
 use_parent_material = true
 texture = ExtResource("7_fd4e3")
 hframes = 9
 vframes = 56
 
-[node name="Accessory" type="Sprite2D" parent="Skeleton"]
+[node name="Accessory" type="Sprite2D" parent="Skeleton" unique_id=1358351388]
 use_parent_material = true
 texture = ExtResource("8_pu2lt")
 hframes = 9
 vframes = 56
 
-[node name="HitFlashPlayer" type="AnimationPlayer" parent="Skeleton"]
-libraries = {
-&"": SubResource("AnimationLibrary_bi64h")
-}
+[node name="HitFlashPlayer" type="AnimationPlayer" parent="Skeleton" unique_id=1456215060]
+libraries/ = SubResource("AnimationLibrary_bi64h")
 
-[node name="AreaCollision" type="CollisionShape2D" parent="."]
+[node name="AreaCollision" type="CollisionShape2D" parent="." unique_id=916369009]
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_3a3hx")
 
-[node name="dash_timer" type="Timer" parent="."]
+[node name="dash_timer" type="Timer" parent="." unique_id=44776925]
 one_shot = true
 
-[node name="dash_cooldown_timer" type="Timer" parent="."]
+[node name="dash_cooldown_timer" type="Timer" parent="." unique_id=1698165722]
 one_shot = true
 
-[node name="HealthBar" parent="." instance=ExtResource("3_8erm5")]
+[node name="HealthBar" parent="." unique_id=1555952008 instance=ExtResource("3_8erm5")]
 offset_left = -2.0
 offset_top = -24.0
 offset_right = -2.0
 offset_bottom = -24.0
 
-[node name="HealthComponent" parent="." instance=ExtResource("5_tx1dd")]
+[node name="HealthComponent" parent="." unique_id=656024438 instance=ExtResource("5_tx1dd")]
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_x3wgy")]
+[node name="HurtboxComponent" parent="." unique_id=113542834 node_paths=PackedStringArray("health_component") instance=ExtResource("5_x3wgy")]
 collision_layer = 8
 collision_mask = 16
 health_component = NodePath("../HealthComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=1439864357]
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_ct3of")
 debug_color = Color(0.8800434, 0.2781528, 0.5030166, 0.41960785)
 
-[node name="Basic_attack" parent="." instance=ExtResource("6_gymyn")]
+[node name="Basic_attack" parent="." unique_id=1188563481 instance=ExtResource("6_gymyn")]
 position = Vector2(-27, 4.7683716e-07)
 attack_damage = 2.0
 
-[node name="Animation" type="Node" parent="."]
+[node name="Animation" type="Node" parent="." unique_id=2055396785]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
-libraries = {
-&"": SubResource("AnimationLibrary_pu2lt")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation" unique_id=1007909340]
+libraries/ = SubResource("AnimationLibrary_pu2lt")
 
-[node name="AnimationTree" type="AnimationTree" parent="Animation"]
+[node name="AnimationTree" type="AnimationTree" parent="Animation" unique_id=408462356]
 tree_root = SubResource("AnimationNodeBlendTree_fd4e3")
 anim_player = NodePath("../AnimationPlayer")
 parameters/MoveStateMachine/conditions/is_dashing = false
@@ -3391,6 +3387,8 @@ parameters/ToolStateMachine/Sword/blend_position = Vector2(0, 0)
 parameters/ToolOneShot/active = false
 parameters/ToolOneShot/internal_active = false
 parameters/ToolOneShot/request = 0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=527247832]
 
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dash_cooldown_timer" to="." method="_on_dash_cooldown_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://e6rp533pbmxt"]
+[gd_scene format=3 uid="uid://e6rp533pbmxt"]
 
 [ext_resource type="Script" uid="uid://cqof8cqb0bfjs" path="res://Scripts/attacks/basic_attack.gd" id="1_p1pcy"]
 [ext_resource type="PackedScene" uid="uid://b7t2qwd28n4qa" path="res://Scenes/components/attack_component.tscn" id="2_jt2il"]

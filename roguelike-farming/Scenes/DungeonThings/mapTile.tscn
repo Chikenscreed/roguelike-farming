@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpu63gkkg4cjy"]
+[gd_scene format=3 uid="uid://bpu63gkkg4cjy"]
 
 [ext_resource type="Script" uid="uid://beofjbbcrrf3f" path="res://Scripts/DungeonThings/MapTile.gd" id="1_0e4tk"]
 [ext_resource type="Texture2D" uid="uid://c4mux65qg06i2" path="res://Sprites/dungeonSprites/Tiles/TileSlot.png" id="1_am855"]
@@ -7,40 +7,40 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iac7i"]
 size = Vector2(32, 32)
 
-[node name="FrameTileSlot" type="Area2D"]
+[node name="FrameTileSlot" type="Area2D" unique_id=1634213090]
 script = ExtResource("1_0e4tk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1274226119]
 shape = SubResource("RectangleShape2D_iac7i")
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="." unique_id=585617297]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_am855")
 
-[node name="north" type="Sprite2D" parent="." groups=["EntranceSprites"]]
+[node name="north" type="Sprite2D" parent="." unique_id=1838716858 groups=["EntranceSprites"]]
 visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_p2f1m")
 
-[node name="east" type="Sprite2D" parent="." groups=["EntranceSprites"]]
+[node name="east" type="Sprite2D" parent="." unique_id=1572617051 groups=["EntranceSprites"]]
 visible = false
 rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_p2f1m")
 
-[node name="south" type="Sprite2D" parent="." groups=["EntranceSprites"]]
+[node name="south" type="Sprite2D" parent="." unique_id=1543646512 groups=["EntranceSprites"]]
 visible = false
 rotation = 3.1415927
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_p2f1m")
 
-[node name="west" type="Sprite2D" parent="." groups=["EntranceSprites"]]
+[node name="west" type="Sprite2D" parent="." unique_id=1287091062 groups=["EntranceSprites"]]
 visible = false
 rotation = 4.712389
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_p2f1m")
 
-[node name="extra" type="Sprite2D" parent="."]
+[node name="extra" type="Sprite2D" parent="." unique_id=197125438]
 visible = false
 scale = Vector2(0.5, 0.5)
 
