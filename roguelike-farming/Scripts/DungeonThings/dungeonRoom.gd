@@ -12,7 +12,7 @@ var entranceScene = preload("res://Scenes/DungeonThings/mapComponents/entrance.t
 var entranceDimNorthSouth = Vector2(24,8)
 var entranceDimEastWest = Vector2(8,24)
 
-var enemy = preload("res://Scenes/enemy.tscn")
+var enemy = preload("res://Scenes/enemies/fallen_angel.tscn")
 
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer2
 @onready var entrances: Node2D = $Entrances

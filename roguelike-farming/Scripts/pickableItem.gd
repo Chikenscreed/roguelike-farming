@@ -9,7 +9,8 @@ extends Area2D
 
 
 func _ready() -> void:
-	setItemData()
+	if itemData:
+		setItemData()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

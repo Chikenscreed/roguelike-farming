@@ -1,11 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdrnscehyw88x"]
 
 [ext_resource type="Script" uid="uid://b4pk53l7x2c77" path="res://Scripts/crops/carrot.gd" id="1_b43u4"]
-[ext_resource type="Texture2D" uid="uid://b74uhx4medtc7" path="res://Sprites/crops/carrot/carrot.png" id="1_w173k"]
+[ext_resource type="Texture2D" uid="uid://po0vtwy1ahim" path="res://Sprites/crops/Crops.png" id="2_b43u4"]
 
 [node name="Carrot" type="Node2D"]
 script = ExtResource("1_b43u4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_w173k")
-hframes = 3
+position = Vector2(0, 7)
+texture = ExtResource("2_b43u4")
+hframes = 7
+vframes = 22
+frame = 16

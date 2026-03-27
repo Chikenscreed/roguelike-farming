@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3 uid="uid://crj43xl6h1hms"]
+
+[ext_resource type="PackedScene" uid="uid://s8jyc8t806gc" path="res://Scenes/enemies/base_enemy.tscn" id="1_o41op"]
+[ext_resource type="Shader" uid="uid://4ah6ijggwki3" path="res://Shader/hit_flash.tres" id="2_46ru7"]
+[ext_resource type="Texture2D" uid="uid://d0xpgfv3waq4b" path="res://Sprites/Enemies/Angel.png" id="3_nt8un"]
+[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/ItemResource.gd" id="4_2oicl"]
+[ext_resource type="Resource" uid="uid://cfpbandhtu5qn" path="res://Resources/Items/carrot.tres" id="5_qee1q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6v6fy"]
+resource_local_to_scene = true
+shader = ExtResource("2_46ru7")
+shader_parameter/BooleanParameter = false
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[node name="Angel" instance=ExtResource("1_o41op")]
+
+[node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_6v6fy")
+texture = ExtResource("3_nt8un")
+
+[node name="Loot Drops" parent="." index="3"]
+item_drop = Array[ExtResource("4_2oicl")]([ExtResource("5_qee1q")])

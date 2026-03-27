@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://ec3dkkr06fno"]
+
+[ext_resource type="PackedScene" uid="uid://s8jyc8t806gc" path="res://Scenes/enemies/base_enemy.tscn" id="1_6nl1d"]
+[ext_resource type="Shader" uid="uid://4ah6ijggwki3" path="res://Shader/hit_flash.tres" id="2_romjf"]
+[ext_resource type="Texture2D" uid="uid://dm588qgmdgk3d" path="res://Sprites/Enemies/Fallen_Angel.png" id="3_wc24a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8ahd"]
+resource_local_to_scene = true
+shader = ExtResource("2_romjf")
+shader_parameter/BooleanParameter = false
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[node name="Fallen Angel" instance=ExtResource("1_6nl1d")]
+
+[node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_o8ahd")
+texture = ExtResource("3_wc24a")

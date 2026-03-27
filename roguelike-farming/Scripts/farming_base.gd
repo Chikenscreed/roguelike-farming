@@ -25,7 +25,7 @@ func _on_player_action(pos: Vector2) -> void:
 		var plant = carrot_scene.instantiate()
 		plant.position = grid_coord * tile_size + Vector2i(8,5)
 		plant.add_to_group("crops")
-		$Objects.add_child(plant)
+		$Crops.add_child(plant)
 		planeted_crop_tiles.append(grid_coord)
 
 func _on_player_tool_used(tool: Enum.Tool, pos: Vector2) -> void:
@@ -36,7 +36,7 @@ func _on_player_tool_used(tool: Enum.Tool, pos: Vector2) -> void:
 
 
 func _on_button_pressed() -> void:
-	var crops = $Objects.get_children().filter(is_crop)
+	var crops = $Crops.get_children().filter(is_crop)
 	for crop in crops:
 		crop.grow()
 

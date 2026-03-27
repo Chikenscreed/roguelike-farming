@@ -22,12 +22,12 @@ GlobalPersesistance="*res://Scripts/Persesistance.gd"
 GlobalPlayerInventory="*res://Scripts/playerInventory.gd"
 CharacterAppearance="*res://Scripts/character_appearance.gd"
 GlobalPlayerDataCollector="*res://Scripts/playerDataCollectorScripts/PlayerDataCollector.gd"
+GeneralData="*res://Scripts/general_data.gd"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=2
 window/size/resizable=false
 window/size/window_width_override=1480
 window/size/window_height_override=720
@@ -36,6 +36,10 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="roguelike farming"
+
+[global_group]
+
+Player="Group of the Player"
 
 [input]
 

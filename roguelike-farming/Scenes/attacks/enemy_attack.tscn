@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://e6rp533pbmxt"]
+
+[ext_resource type="Script" uid="uid://cqof8cqb0bfjs" path="res://Scripts/attacks/basic_attack.gd" id="1_p1pcy"]
+[ext_resource type="PackedScene" uid="uid://b7t2qwd28n4qa" path="res://Scenes/components/attack_component.tscn" id="2_jt2il"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbsd4"]
+radius = 5.0
+height = 41.59672
+
+[node name="Enemy Attack" type="Node2D"]
+script = ExtResource("1_p1pcy")
+
+[node name="Attack Component" parent="." instance=ExtResource("2_jt2il")]
+collision_layer = 16
+collision_mask = 8
+attack_damage = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Component"]
+shape = SubResource("CapsuleShape2D_rbsd4")
