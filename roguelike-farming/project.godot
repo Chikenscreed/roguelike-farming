@@ -27,6 +27,7 @@ GlobalPlayerInventory="*res://Scripts/playerInventory.gd"
 CharacterAppearance="*res://Scripts/character_appearance.gd"
 GlobalPlayerDataCollector="*res://Scripts/playerDataCollectorScripts/PlayerDataCollector.gd"
 GeneralData="*res://Scripts/general_data.gd"
+Talo="*uid://bpmdn8oc34pg7"
 
 [display]
 
@@ -41,6 +42,10 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="roguelike farming"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/talo/plugin.cfg")
 
 [global_group]
 

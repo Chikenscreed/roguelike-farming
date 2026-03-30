@@ -53,8 +53,6 @@ func getTheTileFromScreen() -> Array[Dictionary]:
 	return intersections
 		
 
-
-
 func removeTile() -> void: 
 	for hit in getTheTileFromScreen():
 		var something = hit.collider as MapTile
