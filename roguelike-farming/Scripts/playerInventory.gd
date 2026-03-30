@@ -1,7 +1,7 @@
 class_name Playerinventory
 extends Node
 
-var playerData: PlayerInventoryData
+var playerData: PlayerInventoryData = PlayerInventoryData.new()
 
 
 func addSkill(skillId: int) -> void: 
@@ -37,3 +37,6 @@ func generateRandomTile() -> Tile_Data:
 	newTile.entranceComposition = [Tile_Data.ENTRANCE_COMPOSITIONS.LINE, Tile_Data.ENTRANCE_COMPOSITIONS.L, Tile_Data.ENTRANCE_COMPOSITIONS.X, Tile_Data.ENTRANCE_COMPOSITIONS.SINGLE, Tile_Data.ENTRANCE_COMPOSITIONS.T].pick_random()
 	newTile.tileStyle = [preload("res://Resources/DungeonThings/TileStyles/baseStyle.tres"), preload("res://Resources/DungeonThings/TileStyles/differentStyle.tres")].pick_random()
 	return newTile
+
+func getItemCount(item: Item) -> int:
+	return playerData.ItemInventory.get(item)

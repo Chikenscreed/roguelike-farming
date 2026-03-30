@@ -16,7 +16,7 @@ signal tileInventoryChanged()
 @export var dungeonDimension: Vector2i = Vector2i(3,3)
 
 @export var ItemInventory: Dictionary[Item, int] = {
-	preload("res://Resources/Items/Carrot.tres"): 5
+	preload("res://Resources/Items/carrot.tres"): 5
 }
 
 

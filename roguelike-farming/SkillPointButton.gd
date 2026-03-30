@@ -88,7 +88,7 @@ func showInfo() -> void:
 	if(is_hovered()):
 		var desc: SkillDescriptionpanel = preload("res://Scenes/SkillTreeStuff/skill_description.tscn").instantiate()
 		add_child(desc)
-		desc.showDesc(skill.skillBase.description, Vector2(size))
+		desc.showDesc(skill.skillBase.description, Vector2(size), skill.price)
 	pass
 	
 func removeInfo() -> void:
