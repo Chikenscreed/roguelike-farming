@@ -10,7 +10,6 @@ extends Area2D
 @onready var west: Sprite2D = $west
 @onready var extra: Sprite2D = $extra
 
-
 #bit masks for the entrances: 
 #const NORTH = 0b0001
 #const EAST = 0b0010
@@ -19,10 +18,7 @@ extends Area2D
 
 var is_dragging : bool = false
 var isPressed: bool = false
-
 var snapBackPos: Vector2
-
-
 
 ##This boolean is needed to make MapSlotTiles not draggable. 
 @export var mapSlot: bool 
@@ -31,8 +27,11 @@ var snapBackPos: Vector2
 ## if a tile gets dragged to the slot, the slot should show the current tile_data. Also later probably needed to connect the tiles together
 @export var tileData: Tile_Data
 
-
 var rotateOnlyOnce: bool = true
+
+signal SignaltileRemoved(tile: Tile_Data)
+signal SignaltileAdded(tile: Tile_Data)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -99,12 +98,13 @@ func setTile(data: Tile_Data, isExitTile: bool) -> void:
 		tileData.currentEntrances = tileData.entranceComposition
 	createVisualisation()
 
-func getSlot() -> void: 
-	if(get_overlapping_areas().size() >0):
-		var chosenSlot: MapTile = get_overlapping_areas()[0] as MapTile
-		chosenSlot.setTile(self.tileData, false)
-		GlobalPlayerInventory.playerData.removeTileFromInventory(tileData)
-	pass 
+#func getSlot() -> void: 
+	#if(get_overlapping_areas().size() >0):
+		#var chosenSlot: MapTile = get_overlapping_areas()[0] as MapTile
+		#chosenSlot.setTile(self.tileData, false)
+		#tileAdded.emit(tileData)
+		#GlobalPlayerInventory.playerData.removeTileFromInventory(tileData)
+	#pass 
 
 
 func testWithIntersectPoint() -> void: 
@@ -115,12 +115,13 @@ func testWithIntersectPoint() -> void:
 	query.collide_with_areas = true
 	for slot in space.intersect_point(query):
 		var s: MapTile = slot.collider as MapTile
+		#s ist the tile from the Tile in the Frame
 		if s != null:
 			if(s.mapSlot and !s.pregeneratedTile):
 				if s.tileData != null:
-					GlobalPlayerInventory.playerData.addTileToInventory(s.tileData)
+					s.SignaltileRemoved.emit(s.tileData)
 				s.setTile(self.tileData, false)
-				GlobalPlayerInventory.playerData.removeTileFromInventory(self.tileData)
+				SignaltileAdded.emit(tileData)
 		
 
 
