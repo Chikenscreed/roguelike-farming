@@ -38,7 +38,8 @@ func tilesPlacedVsPossibelTiles(tilesByPlayer: int, tileInventory: int, freeTile
 	Talo.events.track("tiles place vs possible tiles", {
 		"tilesByPlayer" : str(tilesByPlayer),
 		"tileInventory" : str(tileInventory),
-		"freeTiles" : str(freeTiles)
+		"freeTiles" : str(freeTiles),
+		"freeTilesFilledByPlayerPercentage" : str(float(tilesByPlayer)/freeTiles*100)
 	})
 	var dataString = "tilesByPlayer: " + str(tilesByPlayer) + "|tilesInInventory: " + str(tileInventory) + "|allSlotsPossibleTiles: " + str(freeTiles)
 	addDataPoint(DataPoint.CATHEGORIES.TILES_PLACED, dataString)
@@ -51,7 +52,8 @@ func traversedRooms(actuallyTraversed: int, allRooms: int) -> void:
 	#also doubles as player successfully finished a dungeon
 	Talo.events.track("Traversed rooms", {
 		"traversedRooms" : str(actuallyTraversed),
-		"allRooms" : str(allRooms)
+		"allRooms" : str(allRooms),
+		"traversalPercentage": str(float(actuallyTraversed)/allRooms*100)
 	})
 	var dataString = "traversedRooms: " + str(actuallyTraversed) + "|alLRooms: " +str(allRooms)
 	addDataPoint(DataPoint.CATHEGORIES.ROOMS_TRAVERSED, dataString)
