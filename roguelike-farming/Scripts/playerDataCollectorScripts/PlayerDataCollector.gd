@@ -23,13 +23,24 @@ func addDataPoint(cathegory: DataPoint.CATHEGORIES, dataString: String) -> void:
 	pass 
 
 
-func playerGotHit(damage: int, enemy: String, healtBeforeHit) -> void:
+func playerGotHit(damage: int, enemy: String, healtBeforeHit: int) -> void:
 	#which enemy, how much damage
+	Talo.events.track("Player got hit", {
+		"Enemy" : enemy,
+		"Damage": str(damage),
+		"HealthBeforeHit": str(healtBeforeHit)
+	})
 	var dataString = "Enemy: " + enemy + "|damage: " + str(damage) + "|healthBeforeHit: " + str(healtBeforeHit)
 	addDataPoint(DataPoint.CATHEGORIES.PLAYER_HIT, dataString)
 	pass
 
 func tilesPlacedVsPossibelTiles(tilesByPlayer: int, tileInventory: int, freeTiles: int) -> void:
+	Talo.events.track("tiles place vs possible tiles", {
+		"tilesByPlayer" : str(tilesByPlayer),
+		"tileInventory" : str(tileInventory),
+		"freeTiles" : str(freeTiles),
+		"freeTilesFilledByPlayerPercentage" : str(float(tilesByPlayer)/freeTiles*100)
+	})
 	var dataString = "tilesByPlayer: " + str(tilesByPlayer) + "|tilesInInventory: " + str(tileInventory) + "|allSlotsPossibleTiles: " + str(freeTiles)
 	addDataPoint(DataPoint.CATHEGORIES.TILES_PLACED, dataString)
 	#tiles player placed, free Tiles in Frame player could place tiles on, Num of Tiles in playerInventory
@@ -39,12 +50,18 @@ func traversedRooms(actuallyTraversed: int, allRooms: int) -> void:
 	#player actually walked through, tiles placed in Frame
 	#disclaimer: The player could have placed the tiles in a way he could not reach all tiles
 	#also doubles as player successfully finished a dungeon
+	Talo.events.track("Traversed rooms", {
+		"traversedRooms" : str(actuallyTraversed),
+		"allRooms" : str(allRooms),
+		"traversalPercentage": str(float(actuallyTraversed)/allRooms*100)
+	})
 	var dataString = "traversedRooms: " + str(actuallyTraversed) + "|alLRooms: " +str(allRooms)
 	addDataPoint(DataPoint.CATHEGORIES.ROOMS_TRAVERSED, dataString)
 	pass
 
 
 func playerDied() -> void:
+	Talo.events.track("Player Died")
 	addDataPoint(DataPoint.CATHEGORIES.PLAYER_DEATH, "")
 	#enemy, damage taken, playerHp before death <- this data would also be in playerGotHit tho
 	pass

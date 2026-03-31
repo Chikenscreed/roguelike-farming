@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="SkillBase" load_steps=4 format=3 uid="uid://ch1uebh0b1fan"]
+[gd_resource type="Resource" script_class="SkillBase" format=3 uid="uid://ch1uebh0b1fan"]
 
 [ext_resource type="Resource" uid="uid://bal0h5s3jsgg" path="res://Resources/skilltreeResources/skilltreefuncs/FuncDungeonExpansionY.tres" id="1_fdrgu"]
 [ext_resource type="Script" uid="uid://c5qidpl7d2ipy" path="res://Scripts/SkillTreeScripts/SkillBase.gd" id="2_8r5wm"]
-[ext_resource type="Texture2D" uid="uid://divljun6q4u1r" path="res://Sprites/DungeonFrameSkillPoint.png" id="3_1qp1g"]
+[ext_resource type="Texture2D" uid="uid://divljun6q4u1r" path="res://Sprites/skillTreeSprites/DungeonFrameSkillPoint.png" id="3_1qp1g"]
 
 [resource]
 script = ExtResource("2_8r5wm")

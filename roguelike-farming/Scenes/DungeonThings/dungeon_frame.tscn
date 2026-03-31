@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt5c4ofynwdn8"]
+[gd_scene format=3 uid="uid://bt5c4ofynwdn8"]
 
 [ext_resource type="Script" uid="uid://dwbhk1wn8t8i5" path="res://dungeon_frame.gd" id="1_gvvra"]
 [ext_resource type="PackedScene" uid="uid://bpu63gkkg4cjy" path="res://Scenes/DungeonThings/mapTile.tscn" id="2_nobia"]
 
-[node name="DungeonFrame" type="Node2D"]
+[node name="DungeonFrame" type="Node2D" unique_id=2104486535]
 script = ExtResource("1_gvvra")
 dimensions = Vector2i(3, 3)
 mapTileSceen = ExtResource("2_nobia")

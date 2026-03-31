@@ -16,9 +16,12 @@ signal tileInventoryChanged()
 @export var dungeonDimension: Vector2i = Vector2i(3,3)
 
 @export var ItemInventory: Dictionary[Item, int] = {
-	preload("res://Resources/Items/Carrot.tres"): 5
+	preload("res://Resources/Items/carrot.tres"): 5
 }
 
+@export var possibleDungeonStyles: Array[TileStyle] = [preload("res://Resources/DungeonThings/TileStyles/baseStyle.tres")]
+
+@export var extraCropYields: int = 0
 
 func removeTileFromInventory(tile: Tile_Data) -> void:
 	var matchedResult: Tile_Data =  getMatchingInvTile(tile)

@@ -1,7 +1,7 @@
 class_name Playerinventory
 extends Node
 
-var playerData: PlayerInventoryData
+var playerData: PlayerInventoryData = PlayerInventoryData.new()
 
 
 func addSkill(skillId: int) -> void: 
@@ -19,7 +19,31 @@ func removeTilefromIventory(tile: Tile_Data) -> void:
 
 
 func addItem(item: Item) -> void:
-	playerData.addItem(item)
+	if (item is CollectableTile):
+		var newTile: Tile_Data = generateRandomTile()
+		addTileToInventory(newTile)
+	else:
+		playerData.addItem(item)
 
 func removeBulkItems(dir: Dictionary[Item, int]) -> void:
 	playerData.bulkremoveItems(dir)
+
+func bulkRemoveTiles(tiles: Array[Tile_Data]) -> void:
+	for tile in tiles: 
+		removeTilefromIventory(tile)
+
+func generateRandomTile() -> Tile_Data:
+	var newTile: Tile_Data = Tile_Data.new()
+	newTile.entranceComposition = [Tile_Data.ENTRANCE_COMPOSITIONS.LINE, Tile_Data.ENTRANCE_COMPOSITIONS.L, Tile_Data.ENTRANCE_COMPOSITIONS.X, Tile_Data.ENTRANCE_COMPOSITIONS.SINGLE, Tile_Data.ENTRANCE_COMPOSITIONS.T].pick_random()
+	newTile.tileStyle = [preload("res://Resources/DungeonThings/TileStyles/baseStyle.tres"), preload("res://Resources/DungeonThings/TileStyles/differentStyle.tres")].pick_random()
+	return newTile
+
+func getItemCount(item: Item) -> int:
+	return playerData.ItemInventory.get(item)
+
+
+func addNewDungeonStyle(style: TileStyle) -> void:
+	playerData.possibleDungeonStyles.append(style)
+
+func addExtraCropYield() -> void:
+	playerData.extraCropYields += 1
