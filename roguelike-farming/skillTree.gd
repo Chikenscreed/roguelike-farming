@@ -1,3 +1,4 @@
+@tool
 class_name SkillTree
 extends Node2D
 

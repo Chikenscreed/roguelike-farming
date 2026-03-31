@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://divljun6q4u1r"
-path="res://.godot/imported/DungeonFrameSkillPoint.png-f882997e51e3cb0cf1ee4d9b6e0685d6.ctex"
+uid="uid://cilmkqp2hh68j"
+path="res://.godot/imported/DungeonStyleUpgrade.png-ce716c2a4e0661c27acfee9bf094b44c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/DungeonFrameSkillPoint.png"
-dest_files=["res://.godot/imported/DungeonFrameSkillPoint.png-f882997e51e3cb0cf1ee4d9b6e0685d6.ctex"]
+source_file="res://Sprites/skillTreeSprites/DungeonStyleUpgrade.png"
+dest_files=["res://.godot/imported/DungeonStyleUpgrade.png-ce716c2a4e0661c27acfee9bf094b44c.ctex"]
 
 [params]
 

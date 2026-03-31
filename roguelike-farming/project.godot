@@ -28,6 +28,7 @@ CharacterAppearance="*res://Scripts/character_appearance.gd"
 GlobalPlayerDataCollector="*res://Scripts/playerDataCollectorScripts/PlayerDataCollector.gd"
 GeneralData="*res://Scripts/general_data.gd"
 Talo="*uid://bpmdn8oc34pg7"
+HoldTraversedRooms="*uid://cw6i8qtrav7ih"
 
 [display]
 

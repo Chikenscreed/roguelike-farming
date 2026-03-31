@@ -29,6 +29,7 @@ extends TextureButton
 		previousSkills = value
 		paintLines()
 
+
 const lockedColorLine: Color = Color(0.187, 0.187, 0.187, 1.0)
 const unlockedColorLine: Color = Color(0.0, 0.42, 0.843, 1.0)
 

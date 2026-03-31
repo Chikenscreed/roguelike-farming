@@ -19,6 +19,7 @@ signal tileInventoryChanged()
 	preload("res://Resources/Items/carrot.tres"): 5
 }
 
+@export var possibleDungeonStyles: Array[TileStyle] = [preload("res://Resources/DungeonThings/TileStyles/baseStyle.tres")]
 
 func removeTileFromInventory(tile: Tile_Data) -> void:
 	var matchedResult: Tile_Data =  getMatchingInvTile(tile)

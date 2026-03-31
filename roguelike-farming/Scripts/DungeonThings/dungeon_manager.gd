@@ -180,5 +180,6 @@ func addTraversedRoom(room: Vector2i) -> void:
 func playerReachedEnd() -> void:
 	gatherDataTraversedRooms()
 	print("Player reached the end. TRAVERSED: ", traversedRooms)
+	HoldTraversedRooms.traversedRooms = traversedRooms.size()
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/farming_base.tscn")
 	pass

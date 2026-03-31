@@ -8,12 +8,15 @@ var sizeOfTile: int = 32
 @export var allRooms: Dictionary = {}
 var startRoom: Vector2i
 
+@export var choosenBaseStyle: TileStyle
+
 signal tilePutBack(tile: Tile_Data)
 signal tileAddToList(tile: Tile_Data)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	dimensions = GlobalPlayerInventory.playerData.dungeonDimension
+	choosenBaseStyle = GlobalPlayerInventory.playerData.possibleDungeonStyles.pick_random()
 	placeHolderSlots()
 	var exitTile: Vector2i = placeExit()
 	var entranceTile: Vector2i = showDungeonEntrance()
@@ -22,9 +25,16 @@ func _ready() -> void:
 	placePOITiles([exitTile, entranceTile])
 	startRoom = entranceTile
 	#this is only for now to show the start entrance
-	allRooms.get(startRoom).setTile(preload("res://Resources/DungeonThings/completeDungeonTiles/T_Example.tres"), false)
+	allRooms.get(startRoom).setTile(generateStartTile(), false)
 	print(entranceTile)
 	
+func generateStartTile() -> Tile_Data:
+	var tile: Tile_Data = Tile_Data.new()
+	tile.tileStyle = choosenBaseStyle
+	tile.currentEntrances = Tile_Data.ENTRANCE_COMPOSITIONS.T
+	tile.name = "Generated Entrance"
+	return tile
+
 
 func placeHolderSlots() -> void: 
 	var currentX: int = sizeOfTile/2
@@ -53,7 +63,7 @@ func placeExit() ->Vector2i:
 	var indicator = generatePOITilePlacement()
 	var exitTileData = Tile_Data.new()
 	var exitextra = preload("res://Resources/DungeonThings/DungeonExtras/exit.tres")
-	var baseStyle = preload("res://Resources/DungeonThings/TileStyles/baseStyle.tres")
+	var baseStyle = choosenBaseStyle
 	exitTileData.extras.append(exitextra)
 	exitTileData.tileStyle = baseStyle
 	placePregeneratedTiles(exitTileData, indicator)
@@ -114,9 +124,8 @@ func placePOITiles(takenPos: Array[Vector2i]) -> void:
 		#maybe later we will have a selection, for now we only have chests
 		var poiTile: Tile_Data = Tile_Data.new()
 		var extra = preload("res://Resources/DungeonThings/DungeonExtras/chest.tres")
-		var baseStyle = preload("res://Resources/DungeonThings/TileStyles/baseStyle.tres")
 		poiTile.extras.append(extra)
-		poiTile.tileStyle = baseStyle
+		poiTile.tileStyle = choosenBaseStyle
 		var pos: Vector2i = generatePOITilePlacement()
 		while takenPos.has(pos):
 			pos = generatePOITilePlacement()

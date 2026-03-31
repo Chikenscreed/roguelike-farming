@@ -40,3 +40,7 @@ func generateRandomTile() -> Tile_Data:
 
 func getItemCount(item: Item) -> int:
 	return playerData.ItemInventory.get(item)
+
+
+func addNewDungeonStyle(style: TileStyle) -> void:
+	playerData.possibleDungeonStyles.append(style)
