@@ -21,6 +21,8 @@ signal tileInventoryChanged()
 
 @export var possibleDungeonStyles: Array[TileStyle] = [preload("res://Resources/DungeonThings/TileStyles/baseStyle.tres")]
 
+@export var extraCropYields: int = 0
+
 func removeTileFromInventory(tile: Tile_Data) -> void:
 	var matchedResult: Tile_Data =  getMatchingInvTile(tile)
 	if matchedResult!= null:

@@ -44,3 +44,6 @@ func getItemCount(item: Item) -> int:
 
 func addNewDungeonStyle(style: TileStyle) -> void:
 	playerData.possibleDungeonStyles.append(style)
+
+func addExtraCropYield() -> void:
+	playerData.extraCropYields += 1

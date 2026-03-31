@@ -20,4 +20,6 @@ func loadSaveFile() -> void:
 			GlobalPlayerInventory.playerData = PlayerInventoryData.new()
 		else:
 			GlobalPlayerInventory.playerData = ResourceLoader.load(path+saveFileName+str(DirAccess.open(path).get_files().size()-1)+fileEnding, "PlayerinventoryData").duplicate()
+	else:
+		DirAccess.make_dir_absolute(path)
 	var allFiles: int = DirAccess.open(path).get_files().size()
