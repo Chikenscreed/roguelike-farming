@@ -17,24 +17,31 @@ func drop_item() -> void:
 	
 	var random: float = randf_range(0.0, weight_sum)
 	var drop_value: float = 0.0
-	
+	var allItems: Array[Item] = []
 	for i in item_drop_chances.size():
 		drop_value += item_drop_chances[i]
 		if random <= drop_value:
 			if item_drop[i] == null:
 				return
-			
-			var item = pickable_item_scene.instantiate()
-			item.itemData = item_drop[i]
-			item.global_position = global_position
-			
-			get_parent().get_tree().current_scene.call_deferred("add_child", item)
-			break
-	var droppedTile = pickable_item_scene.instantiate()
+			allItems.append(item_drop[i])
 
-	droppedTile.global_position = global_position + Vector2(8,8)
-	get_parent().get_tree().current_scene.call_deferred("add_child", droppedTile)
-	droppedTile.itemData = preload("res://Resources/Items/TileDropped.tres")
+			break
+	allItems.append( preload("res://Resources/Items/TileDropped.tres"))
+	placeDrops(allItems)
+
+func placeDrops(items: Array[Item]) -> void:
+	print("DROP " + str(items.size()))
+	for item in items:
+		var pitem = pickable_item_scene.instantiate()
+		pitem.itemData = item
+		pitem.global_position = global_position
+		var something = get_parent();
+		#if something.name == "Chest":
+		get_parent().get_parent().call_deferred("add_child", pitem)
+		#else:
+			#get_parent().call_deferred("add_child",pitem)
+		pitem.position = get_parent().position+Vector2(randi_range(-15, 15), randi_range(-15,15))
+	pass
 
 func fix_item_drop_arrays() -> void:
 	if item_drop_chances.size() < item_drop.size():

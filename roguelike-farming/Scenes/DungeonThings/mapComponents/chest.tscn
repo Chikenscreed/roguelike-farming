@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://8vda2cw3kiet" path="res://Scripts/DungeonThings/DungeonExtrasObjectScripts/chestObjectScript.gd" id="1_1c2xg"]
 [ext_resource type="Texture2D" uid="uid://chyr3272vda7y" path="res://Sprites/dungeonSprites/DungeonExtrasSprites/chest_placeholder.png" id="1_f42m7"]
+[ext_resource type="PackedScene" uid="uid://digghbs860g2w" path="res://Scenes/components/loot_drops.tscn" id="3_gdcfw"]
+[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/items/ItemResource.gd" id="4_sagfj"]
+[ext_resource type="Resource" uid="uid://cfpbandhtu5qn" path="res://Resources/Items/carrot.tres" id="5_pj6xk"]
+[ext_resource type="Resource" uid="uid://bc2b6umeahkbi" path="res://Resources/Items/TileDropped.tres" id="6_xoxnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1c2xg"]
 size = Vector2(32, 32)
@@ -17,5 +21,9 @@ shape = SubResource("RectangleShape2D_1c2xg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=987889934]
 texture = ExtResource("1_f42m7")
+
+[node name="Loot Drops" parent="." unique_id=1001381070 instance=ExtResource("3_gdcfw")]
+item_drop = Array[ExtResource("4_sagfj")]([ExtResource("5_pj6xk"), ExtResource("6_xoxnd"), ExtResource("6_xoxnd"), ExtResource("5_pj6xk"), ExtResource("5_pj6xk"), ExtResource("5_pj6xk")])
+item_drop_chances = Array[float]([1.0, 1.0])
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dku1thhibkrvx"]
+[gd_scene format=3 uid="uid://dku1thhibkrvx"]
 
 [ext_resource type="Script" uid="uid://cxlaf33xfle0i" path="res://Scripts/pickableItem.gd" id="1_uctmj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uctmj"]
 
-[node name="pickableItem" type="Area2D"]
+[node name="pickableItem" type="Area2D" unique_id=503128048]
 script = ExtResource("1_uctmj")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1143959216]
 shape = SubResource("RectangleShape2D_uctmj")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=505769764]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
