@@ -17,7 +17,7 @@ script = ExtResource("1_lr1r3")
 layout_mode = 0
 offset_left = 500.0
 offset_top = 31.0
-offset_right = 630.0
+offset_right = 637.0
 offset_bottom = 98.0
 text = "submit Dungeon"
 
@@ -34,6 +34,21 @@ offset_top = 141.0
 offset_right = 635.0
 offset_bottom = 191.0
 text = "back"
+
+[node name="Label" type="Label" parent="." unique_id=747605933]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 192.0
+offset_right = 632.0
+offset_bottom = 362.0
+theme_override_font_sizes/font_size = 13
+text = "Controls:
+right click: remove tile
+left hold: drag tile
+middle click: rotate
+
+if dungeon unsolvable: go back and into menu again"
+autowrap_mode = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

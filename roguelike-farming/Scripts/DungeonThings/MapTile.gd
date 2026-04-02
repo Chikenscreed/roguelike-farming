@@ -113,6 +113,7 @@ func testWithIntersectPoint() -> void:
 	var query = PhysicsPointQueryParameters2D.new()
 	query.position = mousePos
 	query.collide_with_areas = true
+	var everything = space.intersect_point(query)
 	for slot in space.intersect_point(query):
 		var s: MapTile = slot.collider as MapTile
 		#s ist the tile from the Tile in the Frame

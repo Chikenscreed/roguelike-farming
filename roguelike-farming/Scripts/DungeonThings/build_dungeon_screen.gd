@@ -8,9 +8,11 @@ signal exportAllRooms(dict: Dictionary, startRoom: Vector2i)
 
 @export var currentSelectedTiles: Array[Tile_Data]
 
+signal resetPlayer()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	resetPlayer.emit()
 	placeTileSelection()
 	GlobalPlayerInventory.playerData.tileInventoryChanged.connect(updateCounts)
 	dungeon_frame.tilePutBack.connect(removeFromUsedTiles)
