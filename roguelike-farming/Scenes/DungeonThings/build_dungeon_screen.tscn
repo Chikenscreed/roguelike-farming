@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bh7xfp5urcint"]
+[gd_scene format=3 uid="uid://bh7xfp5urcint"]
 
 [ext_resource type="Script" uid="uid://c07xhhm6qn82g" path="res://Scripts/DungeonThings/build_dungeon_screen.gd" id="1_lr1r3"]
 [ext_resource type="PackedScene" uid="uid://bt5c4ofynwdn8" path="res://Scenes/DungeonThings/dungeon_frame.tscn" id="7_56aqq"]
 
-[node name="BuildDungeonScreen" type="Control"]
+[node name="BuildDungeonScreen" type="Control" unique_id=762437925]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_lr1r3")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=211774018]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 31.0
@@ -21,13 +21,13 @@ offset_right = 630.0
 offset_bottom = 98.0
 text = "submit Dungeon"
 
-[node name="DungeonFrame" parent="." instance=ExtResource("7_56aqq")]
+[node name="DungeonFrame" parent="." unique_id=958744227 instance=ExtResource("7_56aqq")]
 position = Vector2(102, 36)
 
-[node name="Panel" type="Node2D" parent="."]
+[node name="Panel" type="Node2D" parent="." unique_id=631303504]
 position = Vector2(1, 306)
 
-[node name="Back" type="Button" parent="."]
+[node name="Back" type="Button" parent="." unique_id=1256355001]
 layout_mode = 0
 offset_left = 504.0
 offset_top = 141.0

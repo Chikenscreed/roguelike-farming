@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs7mb151nswu6"]
+[gd_scene format=3 uid="uid://bs7mb151nswu6"]
 
 [ext_resource type="Script" uid="uid://c1cv8kvjvrtfo" path="res://Scripts/main_menu.gd" id="1_28flt"]
 
@@ -13,7 +13,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="Main Menu" type="Control"]
+[node name="Main Menu" type="Control" unique_id=1694140280]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,9 +23,9 @@ grow_vertical = 2
 script = ExtResource("1_28flt")
 character_creator_path = "uid://dbxtx1nq78qhu"
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=877469493]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=761818997]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,20 +36,20 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Start Button" type="Button" parent="VBoxContainer"]
+[node name="Start Button" type="Button" parent="VBoxContainer" unique_id=1075633939]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 text = "Start
 "
 
-[node name="Exit Button" type="Button" parent="VBoxContainer"]
+[node name="Exit Button" type="Button" parent="VBoxContainer" unique_id=243498001]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 text = "Exit"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=110728471]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

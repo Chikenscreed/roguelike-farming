@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="SkillPoint" load_steps=5 format=3 uid="uid://e3ee7kwwvg1c"]
+[gd_resource type="Resource" script_class="SkillPoint" format=3 uid="uid://e3ee7kwwvg1c"]
 
-[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/ItemResource.gd" id="1_82sdl"]
+[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/items/ItemResource.gd" id="1_82sdl"]
 [ext_resource type="Script" uid="uid://cpq0pgay74y47" path="res://Scripts/SkillTreeScripts/SkillPoint.gd" id="1_qxx1t"]
 [ext_resource type="Resource" uid="uid://caq8bv7350m7" path="res://Scripts/SkillTreeScripts/SkillResources/DungeonFrameExpansionX.tres" id="2_qxx1t"]
 [ext_resource type="Resource" uid="uid://cfpbandhtu5qn" path="res://Resources/Items/carrot.tres" id="2_xak1x"]

@@ -10,6 +10,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func grow() -> void:
+func grow(growthSteps: int) -> void:
 	if $Sprite2D.frame + 1 < $Sprite2D.hframes + 13:
 		$Sprite2D.frame +=1

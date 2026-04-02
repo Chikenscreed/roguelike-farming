@@ -1,17 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://ec3dkkr06fno"]
+[gd_scene format=3 uid="uid://ec3dkkr06fno"]
 
 [ext_resource type="PackedScene" uid="uid://s8jyc8t806gc" path="res://Scenes/enemies/base_enemy.tscn" id="1_6nl1d"]
 [ext_resource type="Shader" uid="uid://4ah6ijggwki3" path="res://Shader/hit_flash.tres" id="2_romjf"]
-[ext_resource type="Texture2D" uid="uid://dm588qgmdgk3d" path="res://Sprites/Enemies/Fallen_Angel.png" id="3_wc24a"]
+[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/items/ItemResource.gd" id="3_yfl8p"]
+[ext_resource type="Resource" uid="uid://cfpbandhtu5qn" path="res://Resources/Items/carrot.tres" id="4_w4dbx"]
+[ext_resource type="Resource" uid="uid://wi60yb8hbq6n" path="res://Resources/Items/DifferentItem.tres" id="5_v40c2"]
+[ext_resource type="Resource" uid="uid://bc2b6umeahkbi" path="res://Resources/Items/TileDropped.tres" id="6_biji6"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o8ahd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v4vw3"]
 resource_local_to_scene = true
 shader = ExtResource("2_romjf")
 shader_parameter/BooleanParameter = false
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 
-[node name="Fallen Angel" instance=ExtResource("1_6nl1d")]
+[node name="Fallen Angel" unique_id=1634492896 instance=ExtResource("1_6nl1d")]
 
 [node name="Sprite2D" parent="." index="1"]
-material = SubResource("ShaderMaterial_o8ahd")
-texture = ExtResource("3_wc24a")
+material = SubResource("ShaderMaterial_v4vw3")
+
+[node name="Loot Drops" parent="." index="3"]
+item_drop = Array[ExtResource("3_yfl8p")]([ExtResource("4_w4dbx"), ExtResource("5_v40c2"), ExtResource("6_biji6")])

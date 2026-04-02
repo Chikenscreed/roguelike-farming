@@ -2,15 +2,19 @@
 
 [ext_resource type="Script" uid="uid://b6gh4e1gam46l" path="res://skillTree.gd" id="1_iv0no"]
 [ext_resource type="PackedScene" uid="uid://lillh2jh2lkq" path="res://Scenes/SkillTreeStuff/SkillTreeButton.tscn" id="2_vf415"]
-[ext_resource type="Texture2D" uid="uid://divljun6q4u1r" path="res://Sprites/DungeonFrameSkillPoint.png" id="3_e7jyk"]
+[ext_resource type="Texture2D" uid="uid://divljun6q4u1r" path="res://Sprites/skillTreeSprites/DungeonFrameSkillPoint.png" id="3_e7jyk"]
 [ext_resource type="Resource" uid="uid://e3ee7kwwvg1c" path="res://Resources/skilltreeResources/finishedSkillPoint/DungeonFrameExpansionX1.tres" id="4_rss7w"]
 [ext_resource type="Resource" uid="uid://cen61yejh3vtw" path="res://Resources/skilltreeResources/finishedSkillPoint/DungeonFrameExpansionY.tres" id="5_06pa4"]
+[ext_resource type="Texture2D" uid="uid://cilmkqp2hh68j" path="res://Sprites/skillTreeSprites/DungeonStyleUpgrade.png" id="6_rss7w"]
+[ext_resource type="Resource" uid="uid://bol2gmv10huga" path="res://Resources/skilltreeResources/finishedSkillPoint/SpringDungeonTile.tres" id="7_06pa4"]
+[ext_resource type="Texture2D" uid="uid://cnb31jrmb88wt" path="res://Sprites/skillTreeSprites/DungeonExtraCropsUpgrade.png" id="8_h1blb"]
+[ext_resource type="Resource" uid="uid://bqqp60hj7r3aw" path="res://Resources/skilltreeResources/finishedSkillPoint/ExtraCropYield.tres" id="9_okebk"]
 
-[node name="SkillTree Test" type="Node2D"]
+[node name="SkillTree Test" type="Node2D" unique_id=413398979]
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_iv0no")
 
-[node name="SkillPoint0" parent="." node_paths=PackedStringArray("followingSkills") instance=ExtResource("2_vf415")]
+[node name="SkillPoint0" parent="." unique_id=1037807013 node_paths=PackedStringArray("followingSkills") instance=ExtResource("2_vf415")]
 offset_left = 348.0
 offset_top = 252.0
 offset_right = 380.0
@@ -19,29 +23,39 @@ texture_normal = ExtResource("3_e7jyk")
 skill = ExtResource("4_rss7w")
 followingSkills = [NodePath("../SkillPoint1")]
 
-[node name="SkillPoint1" parent="." node_paths=PackedStringArray("previousSkills") instance=ExtResource("2_vf415")]
+[node name="SkillPoint1" parent="." unique_id=296178983 node_paths=PackedStringArray("followingSkills", "previousSkills") instance=ExtResource("2_vf415")]
 offset_left = 429.33334
 offset_top = 194.66667
 offset_right = 461.33334
 offset_bottom = 226.66667
 texture_normal = ExtResource("3_e7jyk")
 skill = ExtResource("5_06pa4")
+followingSkills = [NodePath("../SkillTreeButton"), NodePath("../SkillTreeButton2")]
 previousSkills = [NodePath("../SkillPoint0")]
 
-[node name="Back" type="Button" parent="."]
+[node name="Back" type="Button" parent="." unique_id=1545988299]
 offset_left = 12.0
 offset_top = 9.333334
 offset_right = 132.0
 offset_bottom = 54.66667
 text = "back"
 
-[node name="SkillTreeButton" parent="." node_paths=PackedStringArray("previousSkills") instance=ExtResource("2_vf415")]
-offset_left = 353.33334
-offset_top = 93.333336
-offset_right = 385.33334
-offset_bottom = 125.333336
-texture_normal = ExtResource("3_e7jyk")
-skill = ExtResource("5_06pa4")
-previousSkills = [NodePath("../SkillPoint0")]
+[node name="SkillTreeButton" parent="." unique_id=995273174 node_paths=PackedStringArray("previousSkills") instance=ExtResource("2_vf415")]
+offset_left = 478.6667
+offset_top = 96.0
+offset_right = 510.6667
+offset_bottom = 128.0
+texture_normal = ExtResource("6_rss7w")
+skill = ExtResource("7_06pa4")
+previousSkills = [NodePath("../SkillPoint1")]
+
+[node name="SkillTreeButton2" parent="." unique_id=2053264119 node_paths=PackedStringArray("previousSkills") instance=ExtResource("2_vf415")]
+offset_left = 572.0
+offset_top = 189.33333
+offset_right = 604.0
+offset_bottom = 221.33333
+texture_normal = ExtResource("8_h1blb")
+skill = ExtResource("9_okebk")
+previousSkills = [NodePath("../SkillPoint1")]
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

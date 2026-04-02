@@ -9,6 +9,8 @@ func setup(tileData: Tile_Data, count: int) -> void:
 	frame_tile_slot.setTile(tileData,false)
 	self.count.text = str(count)
 
+
+
 func grayOut() -> void:
 	modulate = Color(0.234, 0.234, 0.234, 1.0)
 	#timer needed becuase otherwise tile would stay stuck at frame. more elegant solutions welcome

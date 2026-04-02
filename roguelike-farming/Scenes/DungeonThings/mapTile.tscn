@@ -7,40 +7,40 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iac7i"]
 size = Vector2(32, 32)
 
-[node name="FrameTileSlot" type="Area2D" unique_id=1634213090]
+[node name="FrameTileSlot" type="Area2D" unique_id=32131604]
 script = ExtResource("1_0e4tk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1274226119]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=878296191]
 shape = SubResource("RectangleShape2D_iac7i")
 
-[node name="background" type="Sprite2D" parent="." unique_id=585617297]
+[node name="background" type="Sprite2D" parent="." unique_id=1886870559]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_am855")
 
-[node name="north" type="Sprite2D" parent="." unique_id=1838716858 groups=["EntranceSprites"]]
+[node name="north" type="Sprite2D" parent="." unique_id=579983855 groups=["EntranceSprites"]]
 visible = false
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_p2f1m")
 
-[node name="east" type="Sprite2D" parent="." unique_id=1572617051 groups=["EntranceSprites"]]
+[node name="east" type="Sprite2D" parent="." unique_id=1852578652 groups=["EntranceSprites"]]
 visible = false
 rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_p2f1m")
 
-[node name="south" type="Sprite2D" parent="." unique_id=1543646512 groups=["EntranceSprites"]]
+[node name="south" type="Sprite2D" parent="." unique_id=1500917545 groups=["EntranceSprites"]]
 visible = false
 rotation = 3.1415927
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_p2f1m")
 
-[node name="west" type="Sprite2D" parent="." unique_id=1287091062 groups=["EntranceSprites"]]
+[node name="west" type="Sprite2D" parent="." unique_id=1800812071 groups=["EntranceSprites"]]
 visible = false
 rotation = 4.712389
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_p2f1m")
 
-[node name="extra" type="Sprite2D" parent="." unique_id=197125438]
+[node name="extra" type="Sprite2D" parent="." unique_id=1466835209]
 visible = false
 scale = Vector2(0.5, 0.5)
 

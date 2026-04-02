@@ -1,6 +1,10 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://cfpbandhtu5qn"]
 
+<<<<<<< FixDungeonCollison
 [ext_resource type="Script" path="res://Scripts/ItemResource.gd" id="1_1qgx7"]
+=======
+[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/items/ItemResource.gd" id="1_aeaeg"]
+>>>>>>> master
 [ext_resource type="Texture2D" uid="uid://po0vtwy1ahim" path="res://Sprites/crops/Crops.png" id="2_aeaeg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_laudw"]
@@ -8,7 +12,8 @@ atlas = ExtResource("2_aeaeg")
 region = Rect2(96, 64, 16, 16)
 
 [resource]
-script = ExtResource("1_1qgx7")
+resource_name = "Carrot"
+script = ExtResource("1_aeaeg")
 name = "Carrot"
 sprite = SubResource("AtlasTexture_laudw")
 metadata/_custom_type_script = "uid://duii50egtu4d1"

@@ -1,14 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://djob1qkdy161t"]
+[gd_scene format=3 uid="uid://djob1qkdy161t"]
 
 [ext_resource type="Script" uid="uid://b3n35htcbrsey" path="res://Scenes/SkillTreeStuff/SkillDescription.gd" id="1_o30ro"]
+[ext_resource type="PackedScene" uid="uid://beco1yhl0kiyf" path="res://Scenes/SkillTreeStuff/itemPreview.tscn" id="2_kgi3o"]
 
-[node name="SkillDescription" type="Panel"]
+[node name="SkillDescription" type="Panel" unique_id=384050844]
 offset_right = 246.0
 offset_bottom = 138.0
 mouse_filter = 2
 script = ExtResource("1_o30ro")
+itemPrev = ExtResource("2_kgi3o")
 
-[node name="Description" type="Label" parent="."]
+[node name="Description" type="Label" parent="." unique_id=1049148938]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 7.0
@@ -16,3 +18,10 @@ offset_right = 240.0
 offset_bottom = 129.0
 theme_override_font_sizes/font_size = 6
 autowrap_mode = 2
+
+[node name="VFlowContainer" type="HFlowContainer" parent="." unique_id=1770566816]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 57.0
+offset_right = 244.0
+offset_bottom = 135.0
