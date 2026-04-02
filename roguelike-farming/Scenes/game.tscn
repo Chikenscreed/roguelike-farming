@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://etjai5vm2tnp"]
+[gd_scene format=3 uid="uid://etjai5vm2tnp"]
 
+[ext_resource type="Script" uid="uid://b37s1awv11656" path="res://Scenes/game.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://bh7xfp5urcint" path="res://Scenes/DungeonThings/build_dungeon_screen.tscn" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://cy6868cf62pkn" path="res://Scenes/DungeonThings/dungeon_manager.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://i02wi8njxgrb" path="res://Scenes/player.tscn" id="3_wrm1d"]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" unique_id=2112289950]
+script = ExtResource("1_3dryh")
 
-[node name="BuildDungeonScreen" parent="." instance=ExtResource("1_qxrlw")]
+[node name="BuildDungeonScreen" parent="." unique_id=44022367 instance=ExtResource("1_qxrlw")]
 
-[node name="DungeonManagerNode" parent="." instance=ExtResource("2_wrm1d")]
+[node name="DungeonManagerNode" parent="." unique_id=1136664477 instance=ExtResource("2_wrm1d")]
 
-[node name="TestPlayer" parent="." instance=ExtResource("3_wrm1d")]
+[node name="TestPlayer" parent="." unique_id=1746547732 instance=ExtResource("3_wrm1d")]
 visible = false
 
 [connection signal="exportAllRooms" from="BuildDungeonScreen" to="DungeonManagerNode" method="_on_build_dungeon_screen_export_all_rooms"]

@@ -17,7 +17,7 @@ script = ExtResource("1_lr1r3")
 layout_mode = 0
 offset_left = 500.0
 offset_top = 31.0
-offset_right = 630.0
+offset_right = 637.0
 offset_bottom = 98.0
 text = "submit Dungeon"
 
