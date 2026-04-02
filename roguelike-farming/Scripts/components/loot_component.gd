@@ -24,22 +24,17 @@ func drop_item() -> void:
 			if item_drop[i] == null:
 				return
 			allItems.append(item_drop[i])
-
 			break
 	allItems.append( preload("res://Resources/Items/TileDropped.tres"))
 	placeDrops(allItems)
 
 func placeDrops(items: Array[Item]) -> void:
-	print("DROP " + str(items.size()))
 	for item in items:
 		var pitem = pickable_item_scene.instantiate()
 		pitem.itemData = item
 		pitem.global_position = global_position
-		var something = get_parent();
-		#if something.name == "Chest":
+		#This does look ugly ngl but i dont know how to do it prettier? Maybe if you give the specific node as parameter? 
 		get_parent().get_parent().call_deferred("add_child", pitem)
-		#else:
-			#get_parent().call_deferred("add_child",pitem)
 		pitem.position = get_parent().position+Vector2(randi_range(-15, 15), randi_range(-15,15))
 	pass
 
