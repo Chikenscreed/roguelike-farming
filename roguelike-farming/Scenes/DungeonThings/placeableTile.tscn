@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvndeu417cvii"]
+[gd_scene format=3 uid="uid://bvndeu417cvii"]
 
 [ext_resource type="PackedScene" uid="uid://bpu63gkkg4cjy" path="res://Scenes/DungeonThings/mapTile.tscn" id="1_gjp5b"]
 [ext_resource type="Script" uid="uid://vx2rkbotp6eb" path="res://Scenes/DungeonThings/placeableTile.gd" id="1_pw111"]
