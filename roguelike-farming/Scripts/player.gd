@@ -51,7 +51,7 @@ func _physics_process(_delta: float) -> void:
 	animate()
 	if can_move:
 		move_and_slide()
-	basic_attack.global_position = global_position + last_dir * 25
+	basic_attack.global_position = global_position + last_dir * 15
 	if Input.is_action_just_pressed("dash") and can_dash():
 		dash()
 	

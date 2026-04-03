@@ -1,14 +1,78 @@
 [gd_scene format=3 uid="uid://bdrnscehyw88x"]
 
 [ext_resource type="Script" uid="uid://b4pk53l7x2c77" path="res://Scripts/crops/carrot.gd" id="1_b43u4"]
-[ext_resource type="Texture2D" uid="uid://po0vtwy1ahim" path="res://Sprites/crops/Crops.png" id="2_b43u4"]
+[ext_resource type="Texture2D" uid="uid://3pyq84modju7" path="res://Sprites/crops/carrot/carrot.png" id="2_b43u4"]
+[ext_resource type="PackedScene" uid="uid://c8kr15caehnb2" path="res://Scenes/components/health.tscn" id="2_s5ies"]
+[ext_resource type="PackedScene" uid="uid://cuv25c8obkyjr" path="res://Scenes/components/hitbox.tscn" id="3_jhhxd"]
+[ext_resource type="Shader" uid="uid://4ah6ijggwki3" path="res://Shader/hit_flash.tres" id="4_3afwp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6qga"]
+resource_local_to_scene = true
+shader = ExtResource("4_3afwp")
+shader_parameter/BooleanParameter = false
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_qod8t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/BooleanParameter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_quwn3"]
+resource_name = "hit_flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/BooleanParameter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0051176953, 0.098832406),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8l0c"]
+_data = {
+&"RESET": SubResource("Animation_qod8t"),
+&"hit_flash": SubResource("Animation_quwn3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhhxd"]
+size = Vector2(10, 11)
 
 [node name="Carrot" type="Node2D" unique_id=1113139371]
 script = ExtResource("1_b43u4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1816169769]
-position = Vector2(0, 7)
+material = SubResource("ShaderMaterial_v6qga")
 texture = ExtResource("2_b43u4")
-hframes = 7
-vframes = 22
-frame = 16
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=321549912]
+libraries/ = SubResource("AnimationLibrary_n8l0c")
+
+[node name="HealthComponent" parent="." unique_id=582330318 instance=ExtResource("2_s5ies")]
+max_health = 1.0
+
+[node name="Hitbox" parent="." unique_id=247160289 node_paths=PackedStringArray("health_component") instance=ExtResource("3_jhhxd")]
+collision_layer = 32
+collision_mask = 0
+monitoring = false
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=32720394]
+shape = SubResource("RectangleShape2D_jhhxd")
+
+[connection signal="is_dead" from="HealthComponent" to="." method="_on_harvested"]

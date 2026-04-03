@@ -3016,7 +3016,7 @@ animation = &"dash_left"
 animation = &"dash_right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_83xs0"]
-animation = &"idle_right"
+animation = &"dash_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ukyrk"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_wpjfl")
@@ -3155,7 +3155,7 @@ states/idle/position = Vector2(207, 69)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_igrcy")
 states/walk/position = Vector2(385, 64)
 transitions = ["walk", "dash", SubResource("AnimationNodeStateMachineTransition_7dp3o"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_h4iuc"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_3vlem"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_8eeqe"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_5x828")]
-graph_offset = Vector2(-325, -151)
+graph_offset = Vector2(-167, -148)
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ukyrk"]
 
@@ -3273,7 +3273,7 @@ transitions = ["Start", "Hoe", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(-320.32227, -169)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_fd4e3"]
-graph_offset = Vector2(-1187, -77)
+graph_offset = Vector2(-1216.8, -2.4)
 nodes/output/position = Vector2(180, 60)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_h4iuc")
 nodes/MoveStateMachine/position = Vector2(-780, 20)
@@ -3367,7 +3367,7 @@ shape = SubResource("RectangleShape2D_ct3of")
 debug_color = Color(0.8800434, 0.2781528, 0.5030166, 0.41960785)
 
 [node name="Basic_attack" parent="." unique_id=1188563481 instance=ExtResource("6_gymyn")]
-position = Vector2(-27, 4.7683716e-07)
+position = Vector2(-18, 0)
 attack_damage = 2.0
 
 [node name="Animation" type="Node" parent="." unique_id=2055396785]
