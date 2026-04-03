@@ -9,7 +9,7 @@ signal harvested(grid_coord: Vector2i)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Hitbox/CollisionShape2D.disabled = true
+	$Hitbox/CollisionShape2D.disabled = !harvestable
 	grid_coord = Vector2i(int(global_position.x / GeneralData.TILE_SIZE), int(global_position.y / GeneralData.TILE_SIZE))
 	update_data()
 
@@ -18,11 +18,11 @@ func setup(_harvestable: bool, _growth: int, _grid_coord: Vector2i) -> void:
 	growth = _growth
 	grid_coord = _grid_coord
 	$Sprite2D.frame = growth
+	update_data()
 
 func grow(growthSteps: int) -> void:
 	
 	if growthSteps <= 0:
-		update_data()
 		return
 	
 	if harvestable:
@@ -39,6 +39,8 @@ func grow(growthSteps: int) -> void:
 	
 	
 	grow(growthSteps-1)
+	
+	update_data()
 
 func _on_harvested() -> void:
 	harvested.emit(grid_coord)
@@ -51,4 +53,5 @@ func update_data() -> void:
 	dict["harvestable"] = harvestable
 	dict["growth"] = growth
 	dict["grid_coord"] = grid_coord
+	print(dict)
 	GlobalPlayerInventory.playerData.farming_base_data.add_crop(grid_coord, dict)

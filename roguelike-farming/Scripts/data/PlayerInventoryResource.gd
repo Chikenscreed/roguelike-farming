@@ -19,7 +19,7 @@ signal tileInventoryChanged()
 	preload("res://Resources/Items/carrot.tres"): 5
 }
 
-var farming_base_data: FarmingBaseData = FarmingBaseData.new()
+@export var farming_base_data: FarmingBaseData = FarmingBaseData.new()
 
 @export var possibleDungeonStyles: Array[TileStyle] = [preload("res://Resources/DungeonThings/TileStyles/baseStyle.tres")]
 

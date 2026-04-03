@@ -27,6 +27,7 @@ func load_data() -> void:
 		var crop_path = GeneralData.CROPS_DATA[farming_base_data.planeted_crop_tiles[grid_coord]["crop_type"]]
 		var crop_scene: PackedScene = load(crop_path)
 		var crop = crop_scene.instantiate()
+		
 		setup_plant_data(crop, farming_base_data.planeted_crop_tiles[grid_coord])
 		add_plant(crop, grid_coord)
 		

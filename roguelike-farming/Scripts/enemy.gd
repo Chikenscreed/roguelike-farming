@@ -61,7 +61,6 @@ func attack() -> void:
 func animate() -> void:
 	if direction:
 		var animation_direction = Vector2(round(direction.x),round(direction.y))
-		print(animation_direction)
 		animation_tree.set("parameters/MoveStateMachine/move/blend_position", animation_direction)
 		animation_tree.set("parameters/Attack/blend_position", animation_direction)
 
