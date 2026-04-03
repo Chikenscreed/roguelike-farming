@@ -4,7 +4,7 @@ extends Node
 var counterForID: int 
 var allDataPoints: Array[DataPoint] = []
 
-@export var path: String = "res://SAVES/PLAYERDATA/"
+@export var path: String = "user://SAVES/PLAYERDATA/"
 @export var dataFileName = "playerData"
 @export var fileEnding = ".xlsx" 
 

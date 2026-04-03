@@ -42,6 +42,8 @@ func grow(growthSteps: int) -> void:
 
 func _on_harvested() -> void:
 	harvested.emit(grid_coord)
+	$"Loot Drops".drop_item()
+	queue_free()
 
 func update_data() -> void:
 	var dict = GeneralData.CROP_TEMPLATE.duplicate()

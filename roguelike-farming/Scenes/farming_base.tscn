@@ -502,7 +502,6 @@ sources/4 = SubResource("TileSetAtlasSource_rnyqk")
 
 [node name="Farming Base" type="Node2D" unique_id=1805469429]
 script = ExtResource("1_5f142")
-tile_size = null
 carrot_scene = ExtResource("2_5f142")
 dungeon_scene_path = "uid://etjai5vm2tnp"
 skilltree_scene = ExtResource("4_1kfoo")
@@ -528,15 +527,6 @@ itemData = ExtResource("10_woop4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1424009291]
 
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=1341877276]
-offset_left = 265.0
-offset_top = 26.0
-offset_right = 364.0
-offset_bottom = 57.0
-shortcut_feedback = false
-shortcut_in_tooltip = false
-text = "Grow Crops"
-
 [node name="Dungeon Button" type="Button" parent="CanvasLayer" unique_id=355847435]
 offset_left = 445.0
 offset_top = 25.0
@@ -545,20 +535,21 @@ offset_bottom = 56.0
 text = "Enter the Dungeon"
 
 [node name="Skilltree Button" type="Button" parent="CanvasLayer" unique_id=990983756]
-offset_left = 51.0
+offset_left = 220.0
 offset_top = 25.0
-offset_right = 205.0
+offset_right = 374.0
 offset_bottom = 56.0
 text = "Show Skilltree"
 
 [node name="Button2" type="Button" parent="CanvasLayer" unique_id=18147279]
-offset_right = 89.0
-offset_bottom = 31.0
+offset_left = 51.0
+offset_top = 24.0
+offset_right = 140.0
+offset_bottom = 55.0
 text = "saveGame"
 
 [connection signal="action" from="Player" to="." method="_on_player_action"]
 [connection signal="tool_used" from="Player" to="." method="_on_player_tool_used"]
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Dungeon Button" to="." method="_on_dungeon_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Skilltree Button" to="." method="_on_skilltree_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]

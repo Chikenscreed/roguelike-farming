@@ -12,6 +12,8 @@ var farming_base_data: FarmingBaseData = GlobalPlayerInventory.playerData.farmin
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_data()
+	_grow_crops(HoldTraversedRooms.traversedRooms)
+	HoldTraversedRooms.traversedRooms = 0
 
 
 # Called every frame. '_delta' is the elapsed time since the previous frame.
@@ -57,10 +59,10 @@ func crop_harvested(grid_coord: Vector2i) -> void:
 	planeted_crop_tiles.erase(grid_coord)
 	farming_base_data.planeted_crop_tiles.erase(grid_coord)
 
-func _on_button_pressed() -> void:
+func _grow_crops(traveres_rooms: int) -> void:
 	var crops = $Crops.get_children().filter(is_crop)
 	for crop in crops:
-		crop.grow(1)
+		crop.grow(traveres_rooms)
 
 func is_crop(node: Node) -> bool:
 	return node.is_in_group("crops")

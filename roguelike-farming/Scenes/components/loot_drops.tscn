@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://digghbs860g2w"]
+[gd_scene format=3 uid="uid://digghbs860g2w"]
 
 [ext_resource type="Script" uid="uid://eehuwjvejxy" path="res://Scripts/components/loot_component.gd" id="1_6gdj7"]
 
-[node name="Loot Drops" type="Node2D"]
+[node name="Loot Drops" type="Node2D" unique_id=1025607042]
 script = ExtResource("1_6gdj7")

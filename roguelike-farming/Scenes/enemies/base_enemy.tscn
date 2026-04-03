@@ -552,68 +552,64 @@ nodes/Attack/node = SubResource("AnimationNodeBlendSpace2D_itpb0")
 nodes/Attack/position = Vector2(-500, 280)
 node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"MoveStateMachine", &"AttackOneShot", 1, &"Attack"]
 
-[node name="Base Enemy" type="CharacterBody2D"]
+[node name="Base Enemy" type="CharacterBody2D" unique_id=1090386492]
 collision_layer = 2
 collision_mask = 66
 script = ExtResource("1_w234y")
 speed = 40
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1779298773]
 position = Vector2(0, -4.625)
 shape = SubResource("RectangleShape2D_po0sg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=119044681]
 material = SubResource("ShaderMaterial_56vhr")
 texture = ExtResource("3_wc24a")
 hframes = 8
 vframes = 13
 
-[node name="HitFlashPlayer" type="AnimationPlayer" parent="Sprite2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_ta2yt")
-}
+[node name="HitFlashPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=359486589]
+libraries/ = SubResource("AnimationLibrary_ta2yt")
 
-[node name="Hurtbox" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_7bhi1")]
+[node name="Hurtbox" parent="." unique_id=1170112935 node_paths=PackedStringArray("health_component") instance=ExtResource("4_7bhi1")]
 collision_layer = 32
 collision_mask = 4
 health_component = NodePath("../HealthComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1439107917]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_ghaa6")
 
-[node name="Loot Drops" parent="." instance=ExtResource("5_1rxio")]
+[node name="Loot Drops" parent="." unique_id=1312829372 instance=ExtResource("5_1rxio")]
 item_drop = Array[ExtResource("6_l8wq2")]([ExtResource("7_iifun")])
 item_drop_chances = Array[float]([8.0, 4.0])
 
-[node name="HealthBar" parent="." instance=ExtResource("9_my67s")]
+[node name="HealthBar" parent="." unique_id=1646199565 instance=ExtResource("9_my67s")]
 offset_top = -25.0
 offset_bottom = -25.0
 
-[node name="HealthComponent" parent="." instance=ExtResource("10_v7kr5")]
+[node name="HealthComponent" parent="." unique_id=1553331389 instance=ExtResource("10_v7kr5")]
 
-[node name="Attack Component" parent="." instance=ExtResource("11_xv0vl")]
+[node name="Attack Component" parent="." unique_id=1033496411 instance=ExtResource("11_xv0vl")]
 collision_layer = 16
 collision_mask = 8
 attack_damage = 2.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Component"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Component" unique_id=958272230]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_ghaa6")
 
-[node name="Enemy Attack" parent="." instance=ExtResource("12_romjf")]
+[node name="Enemy Attack" parent="." unique_id=55733020 instance=ExtResource("12_romjf")]
 position = Vector2(-19, -3)
 attack_damage = 2.0
 
-[node name="Animation" type="Node" parent="."]
+[node name="Animation" type="Node" parent="." unique_id=1000908064]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation" unique_id=1351186165]
 root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_vt4ob")
-}
+libraries/ = SubResource("AnimationLibrary_vt4ob")
 
-[node name="AnimationTree" type="AnimationTree" parent="Animation"]
+[node name="AnimationTree" type="AnimationTree" parent="Animation" unique_id=1607035152]
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeBlendTree_l0duk")
 anim_player = NodePath("../AnimationPlayer")

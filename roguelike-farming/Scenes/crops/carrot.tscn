@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://c8kr15caehnb2" path="res://Scenes/components/health.tscn" id="2_s5ies"]
 [ext_resource type="PackedScene" uid="uid://cuv25c8obkyjr" path="res://Scenes/components/hitbox.tscn" id="3_jhhxd"]
 [ext_resource type="Shader" uid="uid://4ah6ijggwki3" path="res://Shader/hit_flash.tres" id="4_3afwp"]
+[ext_resource type="PackedScene" uid="uid://digghbs860g2w" path="res://Scenes/components/loot_drops.tscn" id="6_3afwp"]
+[ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/items/ItemResource.gd" id="7_qod8t"]
+[ext_resource type="Resource" uid="uid://cfpbandhtu5qn" path="res://Resources/Items/carrot.tres" id="8_quwn3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v6qga"]
 resource_local_to_scene = true
@@ -74,5 +77,9 @@ health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=32720394]
 shape = SubResource("RectangleShape2D_jhhxd")
+
+[node name="Loot Drops" parent="." unique_id=1354107711 instance=ExtResource("6_3afwp")]
+item_drop = Array[ExtResource("7_qod8t")]([ExtResource("8_quwn3")])
+item_drop_chances = Array[float]([1.0])
 
 [connection signal="is_dead" from="HealthComponent" to="." method="_on_harvested"]
