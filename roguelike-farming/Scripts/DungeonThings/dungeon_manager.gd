@@ -18,10 +18,10 @@ var allDungeonScenes: Dictionary[Vector2i, Node] = {}
 var posOfPlayer: Vector2i
 var playerTransformation: Transform2D
 
-const playerPosNorth: Vector2 = Vector2(144, 48)
-const playerPosSouth: Vector2 = Vector2(144, 240)
-const playerPosWest: Vector2 = Vector2(48, 144)
-const playerPosEast: Vector2 = Vector2(240, 144)
+const playerPosNorth: Vector2 = Vector2(240, 48)
+const playerPosSouth: Vector2 = Vector2(240, 452)
+const playerPosWest: Vector2 = Vector2(48, 240)
+const playerPosEast: Vector2 = Vector2(452, 240)
 
 
 var traversedRooms: Array[Vector2i] = []
