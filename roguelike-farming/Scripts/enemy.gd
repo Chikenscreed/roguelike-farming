@@ -33,6 +33,8 @@ func _physics_process(_delta: float) -> void:
 
 func _on_health_component_is_dead() -> void:
 	loot_drop.drop_item()
+	loot_drop.drop_tile()
+	queue_free()
 
 func _on_health_component_health_changed(current: float, max: float) -> void:
 	if health_bar:
@@ -59,7 +61,6 @@ func attack() -> void:
 func animate() -> void:
 	if direction:
 		var animation_direction = Vector2(round(direction.x),round(direction.y))
-		print(animation_direction)
 		animation_tree.set("parameters/MoveStateMachine/move/blend_position", animation_direction)
 		animation_tree.set("parameters/Attack/blend_position", animation_direction)
 

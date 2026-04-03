@@ -4,12 +4,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uctmj"]
 
-[node name="pickableItem" type="Area2D"]
+[node name="pickableItem" type="Area2D" unique_id=1274406664]
 script = ExtResource("1_uctmj")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1831284317]
 shape = SubResource("RectangleShape2D_uctmj")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2007515090]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

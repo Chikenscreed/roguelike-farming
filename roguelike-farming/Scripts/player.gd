@@ -10,6 +10,7 @@ extends CharacterBody2D
 
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var basic_attack: BasicAttack = $Basic_attack
+@onready var attack_cooldown: Timer = $AttackCooldown
 
 @onready var dash_cooldown_timer: Timer = $dash_cooldown_timer
 @onready var dash_timer: Timer = $dash_timer
@@ -51,15 +52,16 @@ func _physics_process(_delta: float) -> void:
 	animate()
 	if can_move:
 		move_and_slide()
-	basic_attack.global_position = global_position + last_dir * 25
+	basic_attack.global_position = global_position + last_dir * 15
 	if Input.is_action_just_pressed("dash") and can_dash():
 		dash()
 	
 func _input(event):
-	if event.is_action_pressed("attack"):
+	if event.is_action_pressed("attack") and attack_cooldown.is_stopped():
 		basic_attack.attack(global_position)
 		tool_state_machine.travel("Sword")
 		$Animation/AnimationTree.set("parameters/ToolOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		attack_cooldown.start()
 	if Input.is_action_just_pressed("action"):
 		action.emit(global_position)
 	if Input.is_action_just_pressed("use_tool"):
@@ -71,13 +73,14 @@ func tool_used_emit() -> void:
 		tool_used.emit(current_tool, global_position + last_dir * 16)
 
 func _is_dead() -> void:
-	queue_free()
+	$Animation/AnimationTree.set("parameters/DeadOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	
 func can_dash() -> bool:
 	return not is_dashing and dash_cooldown_timer.is_stopped()
 	
 
 func _ready() -> void:
+	attack_cooldown.stop()
 	dash_timer.wait_time = dash_duration
 	dash_cooldown_timer.wait_time = dash_cooldown
 	health_component.max_health = health
@@ -170,4 +173,9 @@ func _on_animation_tree_animation_started(anim_name: StringName) -> void:
 	can_move = false
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if anim_name.begins_with("dead"):
+		$Animation/AnimationTree.active = false
+		await get_tree().create_timer(1).timeout
+		get_tree().change_scene_to_file("res://Scenes/death_screen.tscn")
+	
 	can_move = true

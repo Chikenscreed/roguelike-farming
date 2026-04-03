@@ -24,4 +24,3 @@ func take_damage(attack: Attack) -> void:
 		is_dead.emit()
 		if (get_parent() is Player):
 			GlobalPlayerDataCollector.playerDied()
-		get_parent().queue_free()

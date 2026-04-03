@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5gdau565xvu4"
-path="res://.godot/imported/carrot1.png-f9dfa93ea8803beb443bcfd5932e3348.ctex"
+uid="uid://6hj2y51o4ikl"
+path="res://.godot/imported/laughing_cat.png-6b07344cf53c661a2a1cbe708c9ca252.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/crops/carrot/carrot1.png"
-dest_files=["res://.godot/imported/carrot1.png-f9dfa93ea8803beb443bcfd5932e3348.ctex"]
+source_file="res://Sprites/laughing_cat.png"
+dest_files=["res://.godot/imported/laughing_cat.png-6b07344cf53c661a2a1cbe708c9ca252.ctex"]
 
 [params]
 
