@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/items/ItemResource.gd" id="1_6a6dm"]
 [ext_resource type="Script" uid="uid://cpq0pgay74y47" path="res://Scripts/SkillTreeScripts/SkillPoint.gd" id="2_as76c"]
-[ext_resource type="Resource" uid="uid://cfpbandhtu5qn" path="res://Resources/Items/carrot.tres" id="2_wffs6"]
 [ext_resource type="Script" uid="uid://c5qidpl7d2ipy" path="res://Scripts/SkillTreeScripts/SkillBase.gd" id="4_exxy5"]
 [ext_resource type="Resource" uid="uid://bmdlsfsnhm0i" path="res://Resources/DungeonThings/TileStyles/differentStyle.tres" id="4_onv6s"]
 [ext_resource type="Script" uid="uid://bs8mdp0gl2qda" path="res://Scripts/SkillTreeScripts/SkillFuncs/NewDungeonStyle.gd" id="5_o8n5x"]
@@ -24,7 +23,4 @@ metadata/_custom_type_script = "uid://c5qidpl7d2ipy"
 script = ExtResource("2_as76c")
 skill_id = 2
 skillBase = SubResource("Resource_3x4ar")
-price = Dictionary[ExtResource("1_6a6dm"), int]({
-ExtResource("2_wffs6"): 4
-})
 metadata/_custom_type_script = "uid://cpq0pgay74y47"

@@ -4,6 +4,8 @@ extends Node2D
 
 
 var skillDict: Dictionary[int, SkillTreePointButton]
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +36,7 @@ func activateActivatedSkills() -> void:
 	pass
 
 func generateSkillDictionary() -> void:
-	for child in get_children():
+	for child in canvas_layer.get_children():
 		if child is SkillTreePointButton:
 			skillDict[child.skill.skill_id] = child
 

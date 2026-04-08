@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="SkillPoint" format=3 uid="uid://bqqp60hj7r3aw"]
 
 [ext_resource type="Script" uid="uid://duii50egtu4d1" path="res://Scripts/items/ItemResource.gd" id="1_3uys2"]
-[ext_resource type="Resource" uid="uid://cfpbandhtu5qn" path="res://Resources/Items/carrot.tres" id="2_6fn2d"]
 [ext_resource type="Script" uid="uid://cpq0pgay74y47" path="res://Scripts/SkillTreeScripts/SkillPoint.gd" id="2_8qf34"]
 [ext_resource type="Script" uid="uid://c5qidpl7d2ipy" path="res://Scripts/SkillTreeScripts/SkillBase.gd" id="4_6fn2d"]
 [ext_resource type="Script" uid="uid://ckka07ekhiqng" path="res://Scripts/SkillTreeScripts/SkillFuncs/ExtraCropYield.gd" id="4_k0v4h"]
@@ -22,7 +21,4 @@ metadata/_custom_type_script = "uid://c5qidpl7d2ipy"
 script = ExtResource("2_8qf34")
 skill_id = 3
 skillBase = SubResource("Resource_qn00q")
-price = Dictionary[ExtResource("1_3uys2"), int]({
-ExtResource("2_6fn2d"): 6
-})
 metadata/_custom_type_script = "uid://cpq0pgay74y47"
